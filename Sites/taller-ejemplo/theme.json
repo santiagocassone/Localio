@@ -1,0 +1,22 @@
+{
+  "preset": "auto",
+  "primaryColor": "#C0392B",
+  "secondaryColor": "#F5F5F5",
+  "accentColor": "#E67E22",
+  "textColor": "#1A1A1A",
+  "textMutedColor": "#6B6B6B",
+  "surfaceColor": "#FFFFFF",
+  "surfaceAltColor": "#F5F5F5",
+  "darkColor": "#1A1A2E",
+  "headingFont": "'Oswald', sans-serif",
+  "bodyFont": "'Roboto', sans-serif",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap",
+  "borderRadius": "6px",
+  "borderRadiusSm": "4px",
+  "borderRadiusLg": "8px",
+  "shadowIntensity": "strong",
+  "buttonStyle": "sharp",
+  "cardStyle": "elevated",
+  "heroStyle": "gradient",
+  "tone": "bold"
+}

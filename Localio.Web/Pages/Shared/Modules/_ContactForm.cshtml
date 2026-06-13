@@ -1,0 +1,173 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model ContactFormModuleConfig
+@{
+    var site  = ViewData["Site"] as SiteConfig ?? new SiteConfig();
+    var waUrl = WhatsAppHelper.BuildUrl(site.WhatsApp.Number, site.WhatsApp.DefaultMessage);
+    bool showName    = Model.Fields.Contains("name");
+    bool showPhone   = Model.Fields.Contains("phone");
+    bool showEmail   = Model.Fields.Contains("email");
+    bool showMessage = Model.Fields.Contains("message");
+    bool showService = Model.Fields.Contains("service");
+}
+
+<section id="contacto"
+         class="section @Model.CssClass"
+         aria-labelledby="contact-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Contacto</span>
+            <h2 id="contact-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="contact-inner">
+
+            <!-- Form -->
+            <div data-animate>
+                <form class="contact-form"
+                      method="post"
+                      action="#"
+                      novalidate
+                      aria-label="Formulario de contacto">
+
+                    @if (showName)
+                    {
+                        <div class="form-group">
+                            <label class="form-label" for="cf-name">Nombre *</label>
+                            <input id="cf-name"
+                                   name="name"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="Tu nombre completo"
+                                   required
+                                   autocomplete="name" />
+                        </div>
+                    }
+
+                    @if (showPhone)
+                    {
+                        <div class="form-group">
+                            <label class="form-label" for="cf-phone">Teléfono *</label>
+                            <input id="cf-phone"
+                                   name="phone"
+                                   type="tel"
+                                   class="form-control"
+                                   placeholder="Tu número de teléfono"
+                                   required
+                                   autocomplete="tel"
+                                   inputmode="tel" />
+                        </div>
+                    }
+
+                    @if (showEmail)
+                    {
+                        <div class="form-group">
+                            <label class="form-label" for="cf-email">Email</label>
+                            <input id="cf-email"
+                                   name="email"
+                                   type="email"
+                                   class="form-control"
+                                   placeholder="tu@email.com"
+                                   autocomplete="email"
+                                   inputmode="email" />
+                        </div>
+                    }
+
+                    @if (showService)
+                    {
+                        <div class="form-group">
+                            <label class="form-label" for="cf-service">Servicio de interés</label>
+                            <input id="cf-service"
+                                   name="service"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="¿En qué podemos ayudarte?" />
+                        </div>
+                    }
+
+                    @if (showMessage)
+                    {
+                        <div class="form-group">
+                            <label class="form-label" for="cf-message">Mensaje</label>
+                            <textarea id="cf-message"
+                                      name="message"
+                                      class="form-control"
+                                      placeholder="Contanos en qué podemos ayudarte..."
+                                      rows="4"></textarea>
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn--primary btn--block">
+                        @Model.SubmitText
+                    </button>
+
+                </form>
+
+                @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+                {
+                    <p style="display:none;" class="mt-2" id="cf-success">
+                        ✅ @Model.SuccessMessage
+                    </p>
+                }
+            </div>
+
+            <!-- Side info -->
+            <div class="contact-info-side" data-animate data-animate-delay="2">
+
+                <div>
+                    <p style="font-size:1.0625rem;font-weight:600;margin-bottom:.75rem;">
+                        ¿Preferís escribirnos directo?
+                    </p>
+                    <a href="@waUrl"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn--whatsapp btn--block"
+                       data-wa-track="contact">
+                        💬 Escribinos por WhatsApp
+                    </a>
+                </div>
+
+                @if (!string.IsNullOrEmpty(site.Contact.Phone))
+                {
+                    <div class="location-info-item">
+                        <div class="location-info-icon">📞</div>
+                        <div>
+                            <div class="location-info-label">Teléfono</div>
+                            <a href="tel:@site.Contact.Phone" class="location-info-value">@site.Contact.Phone</a>
+                        </div>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(site.Contact.Email))
+                {
+                    <div class="location-info-item">
+                        <div class="location-info-icon">✉️</div>
+                        <div>
+                            <div class="location-info-label">Email</div>
+                            <a href="mailto:@site.Contact.Email" class="location-info-value">@site.Contact.Email</a>
+                        </div>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(site.Contact.Address))
+                {
+                    <div class="location-info-item">
+                        <div class="location-info-icon">📍</div>
+                        <div>
+                            <div class="location-info-label">Dirección</div>
+                            <div class="location-info-value">@site.Contact.Address</div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,34 @@
+@using Localio.Web.Models.Modules
+@model BenefitsModuleConfig
+@{
+    int delay = 0;
+}
+
+<section id="beneficios"
+         class="section @Model.CssClass"
+         aria-labelledby="benefits-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Diferenciales</span>
+            <h2 id="benefits-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="grid-auto">
+            @foreach (var item in Model.Items)
+            {
+                delay++;
+                <div class="card benefit-card" data-animate data-animate-delay="@Math.Min(delay, 5)">
+                    <div class="benefit-icon" aria-hidden="true">@item.Icon</div>
+                    <h3 class="benefit-title">@item.Title</h3>
+                    <p class="benefit-desc">@item.Description</p>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>

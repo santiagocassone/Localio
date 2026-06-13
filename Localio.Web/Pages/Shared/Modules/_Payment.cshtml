@@ -1,0 +1,27 @@
+@using Localio.Web.Models.Modules
+@model PaymentModuleConfig
+
+<section id="pagos" class="section @Model.CssClass" aria-labelledby="payment-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Facilitamos tu pago</span>
+            <h2 id="payment-title" class="section-title">@Model.Title</h2>
+        </div>
+
+        <div class="payment-methods" data-animate>
+            @foreach (var method in Model.Methods)
+            {
+                <div class="payment-method">@method</div>
+            }
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.Note))
+        {
+            <p class="text-center text-muted mt-3" style="font-size:.9375rem;" data-animate>
+                ℹ️ @Model.Note
+            </p>
+        }
+
+    </div>
+</section>

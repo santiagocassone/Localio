@@ -1,0 +1,22 @@
+{
+  "preset": "beauty",
+  "primaryColor": "#8B4FA0",
+  "secondaryColor": "#FDF6F0",
+  "accentColor": "#C9956C",
+  "textColor": "#2C1810",
+  "textMutedColor": "#7A6060",
+  "surfaceColor": "#FFFFFF",
+  "surfaceAltColor": "#FDF6F0",
+  "darkColor": "#2C1810",
+  "headingFont": "'Playfair Display', serif",
+  "bodyFont": "'Raleway', sans-serif",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Raleway:wght@400;500;600;700&display=swap",
+  "borderRadius": "20px",
+  "borderRadiusSm": "12px",
+  "borderRadiusLg": "28px",
+  "shadowIntensity": "soft",
+  "buttonStyle": "pill",
+  "cardStyle": "elevated",
+  "heroStyle": "gradient",
+  "tone": "elegant"
+}

@@ -1,0 +1,81 @@
+@using Localio.Web.Models
+@using Localio.Web.Helpers
+@{
+    var site = ViewData["Site"] as SiteConfig ?? new SiteConfig();
+    var theme = ViewData["Theme"] as ThemeConfig ?? new ThemeConfig();
+    var title = SeoHelper.BuildPageTitle(site);
+    var description = SeoHelper.BuildDescription(site);
+    var jsonLd = SeoHelper.GenerateJsonLd(site);
+    var themeCss = SeoHelper.GenerateThemeCss(theme);
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@description" />
+    @if (!string.IsNullOrEmpty(site.Seo.Keywords))
+    {
+        <meta name="keywords" content="@site.Seo.Keywords" />
+    }
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@site.BusinessName" />
+    <meta property="og:title" content="@title" />
+    <meta property="og:description" content="@description" />
+    @if (!string.IsNullOrEmpty(site.Seo.OgImage))
+    {
+        <meta property="og:image" content="@site.Seo.OgImage" />
+    }
+    @if (!string.IsNullOrEmpty(site.Seo.CanonicalUrl))
+    {
+        <meta property="og:url" content="@site.Seo.CanonicalUrl" />
+    }
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@title" />
+    <meta name="twitter:description" content="@description" />
+    @if (!string.IsNullOrEmpty(site.Seo.OgImage))
+    {
+        <meta name="twitter:image" content="@site.Seo.OgImage" />
+    }
+
+    @if (!string.IsNullOrEmpty(site.Seo.CanonicalUrl))
+    {
+        <link rel="canonical" href="@site.Seo.CanonicalUrl" />
+    }
+
+    <title>@title</title>
+
+    <!-- Google Fonts — preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    @if (!string.IsNullOrEmpty(theme.FontsUrl))
+    {
+        <link href="@theme.FontsUrl" rel="stylesheet" />
+    }
+
+    <!-- Theme CSS variables (generated from theme.json) -->
+    <style>@Html.Raw(themeCss)</style>
+
+    <!-- Core stylesheet -->
+    <link rel="stylesheet" href="~/css/localio.css" asp-append-version="true" />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">@Html.Raw(jsonLd)</script>
+</head>
+<body
+    class="localio-site"
+    data-site-id="@site.SiteId"
+    data-tone="@theme.Tone"
+    data-btn-style="@theme.ButtonStyle"
+    data-card-style="@theme.CardStyle"
+    data-hero-style="@theme.HeroStyle">
+
+    @RenderBody()
+
+    <script src="~/js/localio.js" asp-append-version="true"></script>
+</body>
+</html>

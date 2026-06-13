@@ -1,0 +1,108 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model HeroModuleConfig
+@{
+    var site   = ViewData["Site"]  as SiteConfig  ?? new SiteConfig();
+    var theme  = ViewData["Theme"] as ThemeConfig ?? new ThemeConfig();
+    var waUrl  = WhatsAppHelper.BuildUrl(site.WhatsApp.Number, site.WhatsApp.DefaultMessage);
+    var variant = Model.Variant ?? theme.HeroStyle ?? "gradient";
+    // split = imagen a la derecha, centered = solo texto centrado
+    bool isSplit    = variant is "split-left" or "split-right" or "split";
+    bool isCentered = variant is "centered" or "gradient" or "solid";
+    bool hasImage   = !string.IsNullOrEmpty(Model.ImageUrl);
+    bool hasBg      = !string.IsNullOrEmpty(Model.BackgroundImageUrl);
+}
+
+<section id="inicio"
+         class="localio-hero hero--@(hasBg ? "image" : (isSplit && hasImage ? "split" : variant)) @Model.CssClass"
+         aria-label="Sección principal">
+
+    @if (hasBg)
+    {
+        <img src="@Model.BackgroundImageUrl"
+             alt=""
+             class="hero-bg"
+             loading="eager"
+             fetchpriority="high" />
+    }
+
+    <div class="container">
+        <div class="hero-inner">
+
+            @if (isSplit && hasImage)
+            {
+                <!-- Split: text + image side by side -->
+                <div class="hero-content" data-animate>
+                    @if (Model.ShowBadge && !string.IsNullOrEmpty(Model.BadgeText))
+                    {
+                        <span class="badge badge--primary hero-badge">✨ @Model.BadgeText</span>
+                    }
+                    <h1 class="hero-headline">@Model.Headline</h1>
+                    @if (!string.IsNullOrEmpty(Model.Subheadline))
+                    {
+                        <p class="hero-sub">@Model.Subheadline</p>
+                    }
+                    <div class="hero-ctas">
+                        @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+                        {
+                            <a href="@waUrl"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn--whatsapp btn--lg"
+                               data-wa-track="hero">
+                                💬 @(Model.CtaText ?? "Contactanos por WhatsApp")
+                            </a>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.CtaSecondaryText))
+                        {
+                            <a href="#servicios" class="btn btn--outline btn--lg">
+                                @Model.CtaSecondaryText
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="hero-image-col" data-animate data-animate-delay="2">
+                    <img src="@Model.ImageUrl"
+                         alt="@site.BusinessName"
+                         loading="eager"
+                         fetchpriority="high" />
+                </div>
+            }
+            else
+            {
+                <!-- Centered / gradient / image-bg layouts -->
+                <div class="hero-content @(isCentered ? "hero--centered" : "")" data-animate>
+                    @if (Model.ShowBadge && !string.IsNullOrEmpty(Model.BadgeText))
+                    {
+                        <span class="badge badge--white hero-badge">✨ @Model.BadgeText</span>
+                    }
+                    <h1 class="hero-headline">@Model.Headline</h1>
+                    @if (!string.IsNullOrEmpty(Model.Subheadline))
+                    {
+                        <p class="hero-sub">@Model.Subheadline</p>
+                    }
+                    <div class="hero-ctas">
+                        @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+                        {
+                            <a href="@waUrl"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn--whatsapp btn--xl"
+                               data-wa-track="hero">
+                                💬 @(Model.CtaText ?? "Consultanos por WhatsApp")
+                            </a>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.CtaSecondaryText))
+                        {
+                            <a href="#servicios" class="btn btn--outline-white btn--xl">
+                                @Model.CtaSecondaryText
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

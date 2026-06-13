@@ -1,0 +1,22 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+## ASP.NET
+Localio.Web/wwwroot/lib/
+
+## Publish
+publish/
+**/publish/
+
+## Secrets & environment
+appsettings.Development.json
+*.pfx
+*.key
+
+## OS
+.DS_Store
+Thumbs.db

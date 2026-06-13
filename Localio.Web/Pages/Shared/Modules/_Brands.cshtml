@@ -1,0 +1,45 @@
+@using Localio.Web.Models.Modules
+@model BrandsModuleConfig
+
+<section id="marcas" class="section section--alt @Model.CssClass" aria-labelledby="brands-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <h2 id="brands-title" class="section-title" style="font-size:1.375rem;">@Model.Title</h2>
+        </div>
+
+        <div class="brands-grid" data-animate>
+            @foreach (var brand in Model.Items)
+            {
+                if (!string.IsNullOrEmpty(brand.Website))
+                {
+                    <a href="@brand.Website" target="_blank" rel="noopener noreferrer"
+                       class="brand-item" title="@brand.Name">
+                        @if (!string.IsNullOrEmpty(brand.LogoUrl))
+                        {
+                            <img src="@brand.LogoUrl" alt="@brand.Name" class="brand-logo" loading="lazy" />
+                        }
+                        else
+                        {
+                            <span>@brand.Name</span>
+                        }
+                    </a>
+                }
+                else
+                {
+                    <div class="brand-item">
+                        @if (!string.IsNullOrEmpty(brand.LogoUrl))
+                        {
+                            <img src="@brand.LogoUrl" alt="@brand.Name" class="brand-logo" loading="lazy" />
+                        }
+                        else
+                        {
+                            <span>@brand.Name</span>
+                        }
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,73 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model AboutModuleConfig
+@{
+    var site    = ViewData["Site"]  as SiteConfig  ?? new SiteConfig();
+    bool imgRight = Model.Variant == "image-right";
+    bool hasImage = !string.IsNullOrEmpty(Model.ImageUrl);
+    var waUrl   = WhatsAppHelper.BuildUrl(site.WhatsApp.Number, site.WhatsApp.DefaultMessage);
+}
+
+<section id="nosotros"
+         class="section section--alt @Model.CssClass"
+         aria-labelledby="about-title">
+    <div class="container">
+
+        <div class="about-inner @(imgRight ? "image-right" : "")">
+
+            <!-- Image -->
+            <div class="about-image" data-animate>
+                @if (hasImage)
+                {
+                    <img src="@Model.ImageUrl"
+                         alt="@site.BusinessName"
+                         loading="lazy" />
+                }
+                else
+                {
+                    <div class="about-image-placeholder" aria-hidden="true">🏪</div>
+                }
+            </div>
+
+            <!-- Content -->
+            <div class="about-content" data-animate data-animate-delay="2">
+                <span class="section-label">Quiénes somos</span>
+                <h2 id="about-title" class="section-title">@Model.Title</h2>
+                <p class="about-body">@Model.Content</p>
+
+                @if (Model.Highlights.Count > 0)
+                {
+                    <ul class="about-highlights" aria-label="Puntos destacados">
+                        @foreach (var h in Model.Highlights)
+                        {
+                            <li class="about-highlight">@h</li>
+                        }
+                    </ul>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.YearsExperience))
+                {
+                    <div class="about-years">
+                        🏆 @Model.YearsExperience de experiencia
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+                {
+                    <div class="mt-4">
+                        <a href="@waUrl"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn--primary"
+                           data-wa-track="about">
+                            💬 Hablemos
+                        </a>
+                    </div>
+                }
+            </div>
+
+        </div>
+
+    </div>
+</section>

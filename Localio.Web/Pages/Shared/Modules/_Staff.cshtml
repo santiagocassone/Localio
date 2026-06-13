@@ -1,0 +1,59 @@
+@using Localio.Web.Models.Modules
+@model StaffModuleConfig
+@{ int delay = 0; }
+
+<section id="equipo" class="section section--alt @Model.CssClass" aria-labelledby="staff-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">El equipo</span>
+            <h2 id="staff-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="grid-auto">
+            @foreach (var m in Model.Members)
+            {
+                delay++;
+                var initials = string.Concat(m.Name.Split(' ')
+                    .Where(w => w.Length > 0).Take(2)
+                    .Select(w => w[0].ToString().ToUpper()));
+
+                <article class="card staff-card" data-animate data-animate-delay="@Math.Min(delay, 5)">
+                    <div class="staff-photo">
+                        @if (!string.IsNullOrEmpty(m.PhotoUrl))
+                        {
+                            <img src="@m.PhotoUrl" alt="@m.Name" loading="lazy"
+                                 style="width:100%;height:100%;object-fit:cover;" />
+                        }
+                        else
+                        {
+                            <span style="font-weight:800;color:var(--color-primary);font-size:2.5rem;">@initials</span>
+                        }
+                    </div>
+                    <div class="staff-card-body">
+                        <div class="staff-name">@m.Name</div>
+                        <div class="staff-role">@m.Role</div>
+                        @if (!string.IsNullOrEmpty(m.Bio))
+                        {
+                            <p class="staff-bio">@m.Bio</p>
+                        }
+                        @if (m.Specialties.Count > 0)
+                        {
+                            <div class="staff-specialties">
+                                @foreach (var s in m.Specialties)
+                                {
+                                    <span class="staff-spec-tag">@s</span>
+                                }
+                            </div>
+                        }
+                    </div>
+                </article>
+            }
+        </div>
+
+    </div>
+</section>

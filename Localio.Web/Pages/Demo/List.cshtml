@@ -1,0 +1,40 @@
+@page "/demos"
+@model Localio.Web.Pages.Demo.ListModel
+@{
+    Layout = null;
+    var sites = Model.AvailableSites.ToList();
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localio — Demos disponibles</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 24px; color: #1a2332; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        p { color: #5a6a7a; margin-bottom: 2rem; }
+        ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+        li a { display: block; padding: 1rem 1.5rem; background: #f0f7fc; border-radius: 10px; font-weight: 600; color: #1e6b99; text-decoration: none; transition: background .2s; }
+        li a:hover { background: #1e6b99; color: #fff; }
+        .none { color: #999; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>🌐 Localio</h1>
+    <p>Demos disponibles:</p>
+    @if (sites.Count > 0)
+    {
+        <ul>
+            @foreach (var site in sites)
+            {
+                <li><a href="/demo/@site">@site</a></li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p class="none">No hay sitios configurados. Crea una carpeta dentro de <code>/Sites</code> con <code>site.json</code> y <code>theme.json</code>.</p>
+    }
+</body>
+</html>

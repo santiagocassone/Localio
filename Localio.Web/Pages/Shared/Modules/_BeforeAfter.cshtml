@@ -1,0 +1,41 @@
+@using Localio.Web.Models.Modules
+@model BeforeAfterModuleConfig
+@{ int delay = 0; }
+
+<section id="antes-despues" class="section section--alt @Model.CssClass" aria-labelledby="ba-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Resultados</span>
+            <h2 id="ba-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="ba-grid">
+            @foreach (var pair in Model.Items)
+            {
+                delay++;
+                <div class="ba-card card" data-animate data-animate-delay="@Math.Min(delay, 4)">
+                    <div class="ba-images">
+                        <div class="ba-image-wrap">
+                            <img src="@pair.BeforeUrl" alt="Antes" loading="lazy" />
+                            <span class="ba-label">Antes</span>
+                        </div>
+                        <div class="ba-image-wrap">
+                            <img src="@pair.AfterUrl" alt="Después" loading="lazy" />
+                            <span class="ba-label">Después</span>
+                        </div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(pair.Caption))
+                    {
+                        <p class="ba-caption">@pair.Caption</p>
+                    }
+                </div>
+            }
+        </div>
+
+    </div>
+</section>

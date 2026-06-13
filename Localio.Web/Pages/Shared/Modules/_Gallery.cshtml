@@ -1,0 +1,39 @@
+@using Localio.Web.Models.Modules
+@model GalleryModuleConfig
+@{
+    int delay = 0;
+}
+
+<section id="galeria"
+         class="section section--alt @Model.CssClass"
+         aria-labelledby="gallery-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Galería</span>
+            <h2 id="gallery-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="gallery-grid" data-animate>
+            @foreach (var img in Model.Images)
+            {
+                delay++;
+                <div class="gallery-item">
+                    <img src="@img.Url"
+                         alt="@(img.Alt ?? Model.Title)"
+                         loading="lazy"
+                         decoding="async" />
+                    @if (!string.IsNullOrEmpty(img.Caption))
+                    {
+                        <div class="gallery-caption">@img.Caption</div>
+                    }
+                </div>
+            }
+        </div>
+
+    </div>
+</section>

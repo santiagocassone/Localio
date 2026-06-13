@@ -1,0 +1,120 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@model LocationModuleConfig
+@{
+    var site    = ViewData["Site"] as SiteConfig ?? new SiteConfig();
+    var address = Model.Address ?? site.Contact.Address;
+    var zone    = Model.Zone    ?? site.Contact.Zone;
+    var mapsUrl = Model.GoogleMapsUrl ?? site.Contact.GoogleMapsUrl;
+    var embedUrl = Model.EmbedMapUrl  ?? site.Contact.EmbedMapUrl;
+}
+
+<section id="ubicacion"
+         class="section @Model.CssClass"
+         aria-labelledby="location-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Ubicación</span>
+            <h2 id="location-title" class="section-title">@Model.Title</h2>
+        </div>
+
+        <div class="location-inner">
+
+            <!-- Map -->
+            <div class="location-map" data-animate>
+                @if (!string.IsNullOrEmpty(embedUrl))
+                {
+                    <iframe src="@embedUrl"
+                            title="Ubicación de @site.BusinessName"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                }
+                else
+                {
+                    <div class="location-map-placeholder">
+                        <span class="map-pin" aria-hidden="true">📍</span>
+                        <p style="font-weight:600;text-align:center;">@address</p>
+                        @if (!string.IsNullOrEmpty(mapsUrl))
+                        {
+                            <a href="@mapsUrl"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn--primary btn--sm">
+                                Ver en Google Maps
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+
+            <!-- Info panel -->
+            <div class="location-info" data-animate data-animate-delay="2">
+
+                @if (!string.IsNullOrEmpty(address))
+                {
+                    <div class="location-info-item">
+                        <div class="location-info-icon" aria-hidden="true">📍</div>
+                        <div>
+                            <div class="location-info-label">Dirección</div>
+                            <div class="location-info-value">@address</div>
+                            @if (!string.IsNullOrEmpty(zone))
+                            {
+                                <div class="location-info-value" style="font-weight:400;color:var(--color-text-muted);font-size:.875rem;">@zone</div>
+                            }
+                        </div>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(site.Contact.Phone))
+                {
+                    <div class="location-info-item">
+                        <div class="location-info-icon" aria-hidden="true">📞</div>
+                        <div>
+                            <div class="location-info-label">Teléfono</div>
+                            <a href="tel:@site.Contact.Phone"
+                               class="location-info-value">@site.Contact.Phone</a>
+                        </div>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(site.Contact.Email))
+                {
+                    <div class="location-info-item">
+                        <div class="location-info-icon" aria-hidden="true">✉️</div>
+                        <div>
+                            <div class="location-info-label">Email</div>
+                            <a href="mailto:@site.Contact.Email"
+                               class="location-info-value">@site.Contact.Email</a>
+                        </div>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.TransportNote))
+                {
+                    <div class="location-info-item">
+                        <div class="location-info-icon" aria-hidden="true">🚌</div>
+                        <div>
+                            <div class="location-info-label">Cómo llegar</div>
+                            <div class="location-info-value" style="font-weight:400;">@Model.TransportNote</div>
+                        </div>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(mapsUrl))
+                {
+                    <a href="@mapsUrl"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn--outline mt-2">
+                        🗺️ Abrir en Google Maps
+                    </a>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,22 @@
+{
+  "preset": "health",
+  "primaryColor": "#1E6B99",
+  "secondaryColor": "#F0F7FC",
+  "accentColor": "#F26419",
+  "textColor": "#1A2332",
+  "textMutedColor": "#5A6A7A",
+  "surfaceColor": "#FFFFFF",
+  "surfaceAltColor": "#F0F7FC",
+  "darkColor": "#0D2840",
+  "headingFont": "'Nunito', sans-serif",
+  "bodyFont": "'Open Sans', sans-serif",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap",
+  "borderRadius": "12px",
+  "borderRadiusSm": "8px",
+  "borderRadiusLg": "20px",
+  "shadowIntensity": "soft",
+  "buttonStyle": "rounded",
+  "cardStyle": "elevated",
+  "heroStyle": "gradient",
+  "tone": "warm"
+}

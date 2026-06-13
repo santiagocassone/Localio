@@ -1,0 +1,20 @@
+@page "/demo/{SiteId}"
+@model Localio.Web.Pages.Demo.IndexModel
+@using Localio.Web.Models.Modules
+@{
+    Layout = "~/Pages/Shared/_SiteLayout.cshtml";
+    ViewData["Site"] = Model.Site;
+    ViewData["Theme"] = Model.Theme;
+}
+
+@foreach (var module in Model.Site.ActiveModules)
+{
+    var partialName = Localio.Web.Pages.Demo.IndexModel.GetPartialName(module);
+    if (partialName != null)
+    {
+        await Html.RenderPartialAsync(
+            $"~/Pages/Shared/Modules/_{partialName}.cshtml",
+            module,
+            new ViewDataDictionary(ViewData));
+    }
+}

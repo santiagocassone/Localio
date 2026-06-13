@@ -1,0 +1,143 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model FooterModuleConfig
+@{
+    var site      = ViewData["Site"]  as SiteConfig  ?? new SiteConfig();
+    var theme     = ViewData["Theme"] as ThemeConfig ?? new ThemeConfig();
+    var waUrl     = WhatsAppHelper.BuildUrl(site.WhatsApp.Number, site.WhatsApp.DefaultMessage);
+    var copyright = Model.Copyright ?? $"© {DateTime.Now.Year} {site.BusinessName}. Todos los derechos reservados.";
+    var hasSocial = Model.ShowSocial && (
+        !string.IsNullOrEmpty(site.Social.Instagram) ||
+        !string.IsNullOrEmpty(site.Social.Facebook)  ||
+        !string.IsNullOrEmpty(site.Social.Twitter)   ||
+        !string.IsNullOrEmpty(site.Social.YouTube)   ||
+        !string.IsNullOrEmpty(site.Social.TikTok));
+}
+
+<footer class="localio-footer @Model.CssClass" role="contentinfo">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- Brand column -->
+            <div>
+                <div class="footer-brand-name">@site.BusinessName</div>
+                @if (!string.IsNullOrEmpty(site.ShortDescription))
+                {
+                    <p class="footer-brand-desc">@site.ShortDescription</p>
+                }
+                @if (hasSocial)
+                {
+                    <div class="footer-social" aria-label="Redes sociales">
+                        @if (!string.IsNullOrEmpty(site.Social.Instagram))
+                        {
+                            <a href="@site.Social.Instagram" target="_blank" rel="noopener noreferrer"
+                               class="footer-social-link" aria-label="Instagram">📸</a>
+                        }
+                        @if (!string.IsNullOrEmpty(site.Social.Facebook))
+                        {
+                            <a href="@site.Social.Facebook" target="_blank" rel="noopener noreferrer"
+                               class="footer-social-link" aria-label="Facebook">👥</a>
+                        }
+                        @if (!string.IsNullOrEmpty(site.Social.Twitter))
+                        {
+                            <a href="@site.Social.Twitter" target="_blank" rel="noopener noreferrer"
+                               class="footer-social-link" aria-label="Twitter / X">🐦</a>
+                        }
+                        @if (!string.IsNullOrEmpty(site.Social.YouTube))
+                        {
+                            <a href="@site.Social.YouTube" target="_blank" rel="noopener noreferrer"
+                               class="footer-social-link" aria-label="YouTube">▶️</a>
+                        }
+                        @if (!string.IsNullOrEmpty(site.Social.TikTok))
+                        {
+                            <a href="@site.Social.TikTok" target="_blank" rel="noopener noreferrer"
+                               class="footer-social-link" aria-label="TikTok">🎵</a>
+                        }
+                    </div>
+                }
+            </div>
+
+            <!-- Quick links -->
+            @if (Model.Links.Count > 0)
+            {
+                <nav aria-label="Links del footer">
+                    <h3 class="footer-col-title">Navegación</h3>
+                    <ul class="footer-links">
+                        @foreach (var link in Model.Links)
+                        {
+                            <li><a href="@link.Href">@link.Label</a></li>
+                        }
+                    </ul>
+                </nav>
+            }
+
+            <!-- Contact -->
+            @if (Model.ShowContact)
+            {
+                <div>
+                    <h3 class="footer-col-title">Contacto</h3>
+                    @if (!string.IsNullOrEmpty(site.Contact.Phone))
+                    {
+                        <div class="footer-contact-item">
+                            <span>📞</span>
+                            <a href="tel:@site.Contact.Phone">@site.Contact.Phone</a>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+                    {
+                        <div class="footer-contact-item">
+                            <span>💬</span>
+                            <a href="@waUrl" target="_blank" rel="noopener noreferrer"
+                               data-wa-track="footer">WhatsApp</a>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(site.Contact.Email))
+                    {
+                        <div class="footer-contact-item">
+                            <span>✉️</span>
+                            <a href="mailto:@site.Contact.Email">@site.Contact.Email</a>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(site.Contact.Address))
+                    {
+                        <div class="footer-contact-item">
+                            <span>📍</span>
+                            <span>@site.Contact.Address, @site.Contact.City</span>
+                        </div>
+                    }
+                </div>
+            }
+
+            <!-- WhatsApp CTA column -->
+            @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+            {
+                <div>
+                    <h3 class="footer-col-title">¿Necesitás ayuda?</h3>
+                    <p style="font-size:.875rem;opacity:.7;margin-bottom:1rem;line-height:1.5;">
+                        Respondemos rápido por WhatsApp.
+                    </p>
+                    <a href="@waUrl"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn--whatsapp btn--sm"
+                       data-wa-track="footer-cta">
+                        💬 Escribinos
+                    </a>
+                </div>
+            }
+
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <span>@copyright</span>
+            @if (!string.IsNullOrEmpty(Model.PoweredBy))
+            {
+                <span class="footer-powered">Sitio por <a href="#">@Model.PoweredBy</a></span>
+            }
+        </div>
+
+    </div>
+</footer>

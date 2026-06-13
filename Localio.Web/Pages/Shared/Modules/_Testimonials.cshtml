@@ -1,0 +1,80 @@
+@using Localio.Web.Models.Modules
+@model TestimonialsModuleConfig
+@{
+    int delay = 0;
+}
+
+<section id="testimonios"
+         class="section section--alt @Model.CssClass"
+         aria-labelledby="testimonials-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Reseñas</span>
+            <h2 id="testimonials-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="grid-3">
+            @foreach (var t in Model.Items)
+            {
+                delay++;
+                var initials = string.Concat(t.Name.Split(' ')
+                    .Where(w => w.Length > 0)
+                    .Take(2)
+                    .Select(w => w[0].ToString().ToUpper()));
+
+                <article class="card testimonial-card"
+                         data-animate
+                         data-animate-delay="@Math.Min(delay, 5)">
+
+                    <!-- Stars -->
+                    <div class="testimonial-stars" aria-label="@t.Stars estrellas de 5">
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <span aria-hidden="true">@(i < t.Stars ? "★" : "☆")</span>
+                        }
+                    </div>
+
+                    <!-- Quote -->
+                    <blockquote class="testimonial-quote">
+                        "@t.Content"
+                    </blockquote>
+
+                    <!-- Author -->
+                    <footer class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            @if (!string.IsNullOrEmpty(t.AvatarUrl))
+                            {
+                                <img src="@t.AvatarUrl"
+                                     alt="@t.Name"
+                                     loading="lazy"
+                                     style="width:100%;height:100%;object-fit:cover;" />
+                            }
+                            else
+                            {
+                                @initials
+                            }
+                        </div>
+                        <div>
+                            <div class="testimonial-name">@t.Name</div>
+                            @if (!string.IsNullOrEmpty(t.Role))
+                            {
+                                <div class="testimonial-role">@t.Role</div>
+                            }
+                            @if (!string.IsNullOrEmpty(t.Source))
+                            {
+                                <div class="testimonial-source">📍 @t.Source</div>
+                            }
+                        </div>
+                    </footer>
+
+                </article>
+            }
+        </div>
+
+    </div>
+</section>

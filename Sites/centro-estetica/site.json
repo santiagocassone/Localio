@@ -1,0 +1,301 @@
+{
+  "businessName": "Lumière Beauty Studio",
+  "category": "beauty",
+  "slogan": "Donde tu belleza se transforma",
+  "shortDescription": "Centro de estética premium en Recoleta. Tratamientos faciales, corporales, depilación, manicura y servicios de belleza con productos de primera línea.",
+  "longDescription": "En Lumière creemos que la belleza es bienestar. Nuestro equipo de especialistas combina las técnicas más avanzadas con productos de lujo para darte resultados visibles desde la primera sesión.",
+  "contact": {
+    "phone": "011 4816-7200",
+    "whatsApp": "1148167200",
+    "email": "hola@lumierebeauty.com.ar",
+    "address": "Callao 1540",
+    "zone": "Recoleta, CABA",
+    "city": "Buenos Aires",
+    "googleMapsUrl": "https://maps.google.com/?q=Callao+1540+Recoleta+Buenos+Aires"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/lumierebeautystudio",
+    "facebook": "https://www.facebook.com/lumierebeautystudio",
+    "tiktok": "https://www.tiktok.com/@lumierebeauty"
+  },
+  "seo": {
+    "title": "Lumière Beauty Studio | Centro de Estética en Recoleta",
+    "description": "Centro de estética premium en Recoleta, Buenos Aires. Tratamientos faciales, corporales, depilación definitiva y manicura. Turno online.",
+    "keywords": "centro estetica recoleta, beauty studio buenos aires, tratamientos faciales, depilacion definitiva, manicura gel recoleta",
+    "schemaType": "BeautySalon",
+    "priceRange": "$$$",
+    "latitude": -34.5882,
+    "longitude": -58.3925
+  },
+  "whatsApp": {
+    "number": "1148167200",
+    "defaultMessage": "Hola Lumière, vi su sitio web y quería reservar un turno.",
+    "showFloat": true
+  },
+  "modules": [
+    {
+      "type": "navbar",
+      "order": 1,
+      "enabled": true,
+      "sticky": true,
+      "showPhone": false,
+      "showWhatsApp": true,
+      "items": [
+        { "label": "Servicios",   "href": "#servicios"      },
+        { "label": "Equipo",      "href": "#equipo"         },
+        { "label": "Testimonios", "href": "#testimonios"    },
+        { "label": "Antes/Después","href": "#antes-despues" },
+        { "label": "Turnos",      "href": "#contacto"       }
+      ]
+    },
+    {
+      "type": "hero",
+      "order": 2,
+      "enabled": true,
+      "variant": "gradient",
+      "headline": "Donde tu belleza se transforma",
+      "subheadline": "Tratamientos premium con productos de primera línea. Resultados visibles desde la primera sesión.",
+      "ctaText": "Reservar turno",
+      "ctaSecondaryText": "Ver tratamientos",
+      "showBadge": true,
+      "badgeText": "Studio premium en Recoleta"
+    },
+    {
+      "type": "featured-services",
+      "order": 3,
+      "enabled": true,
+      "title": "Tratamientos Destacados",
+      "subtitle": "Nuestros servicios más solicitados, con resultados que hablan solos.",
+      "items": [
+        {
+          "name": "Depilación Definitiva con Láser",
+          "description": "Tecnología de diodo de última generación. Efectiva en todo tipo de piel y vello. Protocolo personalizado desde la primera consulta gratuita.",
+          "icon": "✨",
+          "featured": true
+        },
+        {
+          "name": "Facial Anti-age Premium",
+          "description": "Protocolo exclusivo con ácido hialurónico, vitamina C y colágeno marino. Resultados lifting desde la primera sesión.",
+          "icon": "💆‍♀️",
+          "featured": true
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "order": 4,
+      "enabled": true,
+      "title": "Todos los Servicios",
+      "subtitle": "Cuidamos cada detalle para que salgas sintiéndote extraordinaria.",
+      "items": [
+        {
+          "name": "Manicura & Pedicura",
+          "description": "Esmaltado común, semipermanente y gel. Nail art y diseños a medida.",
+          "icon": "💅"
+        },
+        {
+          "name": "Tratamientos Corporales",
+          "description": "Masajes relajantes, drenaje linfático, reducción de medidas y tratamiento de celulitis.",
+          "icon": "🌸"
+        },
+        {
+          "name": "Lifting de Pestañas",
+          "description": "Efecto curvado y voluminoso que dura hasta 8 semanas. Sin mantenimiento diario.",
+          "icon": "👁️"
+        },
+        {
+          "name": "Diseño de Cejas",
+          "description": "Henna, laminado y diseño personalizado según la morfología de tu rostro.",
+          "icon": "🎨"
+        },
+        {
+          "name": "Limpieza Facial Profunda",
+          "description": "Exfoliación, extracción y nutrición. Piel luminosa e hidratada garantizada.",
+          "icon": "🧴"
+        },
+        {
+          "name": "Masaje Relajante",
+          "description": "Técnicas suecas y orientales para aliviar tensiones y reconectar con tu bienestar.",
+          "icon": "🕯️"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "order": 5,
+      "enabled": true,
+      "title": "Nuestras Especialistas",
+      "subtitle": "Un equipo apasionado por la belleza y el bienestar de cada clienta.",
+      "members": [
+        {
+          "name": "Valentina Rivas",
+          "role": "Directora & Esteticista",
+          "bio": "Más de 12 años de experiencia. Especialista en tratamientos anti-age y técnicas de última generación.",
+          "specialties": ["Anti-age", "Láser", "Faciales"]
+        },
+        {
+          "name": "Sofía Méndez",
+          "role": "Especialista en Uñas",
+          "bio": "Certificada en técnicas avanzadas de nail art. Maestría en aplicación de gel y acrílico.",
+          "specialties": ["Nail Art", "Gel", "Encapsulado"]
+        },
+        {
+          "name": "Laura Castillo",
+          "role": "Terapeuta Corporal",
+          "bio": "Masajista terapéutica con formación en técnicas orientales y drenaje linfático manual.",
+          "specialties": ["Masajes", "Drenaje", "Reducción"]
+        }
+      ]
+    },
+    {
+      "type": "testimonials",
+      "order": 6,
+      "enabled": true,
+      "title": "Resultados que enamoran",
+      "subtitle": "Más de 500 clientas satisfechas nos respaldan.",
+      "items": [
+        {
+          "name": "Camila Torres",
+          "role": "Clienta desde 2021",
+          "content": "El facial anti-age es maravilloso. A los 45 años tengo la piel que siempre soñé. Valentina es una artista, sabe exactamente qué necesita tu piel.",
+          "stars": 5,
+          "source": "Google Maps"
+        },
+        {
+          "name": "Florencia Ibáñez",
+          "role": "Clienta habitual",
+          "content": "Vine por la depilación láser y me quedé por todo. El ambiente es hermoso, las chicas son divinas y los resultados son increíbles.",
+          "stars": 5,
+          "source": "Instagram"
+        },
+        {
+          "name": "Ana Belén Gómez",
+          "role": "Clienta frecuente",
+          "content": "La manicura de Sofía es una obra de arte. Siempre me hace exactamente lo que imagino. No cambio Lumière por nada.",
+          "stars": 5,
+          "source": "Google Maps"
+        }
+      ]
+    },
+    {
+      "type": "before-after",
+      "order": 7,
+      "enabled": true,
+      "title": "Antes y Después",
+      "subtitle": "Los resultados hablan por sí solos.",
+      "items": [
+        {
+          "beforeUrl": "https://picsum.photos/seed/before1/400/533",
+          "afterUrl":  "https://picsum.photos/seed/after1/400/533",
+          "caption": "Tratamiento facial anti-age — 4 sesiones"
+        },
+        {
+          "beforeUrl": "https://picsum.photos/seed/before2/400/533",
+          "afterUrl":  "https://picsum.photos/seed/after2/400/533",
+          "caption": "Lifting de pestañas — resultado inmediato"
+        },
+        {
+          "beforeUrl": "https://picsum.photos/seed/before3/400/533",
+          "afterUrl":  "https://picsum.photos/seed/after3/400/533",
+          "caption": "Diseño y laminado de cejas"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "order": 8,
+      "enabled": true,
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "question": "¿Cómo saco turno?",
+          "answer": "Por WhatsApp o completando el formulario de contacto. Respondemos en minutos y confirmamos fecha y hora."
+        },
+        {
+          "question": "¿Necesito preparación previa para el láser?",
+          "answer": "Sí, la zona debe estar afeitada 24hs antes. No ir con autobronceante ni con piel irritada. Te enviamos el protocolo completo al reservar."
+        },
+        {
+          "question": "¿Cuántas sesiones de láser se necesitan?",
+          "answer": "Entre 6 y 8 sesiones dependiendo de la zona y el tipo de vello. La consulta inicial es gratuita y te hacemos un plan personalizado."
+        },
+        {
+          "question": "¿Los productos que usan son aptos para pieles sensibles?",
+          "answer": "Usamos marcas profesionales de primera línea, hipoalergénicas y dermatológicamente testeadas. Avisanos si tenés alguna alergia conocida."
+        },
+        {
+          "question": "¿Tienen estacionamiento cerca?",
+          "answer": "Sí, hay estacionamiento a media cuadra. El subte H (Callao) queda a una cuadra."
+        },
+        {
+          "question": "¿Ofrecen paquetes o abonos?",
+          "answer": "Sí, tenemos paquetes de sesiones con descuento especial. Consultanos por WhatsApp para conocer las opciones disponibles."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "order": 9,
+      "enabled": true,
+      "title": "Horarios de Atención",
+      "showWhatsApp": true,
+      "items": [
+        { "days": "Lunes a Viernes", "hours": "10:00 — 20:00", "closed": false },
+        { "days": "Sábados",         "hours": "10:00 — 16:00", "closed": false },
+        { "days": "Domingos",        "hours": "Cerrado",        "closed": true  }
+      ],
+      "note": "Podés reservar turno online las 24hs."
+    },
+    {
+      "type": "location",
+      "order": 10,
+      "enabled": true,
+      "title": "Encontranos en Recoleta",
+      "address": "Callao 1540, Recoleta",
+      "zone": "CABA, Argentina",
+      "googleMapsUrl": "https://maps.google.com/?q=Callao+1540+Recoleta+Buenos+Aires",
+      "transportNote": "Subte H, estación Callao. A una cuadra de Av. Santa Fe."
+    },
+    {
+      "type": "contact-form",
+      "order": 11,
+      "enabled": true,
+      "title": "Reservá tu turno",
+      "subtitle": "Completá el formulario o escribinos por WhatsApp. Respondemos en minutos.",
+      "fields": ["name", "phone", "service", "message"],
+      "submitText": "Solicitar turno",
+      "successMessage": "¡Gracias! Te contactamos en breve para confirmar tu turno."
+    },
+    {
+      "type": "cta",
+      "order": 12,
+      "enabled": true,
+      "headline": "Tu mejor versión te espera",
+      "subheadline": "Reservá tu turno hoy y comenzá tu transformación. Primera consulta sin cargo.",
+      "buttonText": "Quiero mi turno ahora"
+    },
+    {
+      "type": "whatsapp-button",
+      "order": 13,
+      "enabled": true,
+      "showPulse": true,
+      "showTooltip": true,
+      "tooltipText": "Reservar turno",
+      "position": "bottom-right"
+    },
+    {
+      "type": "footer",
+      "order": 14,
+      "enabled": true,
+      "showSocial": true,
+      "showContact": true,
+      "poweredBy": "Localio",
+      "links": [
+        { "label": "Servicios",   "href": "#servicios"   },
+        { "label": "Equipo",      "href": "#equipo"      },
+        { "label": "Testimonios", "href": "#testimonios" },
+        { "label": "Turnos",      "href": "#contacto"    }
+      ]
+    }
+  ]
+}

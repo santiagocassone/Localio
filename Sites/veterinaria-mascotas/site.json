@@ -1,0 +1,263 @@
+{
+  "businessName": "Veterinaria San Jorge",
+  "category": "veterinary",
+  "slogan": "Cuidamos a tu mascota con amor y profesionalismo",
+  "shortDescription": "Veterinaria en Palermo con más de 15 años de experiencia. Consultas, vacunas, cirugías, internación y peluquería canina.",
+  "longDescription": "En Veterinaria San Jorge nos dedicamos al cuidado integral de mascotas. Nuestro equipo de 8 profesionales trabaja con la tecnología más moderna para garantizar el bienestar de tu mejor amigo.",
+  "contact": {
+    "phone": "011 4567-8900",
+    "whatsApp": "1145678900",
+    "email": "info@veterinariasanjorge.com.ar",
+    "address": "Av. Santa Fe 3421",
+    "zone": "Palermo, CABA",
+    "city": "Buenos Aires",
+    "googleMapsUrl": "https://maps.google.com/?q=Av+Santa+Fe+3421+Palermo+Buenos+Aires"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/veterinariasanjorge",
+    "facebook": "https://www.facebook.com/veterinariasanjorge"
+  },
+  "seo": {
+    "title": "Veterinaria San Jorge | Palermo, Buenos Aires",
+    "description": "Veterinaria en Palermo, CABA. Consultas, vacunas, cirugías y peluquería canina. Más de 15 años cuidando mascotas con amor.",
+    "keywords": "veterinaria palermo, veterinario buenos aires, vacunas mascotas, cirugía veterinaria, peluquería canina",
+    "schemaType": "VeterinaryCare",
+    "priceRange": "$$",
+    "latitude": -34.5849,
+    "longitude": -58.4316
+  },
+  "whatsApp": {
+    "number": "1145678900",
+    "defaultMessage": "Hola Veterinaria San Jorge, vi su sitio web y quería consultar.",
+    "showFloat": true
+  },
+  "modules": [
+    {
+      "type": "navbar",
+      "order": 1,
+      "enabled": true,
+      "sticky": true,
+      "showPhone": true,
+      "showWhatsApp": true,
+      "items": [
+        { "label": "Servicios",   "href": "#servicios"   },
+        { "label": "Nosotros",    "href": "#nosotros"    },
+        { "label": "Testimonios", "href": "#testimonios" },
+        { "label": "Horarios",    "href": "#horarios"    },
+        { "label": "Ubicación",   "href": "#ubicacion"   }
+      ]
+    },
+    {
+      "type": "hero",
+      "order": 2,
+      "enabled": true,
+      "variant": "gradient",
+      "headline": "Tu mascota merece la mejor atención",
+      "subheadline": "Más de 15 años cuidando mascotas en Palermo con amor, experiencia y tecnología de vanguardia.",
+      "ctaText": "Pedí tu turno por WhatsApp",
+      "ctaSecondaryText": "Ver servicios",
+      "showBadge": true,
+      "badgeText": "+15 años de experiencia"
+    },
+    {
+      "type": "services",
+      "order": 3,
+      "enabled": true,
+      "title": "Nuestros Servicios",
+      "subtitle": "Atención integral para que tu mascota siempre esté sana y feliz.",
+      "items": [
+        {
+          "name": "Consulta General",
+          "description": "Diagnóstico completo, revisación clínica y plan de salud personalizado para tu mascota.",
+          "icon": "🩺",
+          "featured": true
+        },
+        {
+          "name": "Vacunación",
+          "description": "Plan de vacunas completo para perros y gatos. Carnets actualizados y recordatorios automáticos.",
+          "icon": "💉"
+        },
+        {
+          "name": "Cirugía",
+          "description": "Cirugías de tejidos blandos, ortopédicas y esterilizaciones con anestesiólogo propio.",
+          "icon": "🔬",
+          "featured": true
+        },
+        {
+          "name": "Peluquería Canina",
+          "description": "Baño, corte, cepillado y arreglo de uñas. Tu perro saldrá impecable.",
+          "icon": "✂️"
+        },
+        {
+          "name": "Guardería",
+          "description": "Cuidado profesional mientras viajás. Con cámaras en vivo para que estés tranquilo.",
+          "icon": "🏠"
+        },
+        {
+          "name": "Odontología Veterinaria",
+          "description": "Limpieza dental, extracciones y tratamientos para la salud bucal de tu mascota.",
+          "icon": "🦷"
+        }
+      ]
+    },
+    {
+      "type": "about",
+      "order": 4,
+      "enabled": true,
+      "title": "15 años cuidando mascotas en Palermo",
+      "content": "Fundada en 2009, Veterinaria San Jorge nació con una misión clara: brindar atención veterinaria de primer nivel con calidez humana. Nuestro equipo de 8 profesionales trabaja con las últimas tecnologías diagnósticas para garantizar el mejor tratamiento para cada paciente.",
+      "highlights": [
+        "Equipo de 8 veterinarios especializados",
+        "Laboratorio propio en el local",
+        "Internación con monitoreo 24hs",
+        "Atención de urgencias hasta las 22hs"
+      ],
+      "yearsExperience": "15 años"
+    },
+    {
+      "type": "benefits",
+      "order": 5,
+      "enabled": true,
+      "title": "¿Por qué elegirnos?",
+      "subtitle": "Nos diferenciamos por la calidad de atención y el amor que ponemos en cada consulta.",
+      "items": [
+        {
+          "icon": "🏆",
+          "title": "15 años de experiencia",
+          "description": "Más de una década atendiendo mascotas en Palermo con resultados excelentes."
+        },
+        {
+          "icon": "🔬",
+          "title": "Tecnología de punta",
+          "description": "Ecografía, radiografía digital y laboratorio propio para diagnósticos rápidos y precisos."
+        },
+        {
+          "icon": "💚",
+          "title": "Trato personalizado",
+          "description": "Cada mascota es única. Adaptamos el tratamiento a sus necesidades y personalidad."
+        },
+        {
+          "icon": "🚨",
+          "title": "Urgencias",
+          "description": "Atendemos emergencias hasta las 22hs. Porque la salud de tu mascota no puede esperar."
+        }
+      ]
+    },
+    {
+      "type": "testimonials",
+      "order": 6,
+      "enabled": true,
+      "title": "Lo que dicen nuestros clientes",
+      "subtitle": "Más de 2.000 familias confían en nosotros para el cuidado de sus mascotas.",
+      "items": [
+        {
+          "name": "María González",
+          "role": "Dueña de Labrador",
+          "content": "Increíble atención. El Dr. Romero diagnosticó a mi perro cuando otros veterinarios no podían. ¡Siempre vuelvo a San Jorge!",
+          "stars": 5,
+          "source": "Google Maps"
+        },
+        {
+          "name": "Carlos Pérez",
+          "role": "Dueño de gato siamés",
+          "content": "Mi gato necesitó cirugía de urgencia y los atendieron de inmediato. Profesionalismo total y mucho amor por los animales.",
+          "stars": 5,
+          "source": "Google Maps"
+        },
+        {
+          "name": "Lucía Fernández",
+          "role": "Dueña de Beagle",
+          "content": "La peluquería canina es excelente. Mi Beagle sale siempre perfecto y feliz. Los precios son muy razonables.",
+          "stars": 5,
+          "source": "Instagram"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "order": 7,
+      "enabled": true,
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "question": "¿Necesito turno previo para la consulta?",
+          "answer": "Para consultas generales recomendamos turno previo para evitar esperas. Podés sacar turno por WhatsApp en minutos. Las urgencias se atienden sin turno."
+        },
+        {
+          "question": "¿Qué métodos de pago aceptan?",
+          "answer": "Aceptamos efectivo, débito, crédito (hasta 6 cuotas sin interés), transferencia bancaria y MercadoPago."
+        },
+        {
+          "question": "¿Hacen guardería de fin de semana?",
+          "answer": "Sí, tenemos guardería de lunes a domingo. Podés ver a tu mascota en tiempo real a través de las cámaras de nuestras instalaciones."
+        },
+        {
+          "question": "¿Desde qué edad se vacuna a los cachorros?",
+          "answer": "El plan de vacunación comienza a las 6-8 semanas de vida. Te entregamos un carnet con el calendario completo."
+        },
+        {
+          "question": "¿Atienden urgencias fuera de horario?",
+          "answer": "Contamos con servicio de urgencias hasta las 22hs de lunes a sábado."
+        },
+        {
+          "question": "¿Cuánto cuesta la consulta general?",
+          "answer": "Consultanos por WhatsApp para conocer los precios actualizados y nuestras promociones vigentes."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "order": 8,
+      "enabled": true,
+      "title": "Horarios de Atención",
+      "showWhatsApp": true,
+      "items": [
+        { "days": "Lunes a Viernes", "hours": "9:00 — 20:00", "closed": false },
+        { "days": "Sábados",         "hours": "9:00 — 14:00", "closed": false },
+        { "days": "Domingos",        "hours": "Urgencias",    "closed": false }
+      ],
+      "note": "Urgencias hasta las 22hs de lunes a sábado."
+    },
+    {
+      "type": "location",
+      "order": 9,
+      "enabled": true,
+      "title": "¿Cómo llegarnos?",
+      "address": "Av. Santa Fe 3421, Palermo",
+      "zone": "CABA, Argentina",
+      "googleMapsUrl": "https://maps.google.com/?q=Av+Santa+Fe+3421+Palermo+Buenos+Aires",
+      "transportNote": "A media cuadra del subte D, estación Palermo."
+    },
+    {
+      "type": "cta",
+      "order": 10,
+      "enabled": true,
+      "headline": "¿Tu mascota necesita atención?",
+      "subheadline": "Pedí tu turno hoy y atendemos el mismo día. Respondemos por WhatsApp en minutos.",
+      "buttonText": "Pedir turno ahora"
+    },
+    {
+      "type": "whatsapp-button",
+      "order": 11,
+      "enabled": true,
+      "showPulse": true,
+      "showTooltip": true,
+      "tooltipText": "¡Pedí tu turno!",
+      "position": "bottom-right"
+    },
+    {
+      "type": "footer",
+      "order": 12,
+      "enabled": true,
+      "showSocial": true,
+      "showContact": true,
+      "poweredBy": "Localio",
+      "links": [
+        { "label": "Servicios",   "href": "#servicios"   },
+        { "label": "Nosotros",    "href": "#nosotros"    },
+        { "label": "Testimonios", "href": "#testimonios" },
+        { "label": "Horarios",    "href": "#horarios"    }
+      ]
+    }
+  ]
+}

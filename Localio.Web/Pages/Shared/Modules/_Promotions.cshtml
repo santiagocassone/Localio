@@ -1,0 +1,70 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model PromotionsModuleConfig
+@{
+    var site  = ViewData["Site"] as SiteConfig ?? new SiteConfig();
+    int delay = 0;
+}
+
+<section id="promociones" class="section section--alt @Model.CssClass" aria-labelledby="promos-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Ofertas</span>
+            <h2 id="promos-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="grid-3">
+            @foreach (var promo in Model.Items)
+            {
+                delay++;
+                var waText = WhatsAppHelper.BuildUrl(site.WhatsApp.Number,
+                    $"Hola, vi la promoción '{promo.Title}' en su sitio y quería consultarla.");
+
+                <article class="card promo-card" data-animate data-animate-delay="@Math.Min(delay, 5)">
+                    @if (!string.IsNullOrEmpty(promo.Discount))
+                    {
+                        <div class="promo-badge">@promo.Discount</div>
+                    }
+                    <div class="promo-img">
+                        @if (!string.IsNullOrEmpty(promo.ImageUrl))
+                        {
+                            <img src="@promo.ImageUrl" alt="@promo.Title" loading="lazy"
+                                 style="width:100%;height:100%;object-fit:cover;" />
+                        }
+                        else
+                        {
+                            <span aria-hidden="true">🎁</span>
+                        }
+                    </div>
+                    <div class="promo-body">
+                        <h3 class="promo-title">@promo.Title</h3>
+                        @if (!string.IsNullOrEmpty(promo.Description))
+                        {
+                            <p class="promo-desc">@promo.Description</p>
+                        }
+                        @if (!string.IsNullOrEmpty(promo.ValidUntil))
+                        {
+                            <p class="promo-valid">⏰ Válido hasta: @promo.ValidUntil</p>
+                        }
+                        @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+                        {
+                            <div class="mt-3">
+                                <a href="@waText" target="_blank" rel="noopener noreferrer"
+                                   class="btn btn--accent btn--sm" data-wa-track="promo-@promo.Title">
+                                    @(promo.CtaText ?? "Quiero esta promo")
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </article>
+            }
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,74 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model ServicesModuleConfig
+@{
+    var site   = ViewData["Site"]  as SiteConfig  ?? new SiteConfig();
+    var theme  = ViewData["Theme"] as ThemeConfig ?? new ThemeConfig();
+    bool isAlt = Model.Variant == "alt";
+    int delay  = 0;
+}
+
+<section id="servicios"
+         class="section @(isAlt ? "" : "section--alt") @Model.CssClass"
+         aria-labelledby="services-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Servicios</span>
+            <h2 id="services-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="grid-3">
+            @foreach (var service in Model.Items)
+            {
+                delay++;
+                var waText = WhatsAppHelper.BuildUrl(
+                    site.WhatsApp.Number,
+                    WhatsAppHelper.BuildServiceMessage(site.BusinessName, service.Name));
+
+                <article class="card service-card" data-animate data-animate-delay="@Math.Min(delay, 5)">
+                    @if (!string.IsNullOrEmpty(service.ImageUrl))
+                    {
+                        <img src="@service.ImageUrl"
+                             alt="@service.Name"
+                             class="service-card-img"
+                             loading="lazy" />
+                    }
+                    <div class="service-card-body">
+                        @if (!string.IsNullOrEmpty(service.Icon))
+                        {
+                            <div class="service-card-icon" aria-hidden="true">@service.Icon</div>
+                        }
+                        <h3 class="service-card-name">@service.Name</h3>
+                        @if (!string.IsNullOrEmpty(service.Description))
+                        {
+                            <p class="service-card-desc">@service.Description</p>
+                        }
+                        @if (!string.IsNullOrEmpty(service.Price))
+                        {
+                            <span class="service-card-price">@service.Price</span>
+                        }
+                        @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+                        {
+                            <div class="mt-3">
+                                <a href="@waText"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="btn btn--primary btn--sm"
+                                   data-wa-track="service-@service.Name">
+                                    Consultar
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </article>
+            }
+        </div>
+
+    </div>
+</section>

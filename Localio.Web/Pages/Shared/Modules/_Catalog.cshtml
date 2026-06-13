@@ -1,0 +1,89 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model CatalogModuleConfig
+@{
+    var site = ViewData["Site"] as SiteConfig ?? new SiteConfig();
+    var first = Model.Categories.FirstOrDefault()?.Name ?? "";
+}
+
+<section id="catalogo" class="section localio-catalog @Model.CssClass" aria-labelledby="catalog-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Catálogo</span>
+            <h2 id="catalog-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        @if (Model.Categories.Count > 1)
+        {
+            <div class="catalog-tabs" role="tablist" data-animate>
+                @foreach (var cat in Model.Categories)
+                {
+                    <button class="catalog-tab @(cat.Name == first ? "active" : "")"
+                            role="tab"
+                            data-target="@cat.Name"
+                            aria-selected="@(cat.Name == first ? "true" : "false")">
+                        @cat.Name
+                    </button>
+                }
+            </div>
+        }
+
+        @foreach (var cat in Model.Categories)
+        {
+            <div class="catalog-category @(cat.Name == first ? "active" : "")"
+                 data-cat="@cat.Name"
+                 role="tabpanel">
+                <div class="catalog-grid">
+                    @foreach (var item in cat.Items)
+                    {
+                        var waText = WhatsAppHelper.BuildUrl(site.WhatsApp.Number,
+                            WhatsAppHelper.BuildServiceMessage(site.BusinessName, item.Name));
+
+                        <article class="card catalog-item">
+                            @if (!string.IsNullOrEmpty(item.ImageUrl))
+                            {
+                                <img src="@item.ImageUrl" alt="@item.Name"
+                                     class="catalog-item-img" loading="lazy" />
+                            }
+                            else
+                            {
+                                <div class="catalog-item-img"
+                                     style="background:var(--color-surface-alt);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">
+                                    🛍️
+                                </div>
+                            }
+                            <div class="catalog-item-body">
+                                <div class="catalog-item-name">@item.Name</div>
+                                @if (!string.IsNullOrEmpty(item.Description))
+                                {
+                                    <div class="catalog-item-desc">@item.Description</div>
+                                }
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.5rem;gap:.5rem;">
+                                    @if (!string.IsNullOrEmpty(item.Price))
+                                    {
+                                        <span class="catalog-item-price">@item.Price</span>
+                                    }
+                                    @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+                                    {
+                                        <a href="@waText" target="_blank" rel="noopener noreferrer"
+                                           class="btn btn--primary btn--sm" style="flex-shrink:0;"
+                                           data-wa-track="catalog-@item.Name">
+                                            Consultar
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </article>
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+</section>

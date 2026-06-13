@@ -1,0 +1,60 @@
+@using Localio.Web.Models.Modules
+@model FaqModuleConfig
+@{
+    // Split items in two columns on desktop
+    int half  = (int)Math.Ceiling(Model.Items.Count / 2.0);
+    var left  = Model.Items.Take(half).ToList();
+    var right = Model.Items.Skip(half).ToList();
+}
+
+<section id="preguntas"
+         class="section @Model.CssClass"
+         aria-labelledby="faq-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">FAQ</span>
+            <h2 id="faq-title" class="section-title">@Model.Title</h2>
+            @if (!string.IsNullOrEmpty(Model.Subtitle))
+            {
+                <p class="section-subtitle">@Model.Subtitle</p>
+            }
+        </div>
+
+        <div class="faq-inner" data-animate>
+
+            <!-- Left column -->
+            <div class="faq-list">
+                @foreach (var item in left)
+                {
+                    <details class="faq-item">
+                        <summary>
+                            @item.Question
+                            <span class="faq-chevron" aria-hidden="true">▾</span>
+                        </summary>
+                        <div class="faq-body">@item.Answer</div>
+                    </details>
+                }
+            </div>
+
+            <!-- Right column (desktop) -->
+            @if (right.Count > 0)
+            {
+                <div class="faq-list">
+                    @foreach (var item in right)
+                    {
+                        <details class="faq-item">
+                            <summary>
+                                @item.Question
+                                <span class="faq-chevron" aria-hidden="true">▾</span>
+                            </summary>
+                            <div class="faq-body">@item.Answer</div>
+                        </details>
+                    }
+                </div>
+            }
+
+        </div>
+
+    </div>
+</section>

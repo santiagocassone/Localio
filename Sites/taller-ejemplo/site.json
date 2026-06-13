@@ -1,0 +1,289 @@
+{
+  "businessName": "Taller Hernández",
+  "category": "auto-repair",
+  "slogan": "Mecánica integral para todos los vehículos",
+  "shortDescription": "Taller mecánico en Flores con 20 años de experiencia. Diagnóstico computarizado, frenos, motor, caja y electricidad del automotor.",
+  "longDescription": "Taller Hernández es el servicio mecánico de confianza de Flores. Trabajamos con todas las marcas y modelos, con técnicos certificados y equipamiento de diagnóstico de última generación.",
+  "contact": {
+    "phone": "011 4632-5500",
+    "whatsApp": "1146325500",
+    "email": "taller@hernandez-mecanica.com.ar",
+    "address": "Av. Rivadavia 7850",
+    "zone": "Flores, CABA",
+    "city": "Buenos Aires",
+    "googleMapsUrl": "https://maps.google.com/?q=Av+Rivadavia+7850+Flores+Buenos+Aires"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/tallerhernandez",
+    "facebook": "https://www.facebook.com/tallerhernandez"
+  },
+  "seo": {
+    "title": "Taller Hernández | Mecánica Integral — Flores, Buenos Aires",
+    "description": "Taller mecánico en Flores, CABA. Diagnóstico computarizado, frenos, motor, transmisión y electricidad. 20 años de experiencia.",
+    "keywords": "taller mecanico flores, mecanica integral buenos aires, diagnostico computarizado, reparacion autos flores",
+    "schemaType": "AutoRepair",
+    "priceRange": "$$",
+    "latitude": -34.6328,
+    "longitude": -58.4641
+  },
+  "whatsApp": {
+    "number": "1146325500",
+    "defaultMessage": "Hola Taller Hernández, vi su sitio y quería consultar sobre mi auto.",
+    "showFloat": true
+  },
+  "modules": [
+    {
+      "type": "navbar",
+      "order": 1,
+      "enabled": true,
+      "sticky": true,
+      "showPhone": true,
+      "showWhatsApp": true,
+      "items": [
+        { "label": "Especialidades", "href": "#destacados"   },
+        { "label": "Servicios",      "href": "#servicios"   },
+        { "label": "Urgencias",      "href": "#urgencias"   },
+        { "label": "Nosotros",       "href": "#nosotros"    },
+        { "label": "Ubicación",      "href": "#ubicacion"   }
+      ]
+    },
+    {
+      "type": "hero",
+      "order": 2,
+      "enabled": true,
+      "variant": "gradient",
+      "headline": "Tu auto en manos expertas",
+      "subheadline": "20 años reparando autos en Flores. Diagnóstico computarizado, presupuesto sin cargo y garantía escrita en todos los trabajos.",
+      "ctaText": "Pedir presupuesto gratis",
+      "ctaSecondaryText": "Ver servicios",
+      "showBadge": true,
+      "badgeText": "Presupuesto sin cargo"
+    },
+    {
+      "type": "featured-services",
+      "order": 3,
+      "enabled": true,
+      "title": "Nuestras Especialidades",
+      "subtitle": "Trabajamos con todas las marcas y modelos. Diagnóstico preciso, reparación garantizada.",
+      "items": [
+        {
+          "name": "Diagnóstico Computarizado",
+          "description": "Escáner de última generación para todas las marcas. Detectamos cualquier falla eléctrica o mecánica en minutos. Presupuesto sin cargo.",
+          "icon": "💻",
+          "featured": true
+        },
+        {
+          "name": "Motor y Transmisión",
+          "description": "Reparación y rectificación de motores, cajas automáticas y mecánicas, diferencial y toda la línea de transmisión.",
+          "icon": "⚙️",
+          "featured": true
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "order": 4,
+      "enabled": true,
+      "title": "Todos Nuestros Servicios",
+      "items": [
+        {
+          "name": "Frenos",
+          "description": "Pastillas, discos, tambores y líquido de frenos. Revisación completa del sistema.",
+          "icon": "🔴"
+        },
+        {
+          "name": "Electricidad",
+          "description": "Diagnóstico eléctrico, instalación de alarmas, baterías y sistema de arranque.",
+          "icon": "⚡"
+        },
+        {
+          "name": "Tren Delantero",
+          "description": "Alineación, balanceo, amortiguadores, rótulas y bujes.",
+          "icon": "🔧"
+        },
+        {
+          "name": "Cambio de Aceite",
+          "description": "Aceite sintético, semi-sintético o mineral según especificación del fabricante.",
+          "icon": "🛢️"
+        },
+        {
+          "name": "Aire Acondicionado",
+          "description": "Recarga de gas, reparación del compresor y limpieza del sistema de climatización.",
+          "icon": "❄️"
+        },
+        {
+          "name": "Pre-VTV",
+          "description": "Revisión completa para asegurarte de aprobar la Verificación Técnica Vehicular.",
+          "icon": "✅"
+        }
+      ]
+    },
+    {
+      "type": "emergency",
+      "order": 5,
+      "enabled": true,
+      "title": "¿Tu auto no arranca?",
+      "message": "Atendemos urgencias mecánicas. Llamanos o escribinos por WhatsApp y te damos solución inmediata.",
+      "phone": "011 4632-5500",
+      "showWhatsApp": true,
+      "hours": "Urgencias: Lunes a Sábado de 7:00 a 21:00hs"
+    },
+    {
+      "type": "about",
+      "order": 6,
+      "enabled": true,
+      "title": "20 años de confianza en Flores",
+      "content": "Taller Hernández nació en 2004 como un pequeño taller familiar y hoy es el servicio mecánico de referencia en Flores. Con 6 mecánicos certificados y equipamiento de diagnóstico de última generación, resolvemos cualquier problema en tu vehículo con honestidad y transparencia.",
+      "highlights": [
+        "6 mecánicos certificados por las marcas",
+        "Diagnóstico computarizado para todas las marcas",
+        "Garantía escrita en todos los trabajos",
+        "Presupuesto sin cargo y sin compromiso"
+      ],
+      "yearsExperience": "20 años"
+    },
+    {
+      "type": "benefits",
+      "order": 7,
+      "enabled": true,
+      "title": "¿Por qué elegir Taller Hernández?",
+      "items": [
+        {
+          "icon": "🔍",
+          "title": "Diagnóstico preciso",
+          "description": "Escáner de última generación. Sabemos exactamente qué tiene tu auto antes de tocar nada."
+        },
+        {
+          "icon": "💰",
+          "title": "Precios transparentes",
+          "description": "Presupuesto detallado sin cargos ocultos. Vos decidís si continuás o no."
+        },
+        {
+          "icon": "📋",
+          "title": "Garantía escrita",
+          "description": "Todos nuestros trabajos tienen garantía. Si hay algo mal, lo corregimos sin costo."
+        },
+        {
+          "icon": "⏱️",
+          "title": "Entrega en tiempo",
+          "description": "Cumplimos los plazos acordados. Sabemos que necesitás tu auto para trabajar."
+        }
+      ]
+    },
+    {
+      "type": "testimonials",
+      "order": 8,
+      "enabled": true,
+      "title": "Lo que dicen nuestros clientes",
+      "items": [
+        {
+          "name": "Roberto Sánchez",
+          "role": "Cliente desde 2015",
+          "content": "Llevé mi auto a 3 talleres y nadie encontraba la falla. En Hernández la resolvieron en 2 horas con el diagnóstico computarizado. ¡Increíble!",
+          "stars": 5,
+          "source": "Google Maps"
+        },
+        {
+          "name": "Daniela Moreno",
+          "role": "Clienta habitual",
+          "content": "Llevo todos mis autos acá hace 8 años. Siempre transparentes con los precios, cumplen los tiempos y el trabajo queda perfecto.",
+          "stars": 5,
+          "source": "Google Maps"
+        },
+        {
+          "name": "Martín López",
+          "role": "Dueño de flota",
+          "content": "Taller de confianza para la flota de mi empresa. Presupuestos claros, precios justos y garantía en todo. Los recomiendo sin dudar.",
+          "stars": 5,
+          "source": "Facebook"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "order": 9,
+      "enabled": true,
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "question": "¿El presupuesto tiene costo?",
+          "answer": "No, el diagnóstico y presupuesto son completamente sin cargo y sin compromiso. Podés venir tranquilo."
+        },
+        {
+          "question": "¿Trabajan con todas las marcas?",
+          "answer": "Sí, trabajamos con todas las marcas y modelos: nacionales e importados, nafteros y diesel."
+        },
+        {
+          "question": "¿Tienen servicio de remolque?",
+          "answer": "Podemos coordinar el traslado de tu vehículo. Consultanos por WhatsApp y lo organizamos."
+        },
+        {
+          "question": "¿Qué garantía tienen los trabajos?",
+          "answer": "Todos los trabajos tienen garantía escrita de 3 meses o 5.000 km, lo que ocurra primero."
+        },
+        {
+          "question": "¿Aceptan seguros?",
+          "answer": "Trabajamos con la mayoría de las aseguradoras. Consultanos con tu compañía antes de traer el auto."
+        },
+        {
+          "question": "¿Cuánto tarda una reparación de motor?",
+          "answer": "Depende del trabajo. Una revisación completa puede llevar 1-3 días. Te damos un plazo exacto con el presupuesto."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "order": 10,
+      "enabled": true,
+      "title": "Horarios",
+      "showWhatsApp": true,
+      "items": [
+        { "days": "Lunes a Viernes", "hours": "7:30 — 19:00", "closed": false },
+        { "days": "Sábados",         "hours": "8:00 — 13:00", "closed": false },
+        { "days": "Domingos",        "hours": "Cerrado",       "closed": true  }
+      ],
+      "note": "Urgencias fuera de horario: consultanos por WhatsApp."
+    },
+    {
+      "type": "location",
+      "order": 11,
+      "enabled": true,
+      "title": "Encontranos en Flores",
+      "address": "Av. Rivadavia 7850",
+      "zone": "Flores, CABA",
+      "googleMapsUrl": "https://maps.google.com/?q=Av+Rivadavia+7850+Flores+Buenos+Aires",
+      "transportNote": "Colectivos 84, 86, 96 y 180. A 3 cuadras del subte A, estación Flores."
+    },
+    {
+      "type": "cta",
+      "order": 12,
+      "enabled": true,
+      "headline": "¿Tiene algo tu auto?",
+      "subheadline": "Traelo o mandanos una foto del tablero por WhatsApp. Te damos diagnóstico inmediato.",
+      "buttonText": "Pedir presupuesto gratis"
+    },
+    {
+      "type": "whatsapp-button",
+      "order": 13,
+      "enabled": true,
+      "showPulse": true,
+      "showTooltip": true,
+      "tooltipText": "Consultar ahora",
+      "position": "bottom-right"
+    },
+    {
+      "type": "footer",
+      "order": 14,
+      "enabled": true,
+      "showSocial": true,
+      "showContact": true,
+      "poweredBy": "Localio",
+      "links": [
+        { "label": "Servicios",  "href": "#servicios"  },
+        { "label": "Urgencias",  "href": "#urgencias"  },
+        { "label": "Nosotros",   "href": "#nosotros"   },
+        { "label": "Ubicación",  "href": "#ubicacion"  }
+      ]
+    }
+  ]
+}

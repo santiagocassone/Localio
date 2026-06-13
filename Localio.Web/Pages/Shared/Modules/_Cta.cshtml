@@ -1,0 +1,60 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model CtaModuleConfig
+@{
+    var site    = ViewData["Site"] as SiteConfig ?? new SiteConfig();
+    var waUrl   = WhatsAppHelper.BuildUrl(site.WhatsApp.Number, site.WhatsApp.DefaultMessage);
+    bool hasBg  = !string.IsNullOrEmpty(Model.BackgroundImageUrl);
+    string sectionClass = hasBg ? "" : "cta--gradient";
+}
+
+<section class="localio-cta @sectionClass @Model.CssClass"
+         aria-labelledby="cta-title">
+
+    @if (hasBg)
+    {
+        <img src="@Model.BackgroundImageUrl"
+             alt=""
+             class="cta-bg-img"
+             loading="lazy"
+             aria-hidden="true" />
+        if (Model.Overlay)
+        {
+            <div class="cta-overlay" aria-hidden="true"></div>
+        }
+    }
+
+    <div class="container">
+        <div class="cta-content" data-animate>
+
+            <h2 id="cta-title" class="cta-headline">@Model.Headline</h2>
+
+            @if (!string.IsNullOrEmpty(Model.Subheadline))
+            {
+                <p class="cta-sub">@Model.Subheadline</p>
+            }
+
+            <div class="cta-btn-wrap">
+                @if (!string.IsNullOrEmpty(site.WhatsApp.Number))
+                {
+                    <a href="@waUrl"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn--whatsapp btn--xl"
+                       data-wa-track="cta">
+                        💬 @Model.ButtonText
+                    </a>
+                }
+                @if (!string.IsNullOrEmpty(site.Contact.Phone))
+                {
+                    <a href="tel:@site.Contact.Phone"
+                       class="btn btn--outline-white btn--xl">
+                        📞 Llamanos
+                    </a>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>

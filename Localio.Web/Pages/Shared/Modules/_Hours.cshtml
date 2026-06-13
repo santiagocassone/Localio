@@ -1,0 +1,67 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model HoursModuleConfig
+@{
+    var site  = ViewData["Site"]  as SiteConfig ?? new SiteConfig();
+    var waUrl = WhatsAppHelper.BuildUrl(site.WhatsApp.Number, "Hola, quería consultar el horario de atención.");
+}
+
+<section id="horarios"
+         class="section section--alt @Model.CssClass"
+         aria-labelledby="hours-title">
+    <div class="container">
+
+        <div class="section-header" data-animate>
+            <span class="section-label">Atención</span>
+            <h2 id="hours-title" class="section-title">@Model.Title</h2>
+        </div>
+
+        <div class="hours-card card" data-animate>
+
+            <div class="hours-header">
+                <h3>🕐 Horarios</h3>
+            </div>
+
+            <ul class="hours-list" aria-label="Horarios de atención">
+                @foreach (var row in Model.Items)
+                {
+                    <li class="hours-row">
+                        <span class="hours-day">@row.Days</span>
+                        @if (row.Closed)
+                        {
+                            <span class="hours-time hours-closed">Cerrado</span>
+                        }
+                        else
+                        {
+                            <span class="hours-time">@row.Hours</span>
+                        }
+                    </li>
+                }
+            </ul>
+
+            @if (!string.IsNullOrEmpty(Model.Note))
+            {
+                <p class="hours-note">ℹ️ @Model.Note</p>
+            }
+
+        </div>
+
+        @if (Model.ShowWhatsApp && !string.IsNullOrEmpty(site.WhatsApp.Number))
+        {
+            <div class="text-center mt-4" data-animate>
+                <p class="text-muted mb-2" style="font-size:.9375rem;">
+                    ¿Querés reservar un turno?
+                </p>
+                <a href="@waUrl"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn--whatsapp"
+                   data-wa-track="hours">
+                    💬 Consultá disponibilidad
+                </a>
+            </div>
+        }
+
+    </div>
+</section>

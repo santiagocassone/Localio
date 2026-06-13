@@ -1,0 +1,40 @@
+@using Localio.Web.Models
+@using Localio.Web.Models.Modules
+@using Localio.Web.Helpers
+@model EmergencyModuleConfig
+@{
+    var site  = ViewData["Site"] as SiteConfig ?? new SiteConfig();
+    var phone = string.IsNullOrEmpty(Model.Phone) ? site.Contact.Phone : Model.Phone;
+    var waUrl = WhatsAppHelper.BuildUrl(site.WhatsApp.Number, "Necesito atención urgente, ¿están disponibles?");
+}
+
+<section class="localio-emergency @Model.CssClass" aria-labelledby="emergency-title">
+    <div class="container">
+
+        <div class="emergency-icon" aria-hidden="true">🚨</div>
+        <h2 id="emergency-title" class="emergency-title">@Model.Title</h2>
+        <p class="emergency-message">@Model.Message</p>
+
+        <div class="emergency-actions">
+            @if (!string.IsNullOrEmpty(phone))
+            {
+                <a href="tel:@phone" class="emergency-phone" aria-label="Llamar ahora: @phone">
+                    📞 @phone
+                </a>
+            }
+            @if (Model.ShowWhatsApp && !string.IsNullOrEmpty(site.WhatsApp.Number))
+            {
+                <a href="@waUrl" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline-white btn--xl" data-wa-track="emergency">
+                    💬 WhatsApp urgente
+                </a>
+            }
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.Hours))
+        {
+            <p class="emergency-hours">⏰ @Model.Hours</p>
+        }
+
+    </div>
+</section>
