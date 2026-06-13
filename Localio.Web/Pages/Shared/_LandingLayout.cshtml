@@ -1,0 +1,61 @@
+@{
+    var title       = ViewData["PageTitle"]       as string ?? "Localio";
+    var description = ViewData["PageDescription"] as string ?? "";
+    var keywords    = ViewData["PageKeywords"]    as string ?? "";
+    var canonical   = ViewData["PageCanonical"]   as string ?? "";
+    var ogImage     = ViewData["PageOgImage"]     as string ?? "";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@description" />
+    @if (!string.IsNullOrEmpty(keywords))
+    {
+        <meta name="keywords" content="@keywords" />
+    }
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content="Localio" />
+    <meta property="og:title"       content="@title" />
+    <meta property="og:description" content="@description" />
+    @if (!string.IsNullOrEmpty(ogImage))
+    {
+        <meta property="og:image" content="@ogImage" />
+    }
+    @if (!string.IsNullOrEmpty(canonical))
+    {
+        <meta property="og:url" content="@canonical" />
+        <link rel="canonical" href="@canonical" />
+    }
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="@title" />
+    <meta name="twitter:description" content="@description" />
+    @if (!string.IsNullOrEmpty(ogImage))
+    {
+        <meta name="twitter:image" content="@ogImage" />
+    }
+
+    <title>@title</title>
+
+    <!-- Inter — tipografía limpia y comercial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/landing.css" asp-append-version="true" />
+</head>
+<body class="landing-body">
+
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    @RenderBody()
+
+    <script src="~/js/landing.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+@model Localio.Web.Pages.IndexModel
+@{
+    var includesItems = new[]
+    {
+        "Diseño responsive para celulares y escritorio",
+        "Secciones del negocio: quiénes somos, servicios, contacto",
+        "Botón de WhatsApp visible en todo el sitio",
+        "Mapa de ubicación integrado",
+        "Horarios de atención",
+        "Servicios o productos destacados",
+        "Galería de imágenes",
+        "Reseñas o testimonios de clientes",
+        "Formulario de contacto",
+        "Optimización básica para búsquedas locales (SEO)",
+    };
+}
+<section class="section" id="que-incluye" aria-labelledby="includes-title">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Qué incluye</span>
+            <h2 class="section-title" id="includes-title">
+                Todo lo que tu comercio necesita en un sitio web
+            </h2>
+            <p class="section-sub">
+                Cada sitio incluye las secciones y funcionalidades esenciales para presentar
+                tu negocio de forma completa y profesional.
+            </p>
+        </div>
+
+        <ul class="l-includes__grid" aria-label="Funcionalidades incluidas">
+            @foreach (var item in includesItems)
+            {
+                <li class="l-include-item">
+                    <span class="l-include-item__check" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+                    </span>
+                    <span class="l-include-item__label">@item</span>
+                </li>
+            }
+        </ul>
+    </div>
+</section>

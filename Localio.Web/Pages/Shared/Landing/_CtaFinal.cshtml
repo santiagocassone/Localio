@@ -1,0 +1,122 @@
+@model Localio.Web.Pages.IndexModel
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<section class="l-cta" id="contacto" aria-labelledby="cta-title">
+    <div class="container">
+        <h2 class="l-cta__title" id="cta-title">
+            Dale a tu comercio una presencia online más clara y profesional
+        </h2>
+        <p class="l-cta__sub">
+            Contanos sobre tu negocio y te orientamos sobre qué tipo de sitio puede ayudarte.
+        </p>
+
+        <div class="l-cta__buttons">
+            <a href="@Model.WhatsAppUrl"
+               class="btn btn-wa btn-lg"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Hablar por WhatsApp sobre tu sitio web">
+                <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Hablar por WhatsApp
+            </a>
+            <a href="#form-contacto" class="btn btn-ghost btn-lg">
+                Enviar consulta
+            </a>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="l-form-wrap" id="form-contacto">
+            <h3 class="l-form-title">Envianos tu consulta</h3>
+
+            @if (Model.FormSubmitted)
+            {
+                <div class="l-form__success" role="alert" aria-live="polite">
+                    <div class="l-form__success-ico" aria-hidden="true">✅</div>
+                    <h3>¡Consulta recibida!</h3>
+                    <p>Gracias por escribirnos. Nos ponemos en contacto con vos a la brevedad.</p>
+                </div>
+            }
+            else
+            {
+                <form method="post" asp-page="/Index" novalidate aria-label="Formulario de contacto">
+                    @Html.AntiForgeryToken()
+
+                    <div class="l-form__row l-form__row--2">
+                        <div class="l-form__group">
+                            <label class="l-form__label" for="ContactForm_Name">Tu nombre</label>
+                            <input class="l-form__input"
+                                   id="ContactForm_Name"
+                                   name="ContactForm.Name"
+                                   type="text"
+                                   placeholder="Ana García"
+                                   autocomplete="given-name"
+                                   required
+                                   aria-required="true"
+                                   aria-describedby="err-name" />
+                            <span id="err-name" class="l-form__error" asp-validation-for="ContactForm.Name"></span>
+                        </div>
+
+                        <div class="l-form__group">
+                            <label class="l-form__label" for="ContactForm_BusinessName">Nombre del comercio</label>
+                            <input class="l-form__input"
+                                   id="ContactForm_BusinessName"
+                                   name="ContactForm.BusinessName"
+                                   type="text"
+                                   placeholder="Veterinaria San Martín"
+                                   required
+                                   aria-required="true"
+                                   aria-describedby="err-biz" />
+                            <span id="err-biz" class="l-form__error" asp-validation-for="ContactForm.BusinessName"></span>
+                        </div>
+                    </div>
+
+                    <div class="l-form__row l-form__row--2">
+                        <div class="l-form__group">
+                            <label class="l-form__label" for="ContactForm_Category">Rubro</label>
+                            <select class="l-form__select"
+                                    id="ContactForm_Category"
+                                    name="ContactForm.Category"
+                                    aria-label="Seleccioná el rubro de tu comercio">
+                                <option value="">— Seleccioná —</option>
+                                <option value="veterinaria">Veterinaria</option>
+                                <option value="estetica">Centro de estética</option>
+                                <option value="peluqueria">Peluquería / Barbería</option>
+                                <option value="taller">Taller / Servicio técnico</option>
+                                <option value="consultorio">Consultorio profesional</option>
+                                <option value="comercio">Comercio de barrio</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="l-form__group">
+                            <label class="l-form__label" for="ContactForm_Contact">Email o teléfono</label>
+                            <input class="l-form__input"
+                                   id="ContactForm_Contact"
+                                   name="ContactForm.Contact"
+                                   type="text"
+                                   placeholder="hola@micomercio.com · 11 1234-5678"
+                                   required
+                                   aria-required="true"
+                                   aria-describedby="err-contact" />
+                            <span id="err-contact" class="l-form__error" asp-validation-for="ContactForm.Contact"></span>
+                        </div>
+                    </div>
+
+                    <div class="l-form__row">
+                        <div class="l-form__group">
+                            <label class="l-form__label" for="ContactForm_Message">¿Qué necesitás? (opcional)</label>
+                            <textarea class="l-form__textarea"
+                                      id="ContactForm_Message"
+                                      name="ContactForm.Message"
+                                      placeholder="Contanos brevemente sobre tu comercio y qué te gustaría tener en tu sitio web."
+                                      aria-label="Mensaje adicional"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg l-form__submit">
+                        Enviar consulta
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+</section>

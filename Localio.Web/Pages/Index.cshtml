@@ -1,10 +1,24 @@
 ﻿@page
 @model IndexModel
+@using Localio.Web.Pages
 @{
-    ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_LandingLayout.cshtml";
+
+    ViewData["PageTitle"]       = IndexModel.SeoTitle;
+    ViewData["PageDescription"] = IndexModel.SeoDescription;
+    ViewData["PageKeywords"]    = IndexModel.SeoKeywords;
+    ViewData["PageCanonical"]   = "https://localio.com.ar/";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<main id="main-content">
+    @await Html.PartialAsync("Landing/_Header",  Model)
+    @await Html.PartialAsync("Landing/_Hero",    Model)
+    @await Html.PartialAsync("Landing/_Problem", Model)
+    @await Html.PartialAsync("Landing/_Benefits",Model)
+    @await Html.PartialAsync("Landing/_ForWho",  Model)
+    @await Html.PartialAsync("Landing/_Includes", Model)
+    @await Html.PartialAsync("Landing/_Process", Model)
+    @await Html.PartialAsync("Landing/_Trust",   Model)
+    @await Html.PartialAsync("Landing/_CtaFinal",Model)
+    @await Html.PartialAsync("Landing/_Footer",  Model)
+</main>
