@@ -9,9 +9,10 @@ namespace Localio.Web.Pages
         // ── Configuración del sitio ──────────────────────────────────────────────
         // Editá estas constantes para cambiar WhatsApp, email y SEO sin tocar las vistas.
 
-        public const string WhatsAppNumber  = "5491145678900"; // Formato internacional sin +
-        public const string WhatsAppMessage = "Hola, quiero consultar por un sitio web para mi comercio.";
-        public const string ContactEmail    = "hola@localio.com.ar";
+        public const string WhatsAppNumber      = "5491121746236"; // Formato internacional sin +. Cambiar por número comercial cuando corresponda.
+        public const string WhatsAppMessage     = "Hola, quiero consultar por un sitio web para mi comercio.";
+        public const string WhatsAppDisplayText = "WhatsApp";
+        public const string ContactEmail        = "contacto@localio.com.ar";
 
         public const string SeoTitle       = "Localio — Sitios web para comercios locales";
         public const string SeoDescription = "Creamos sitios web profesionales para veterinarias, talleres, peluquerías y comercios. Claros, rápidos, con WhatsApp integrado y adaptados a celulares.";
