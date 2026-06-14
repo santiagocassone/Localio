@@ -17,7 +17,7 @@
     <title>@CitivetModel.PageTitle</title>
     <meta name="description" content="@CitivetModel.PageDescription" />
 
-    @* Demo privada — NO indexar, NO seguir enlaces *@
+    @* Nota interna: NO indexar, NO seguir enlaces. Página privada para prospecto. *@
     <meta name="robots" content="noindex, nofollow" />
 
     @* Prevenir que Open Graph o bots de redes sociales la cacheen como pública *@
@@ -34,7 +34,7 @@
         <div class="pd-header__inner">
             <div class="pd-header__brand">
                 @CitivetModel.BusinessName
-                <span>Vista previa profesional</span>
+                <span>Veterinaria · CABA</span>
             </div>
             <div class="pd-header__cta">
                 <a href="@Model.WhatsAppUrl"
@@ -78,7 +78,7 @@
                 <p class="pd-eyebrow">Nueva dirección</p>
                 <h2 class="pd-section-title" id="address-title">Encontranos en un solo lugar</h2>
                 <p class="pd-body-text" style="margin-bottom: 1.75rem;">
-                    Toda la información para contactar, ubicarte y consultar por tratamientos, reunida en una sola página.
+                    Toda la información para contactarte, ubicarnos y consultar por tratamientos disponibles.
                 </p>
                 <div class="pd-address-card">
                     <div class="pd-address-card__icon" aria-hidden="true">🏥</div>
@@ -94,8 +94,7 @@
                 <p class="pd-eyebrow">Servicios</p>
                 <h2 class="pd-section-title" id="services-title">Tratamientos disponibles</h2>
                 <p class="pd-body-text">
-                    Los servicios a continuación reflejan la información pública disponible de Citivet.
-                    Para confirmar disponibilidad o consultar sobre un tratamiento específico, escribinos por WhatsApp.
+                    Consultá por WhatsApp para recibir orientación sobre la atención más adecuada para tu mascota.
                 </p>
                 <div class="pd-services-grid">
 
@@ -143,10 +142,8 @@
                 <div class="pd-about-card">
                     <div class="pd-about-card__name">@CitivetModel.ContactName</div>
                     <p class="pd-about-card__text">
-                        La información pública de Citivet destaca tratamientos de fisioterapia y acupuntura veterinaria,
+                        Citivet comunica su enfoque en fisioterapia y acupuntura veterinaria,
                         con la @CitivetModel.ContactName como contacto visible del equipo.
-                        Esta demo organiza esos datos en una experiencia web clara, profesional y orientada a consultas,
-                        para que tus clientes te encuentren fácilmente y puedan escribirte directo por WhatsApp.
                     </p>
                 </div>
             </div>
@@ -242,12 +239,9 @@
     </main>
 
     @* ── Footer ──────────────────────────────────────────────────────────── *@
+    @* Nota interna: página privada para prospecto. NO publicar como sitio oficial. NO indexar. *@
     <footer class="pd-footer">
-        <p>
-            Vista previa profesional creada por
-            <a href="/" rel="noopener noreferrer">Localio</a>.
-            Esta página es una demo privada y no está publicada como sitio oficial.
-        </p>
+        <p>Veterinaria Citivet · Julián Álvarez 211, CABA</p>
     </footer>
 
 </body>

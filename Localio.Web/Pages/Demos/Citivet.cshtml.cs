@@ -36,8 +36,9 @@ public class CitivetModel : PageModel
         $"https://wa.me/{WhatsAppNumber}?text={Uri.EscapeDataString(WhatsAppMessage)}";
 
     // ── SEO (noindex) ───────────────────────────────────────────────────────────
-    public const string PageTitle       = "Citivet — Demo privada | Localio";
-    public const string PageDescription = "Demo privada de sitio web para Veterinaria Citivet. No publicar.";
+    // Nota interna: noindex/nofollow activo. No publicar como sitio oficial.
+    public const string PageTitle       = "Veterinaria Citivet — Fisioterapia y acupuntura veterinaria en CABA";
+    public const string PageDescription = "Veterinaria Citivet ofrece fisioterapia y acupuntura veterinaria en Julián Álvarez 211, CABA. Consultá por WhatsApp.";
 
     public void OnGet() { }
 }
