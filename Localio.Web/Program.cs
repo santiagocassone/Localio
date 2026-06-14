@@ -2,6 +2,13 @@ using Localio.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Escuchar en 0.0.0.0 para Azure App Service Linux.
+// El puerto se resuelve en orden: PORT → WEBSITES_PORT → 8080.
+var port = Environment.GetEnvironmentVariable("PORT")
+           ?? Environment.GetEnvironmentVariable("WEBSITES_PORT")
+           ?? "8080";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<ISiteConfigService, SiteConfigService>();
