@@ -496,10 +496,210 @@ a {
     letter-spacing: 0.06em;
 }
 
+/* ── Hero note ──────────────────────────────────────────────────────────────── */
+.pd-hero-note {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+    max-width: 540px;
+}
+
+/* ── Grilla de atención ──────────────────────────────────────────────────────── */
+.pd-attention-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 560px) {
+    .pd-attention-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+.pd-attention-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.75rem;
+    border: 1px solid #dde8f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.pd-attention-card__icon {
+    font-size: 1.75rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.pd-attention-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f1f2e;
+}
+
+.pd-attention-card__address {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a6e9e;
+}
+
+.pd-attention-card__hours {
+    font-size: 0.88rem;
+    color: #5a738a;
+    line-height: 1.55;
+}
+
+/* ── Grupos de servicios ─────────────────────────────────────────────────────── */
+.pd-services-cols {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 600px) {
+    .pd-services-cols {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pd-service-group {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.5rem;
+    border: 1px solid #dde8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.pd-service-group__header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1.5px solid #e8f0f6;
+}
+
+.pd-service-group__icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pd-service-group__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f1f2e;
+    line-height: 1.3;
+}
+
+.pd-service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.pd-service-list li {
+    font-size: 0.88rem;
+    color: #4a5f72;
+    line-height: 1.45;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.pd-service-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: #1a8f5a;
+    font-weight: 700;
+}
+
+/* ── Bloque diferencial ──────────────────────────────────────────────────────── */
+.pd-diff-block {
+    background: #e8f5f0;
+    border-radius: 16px;
+    padding: 2rem;
+    border-left: 4px solid #1a8f5a;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.pd-diff-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(26, 143, 90, 0.2);
+}
+
+.pd-diff-contact__name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f1f2e;
+}
+
+.pd-diff-contact__role {
+    font-size: 0.82rem;
+    color: #4a7a5f;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+/* ── Cards "cuándo consultar" ────────────────────────────────────────────────── */
+.pd-when-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 560px) {
+    .pd-when-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pd-when-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    border: 1px solid #dde8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+.pd-when-card__icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.pd-when-card__text {
+    font-size: 0.85rem;
+    color: #3d5166;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
 /* ── Utilidades ─────────────────────────────────────────────────────────────── */
 .pd-mt-sm  { margin-top: 0.75rem; }
 .pd-mt-md  { margin-top: 1.5rem; }
 .pd-mt-lg  { margin-top: 2.5rem; }
+.pd-mb-md  { margin-bottom: 1.5rem; }
 .pd-text-center { text-align: center; }
 
 /* ── Responsive ajustes extra ───────────────────────────────────────────────── */
@@ -515,6 +715,15 @@ a {
         flex-direction: column;
     }
     .pd-contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .pd-when-grid {
+        grid-template-columns: 1fr;
+    }
+    .pd-services-cols {
+        grid-template-columns: 1fr;
+    }
+    .pd-attention-grid {
         grid-template-columns: 1fr;
     }
 }
