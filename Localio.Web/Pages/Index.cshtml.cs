@@ -13,6 +13,7 @@ namespace Localio.Web.Pages
         public const string WhatsAppMessage     = "Hola, quiero consultar por un sitio web para mi comercio.";
         public const string WhatsAppDisplayText = "WhatsApp";
         public const string ContactEmail        = "contacto@localio.com.ar";
+        public const string TallyFormUrl        = "https://tally.so/r/EkaBbq"; // Formulario de diagnóstico. Cambiar si se mueve el form de Tally.
 
         public const string SeoTitle       = "Localio — Sitios web para comercios locales";
         public const string SeoDescription = "Creamos sitios web profesionales para veterinarias, talleres, peluquerías y comercios. Claros, rápidos, con WhatsApp integrado y adaptados a celulares.";
