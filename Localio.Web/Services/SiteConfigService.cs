@@ -18,11 +18,16 @@ public class SiteConfigService : ISiteConfigService
     public SiteConfigService(IConfiguration config, IWebHostEnvironment env, ILogger<SiteConfigService> logger)
     {
         _logger = logger;
-        var sitesPath = config["Localio:SitesPath"] ?? "../Sites";
+
+        var configured = config["Localio:SitesPath"];
+        var sitesPath  = !string.IsNullOrWhiteSpace(configured) ? configured : "Sites";
+
         _sitesRoot = Path.IsPathRooted(sitesPath)
             ? sitesPath
             : Path.GetFullPath(Path.Combine(env.ContentRootPath, sitesPath));
-        _logger.LogInformation("Sites directory resolved to: {Path}", _sitesRoot);
+
+        var source = !string.IsNullOrWhiteSpace(configured) ? "Localio:SitesPath config" : "fallback (ContentRoot/Sites)";
+        _logger.LogInformation("Sites directory resolved to: {Path} (source: {Source})", _sitesRoot, source);
     }
 
     public async Task<(SiteConfig? Site, ThemeConfig? Theme)> LoadAsync(string siteId)
