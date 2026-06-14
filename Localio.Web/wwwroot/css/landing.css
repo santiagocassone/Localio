@@ -1,6 +1,7 @@
 /* ============================================================
    landing.css  –  Localio public landing page
    Mobile-first, sin dependencias externas.
+   Safari iOS compatible.
    ============================================================ */
 
 /* ── Tokens ───────────────────────────────────────────────── */
@@ -64,6 +65,10 @@ body.landing-body {
   color: var(--c-text);
   background: var(--c-bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* evitar scroll horizontal en Safari iOS */
+  /* soporte para notch iPhone */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 img, svg {
@@ -141,7 +146,8 @@ ul { list-style: none; }
   line-height: 1.2;
   transition: background var(--transition), transform var(--transition),
               box-shadow var(--transition), opacity var(--transition);
-  white-space: nowrap;
+  white-space: normal; /* permite wrap en textos largos en mobile */
+  word-break: break-word;
   text-align: center;
 }
 .btn:active { transform: scale(.97); }
@@ -362,14 +368,21 @@ ul { list-style: none; }
 .l-nav-drawer {
   display: none;
   position: fixed;
-  inset: 0;
+  left: 0;
+  right: 0;
   top: var(--header-h);
+  /* evitar que tape la barra del browser en Safari iOS */
+  bottom: 0;
+  height: auto;
   background: var(--c-bg);
   padding: 32px 20px;
+  padding-bottom: max(32px, env(safe-area-inset-bottom));
   z-index: 99;
   flex-direction: column;
   gap: 8px;
   border-top: 1px solid var(--c-border);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   animation: slideDown .2s ease;
 }
 .l-nav-drawer.open {
@@ -400,7 +413,7 @@ ul { list-style: none; }
   padding-top: calc(var(--section-py) * 1.1);
   padding-bottom: calc(var(--section-py) * 1.1);
   background: linear-gradient(155deg, #eef3ff 0%, #f7f8fc 55%, #ffffff 100%);
-  overflow: hidden;
+  /* Sin overflow:hidden — recortaba el mockup en Safari iOS */
 }
 
 .l-hero__inner {
@@ -469,6 +482,7 @@ ul { list-style: none; }
   box-shadow: var(--shadow-xl);
   border: 1px solid var(--c-border);
   overflow: hidden;
+  width: 100%;        /* no desbordar en 390px */
   max-width: 440px;
   margin-inline: auto;
 }
@@ -1053,9 +1067,13 @@ ul { list-style: none; }
   border: 1px solid rgba(255,255,255,.22);
   border-radius: var(--radius);
   font-family: var(--font);
-  font-size: .9375rem;
+  font-size: 1rem; /* mínimo 16px para evitar zoom automático en Safari iOS */
   color: var(--c-white);
   transition: border-color var(--transition), background var(--transition);
+  -webkit-appearance: none; /* estilo consistente en Safari iOS */
+  appearance: none;
+  width: 100%;
+  max-width: 100%;
 }
 .l-form__input::placeholder,
 .l-form__textarea::placeholder {
@@ -1194,23 +1212,134 @@ ul { list-style: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════ */
-/*  RESPONSIVE ADJUSTMENTS                                     */
+/*  RESPONSIVE ADJUSTMENTS — Safari iOS                        */
 /* ═══════════════════════════════════════════════════════════ */
-@media (max-width: 480px) {
-  :root {
-    --section-py: 56px;
+
+/* ── 768px: tablet ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .l-hero__subtitle {
+    max-width: 100%;
   }
 
+  .l-cta__title {
+    max-width: 100%;
+  }
+
+  .l-cta__sub {
+    max-width: 100%;
+  }
+
+  .l-form-wrap {
+    max-width: 100%;
+  }
+
+  /* El proceso en 2 columnas a 768px antes de pasar a 4 en desktop */
+  .l-process__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .l-process-step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* ── 600px: mobile mediano ──────────────────────────────── */
+@media (max-width: 600px) {
+  :root {
+    --section-py: 60px;
+  }
+
+  /* Proceso vuelve a 1 columna */
+  .l-process__steps {
+    grid-template-columns: 1fr;
+  }
+
+  /* Header WA label visible en mobile */
+  .l-header__wa-label {
+    display: none;
+  }
+
+  /* Formulario ocupa todo el ancho disponible */
+  .l-form-wrap {
+    padding: 24px 16px;
+    border-radius: var(--radius-lg);
+    margin-inline: 0;
+    width: 100%;
+  }
+
+  /* CTAs del bloque final apilados */
+  .l-cta__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .l-cta__buttons .btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ── 480px: iPhone pequeño / estándar ───────────────────── */
+@media (max-width: 480px) {
+  :root {
+    --section-py: 52px;
+  }
+
+  /* Hero: botones apilados, full width */
   .l-hero__cta {
     flex-direction: column;
+    align-items: stretch;
   }
   .l-hero__cta .btn {
     width: 100%;
     justify-content: center;
   }
 
+  /* Hero badge ocupa varias líneas sin desbordar */
+  .l-hero__badge {
+    flex-wrap: wrap;
+    font-size: .8125rem;
+  }
+
+  /* Mockup: asegurar que no sobresale */
+  .l-hero__mockup {
+    width: 100%;
+  }
+  .l-mockup {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Secciones con padding lateral mínimo legible */
+  .container {
+    padding-inline: 16px;
+  }
+
+  /* Evitar que el callout desborde */
+  .l-problem__callout {
+    padding: 16px 18px;
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  /* Cards más compactas en mobile */
+  .l-benefit-card,
+  .l-forwho-card,
+  .l-trust-card {
+    padding: 20px 18px;
+  }
+
+  /* Incluye en una sola columna */
+  .l-includes__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer padding inferior para barra de Safari */
+  .l-footer {
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+  }
+
   .l-form-wrap {
     border-radius: var(--radius-lg);
+    padding: 20px 14px;
   }
 
   .l-cta__buttons {
@@ -1219,5 +1348,6 @@ ul { list-style: none; }
   }
   .l-cta__buttons .btn {
     justify-content: center;
+    width: 100%;
   }
 }
