@@ -1,0 +1,254 @@
+@* ============================================================
+   Demo privada para prospecto real: Veterinaria Citivet.
+   NO publicar como sitio oficial. NO indexar. NO enlazar desde la landing pública.
+   Esta página es una muestra interna para enviar al comercio.
+   Acceso solo por URL directa: /demos/citivet
+   ============================================================ *@
+@page "/demos/citivet"
+@model Localio.Web.Pages.Demos.CitivetModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>@CitivetModel.PageTitle</title>
+    <meta name="description" content="@CitivetModel.PageDescription" />
+
+    @* Demo privada — NO indexar, NO seguir enlaces *@
+    <meta name="robots" content="noindex, nofollow" />
+
+    @* Prevenir que Open Graph o bots de redes sociales la cacheen como pública *@
+    <meta property="og:title" content="@CitivetModel.PageTitle" />
+    <meta property="og:type" content="website" />
+
+    @* CSS propio de demos privadas — no afecta localio.css ni landing.css *@
+    <link rel="stylesheet" href="~/css/private-demos.css" asp-append-version="true" />
+</head>
+<body class="pd-body">
+
+    @* ── Header ──────────────────────────────────────────────────────────── *@
+    <header class="pd-header">
+        <div class="pd-header__inner">
+            <div class="pd-header__brand">
+                @CitivetModel.BusinessName
+                <span>Vista previa profesional</span>
+            </div>
+            <div class="pd-header__cta">
+                <a href="@Model.WhatsAppUrl"
+                   class="pd-btn pd-btn--primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    💬 WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        @* ── 1. Hero ─────────────────────────────────────────────────────── *@
+        <section class="pd-hero" aria-labelledby="hero-title">
+            <div class="pd-hero__inner">
+                <p class="pd-eyebrow">Veterinaria · CABA</p>
+                <h1 class="pd-title" id="hero-title">@CitivetModel.BusinessName</h1>
+                <p class="pd-subtitle">@CitivetModel.BusinessTagline.</p>
+                <div class="pd-btn-group">
+                    <a href="@Model.WhatsAppUrl"
+                       class="pd-btn pd-btn--primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        💬 Consultar por WhatsApp
+                    </a>
+                    <a href="@CitivetModel.MapsUrl"
+                       class="pd-btn pd-btn--secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        📍 Ver ubicación
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        @* ── 2. Nueva dirección ───────────────────────────────────────────── *@
+        <section class="pd-section pd-section--alt" aria-labelledby="address-title">
+            <div class="pd-container">
+                <p class="pd-eyebrow">Nueva dirección</p>
+                <h2 class="pd-section-title" id="address-title">Encontranos en un solo lugar</h2>
+                <p class="pd-body-text" style="margin-bottom: 1.75rem;">
+                    Toda la información para contactar, ubicarte y consultar por tratamientos, reunida en una sola página.
+                </p>
+                <div class="pd-address-card">
+                    <div class="pd-address-card__icon" aria-hidden="true">🏥</div>
+                    <div class="pd-address-card__name">@CitivetModel.BusinessName</div>
+                    <div class="pd-address-card__detail">@CitivetModel.Address</div>
+                </div>
+            </div>
+        </section>
+
+        @* ── 3. Servicios destacados ──────────────────────────────────────── *@
+        <section class="pd-section" aria-labelledby="services-title">
+            <div class="pd-container">
+                <p class="pd-eyebrow">Servicios</p>
+                <h2 class="pd-section-title" id="services-title">Tratamientos disponibles</h2>
+                <p class="pd-body-text">
+                    Los servicios a continuación reflejan la información pública disponible de Citivet.
+                    Para confirmar disponibilidad o consultar sobre un tratamiento específico, escribinos por WhatsApp.
+                </p>
+                <div class="pd-services-grid">
+
+                    <div class="pd-service-card">
+                        <div class="pd-service-card__icon" aria-hidden="true">🦴</div>
+                        <div class="pd-service-card__title">Fisioterapia veterinaria</div>
+                        <p class="pd-service-card__desc">
+                            Técnicas de rehabilitación física orientadas al bienestar y la recuperación de mascotas.
+                        </p>
+                    </div>
+
+                    <div class="pd-service-card">
+                        <div class="pd-service-card__icon" aria-hidden="true">🌿</div>
+                        <div class="pd-service-card__title">Acupuntura veterinaria</div>
+                        <p class="pd-service-card__desc">
+                            Tratamiento complementario enfocado en el equilibrio y el bienestar del animal.
+                        </p>
+                    </div>
+
+                    <div class="pd-service-card">
+                        <div class="pd-service-card__icon" aria-hidden="true">🐾</div>
+                        <div class="pd-service-card__title">Bienestar y recuperación</div>
+                        <p class="pd-service-card__desc">
+                            Tratamientos orientados a acompañar el proceso de recuperación de tu mascota.
+                        </p>
+                    </div>
+
+                    <div class="pd-service-card">
+                        <div class="pd-service-card__icon" aria-hidden="true">❓</div>
+                        <div class="pd-service-card__title">Otros servicios</div>
+                        <p class="pd-service-card__desc">
+                            Consultá directamente con el equipo para conocer todos los tratamientos disponibles.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        @* ── 4. Sobre Citivet ─────────────────────────────────────────────── *@
+        <section class="pd-section pd-section--alt" aria-labelledby="about-title">
+            <div class="pd-container">
+                <p class="pd-eyebrow">Sobre Citivet</p>
+                <h2 class="pd-section-title" id="about-title">El equipo detrás de la veterinaria</h2>
+                <div class="pd-about-card">
+                    <div class="pd-about-card__name">@CitivetModel.ContactName</div>
+                    <p class="pd-about-card__text">
+                        La información pública de Citivet destaca tratamientos de fisioterapia y acupuntura veterinaria,
+                        con la @CitivetModel.ContactName como contacto visible del equipo.
+                        Esta demo organiza esos datos en una experiencia web clara, profesional y orientada a consultas,
+                        para que tus clientes te encuentren fácilmente y puedan escribirte directo por WhatsApp.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        @* ── 5. Ubicación ────────────────────────────────────────────────── *@
+        <section class="pd-section" aria-labelledby="location-title">
+            <div class="pd-container">
+                <p class="pd-eyebrow">Cómo llegar</p>
+                <h2 class="pd-section-title" id="location-title">Nueva dirección</h2>
+                <div class="pd-location-card">
+                    <div class="pd-location-card__map-placeholder" aria-hidden="true">
+                        📍
+                    </div>
+                    <div class="pd-location-card__body">
+                        <div class="pd-location-card__address">@CitivetModel.Address</div>
+                        <div class="pd-location-card__detail">Ciudad Autónoma de Buenos Aires</div>
+                        <a href="@CitivetModel.MapsUrl"
+                           class="pd-btn pd-btn--outline"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            🗺️ Cómo llegar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @* ── 6. Contacto ─────────────────────────────────────────────────── *@
+        <section class="pd-section pd-section--alt" aria-labelledby="contact-title">
+            <div class="pd-container">
+                <p class="pd-eyebrow">Contacto</p>
+                <h2 class="pd-section-title" id="contact-title">Ponete en contacto</h2>
+                <p class="pd-body-text">
+                    Escribinos por WhatsApp con tu consulta y te respondemos a la brevedad.
+                </p>
+                <div class="pd-contact-grid">
+
+                    <a href="@Model.WhatsAppUrl"
+                       class="pd-contact-card"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Abrir WhatsApp de @CitivetModel.BusinessName">
+                        <div class="pd-contact-card__icon" aria-hidden="true">💬</div>
+                        <div class="pd-contact-card__label">WhatsApp</div>
+                        <div class="pd-contact-card__value">Escribir ahora</div>
+                    </a>
+
+                    <a href="@CitivetModel.InstagramUrl"
+                       class="pd-contact-card"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Instagram de @CitivetModel.BusinessName">
+                        <div class="pd-contact-card__icon" aria-hidden="true">📸</div>
+                        <div class="pd-contact-card__label">Instagram</div>
+                        <div class="pd-contact-card__value">@@@CitivetModel.InstagramHandle</div>
+                    </a>
+
+                    <a href="@CitivetModel.MapsUrl"
+                       class="pd-contact-card"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Dirección de @CitivetModel.BusinessName en Google Maps">
+                        <div class="pd-contact-card__icon" aria-hidden="true">📍</div>
+                        <div class="pd-contact-card__label">Dirección</div>
+                        <div class="pd-contact-card__value">@CitivetModel.Address</div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        @* ── 7. CTA final ────────────────────────────────────────────────── *@
+        <section class="pd-cta-final" aria-labelledby="cta-title">
+            <div class="pd-cta-final__inner">
+                <h2 class="pd-section-title" id="cta-title">
+                    Consultá por la atención más adecuada para tu mascota
+                </h2>
+                <p class="pd-body-text">
+                    Respondemos por WhatsApp. Contanos qué necesitás y coordinamos una visita.
+                </p>
+                <div class="pd-btn-group">
+                    <a href="@Model.WhatsAppUrl"
+                       class="pd-btn pd-btn--primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        💬 Escribir por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    @* ── Footer ──────────────────────────────────────────────────────────── *@
+    <footer class="pd-footer">
+        <p>
+            Vista previa profesional creada por
+            <a href="/" rel="noopener noreferrer">Localio</a>.
+            Esta página es una demo privada y no está publicada como sitio oficial.
+        </p>
+    </footer>
+
+</body>
+</html>

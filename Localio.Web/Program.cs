@@ -2,12 +2,14 @@ using Localio.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Escuchar en 0.0.0.0 para Azure App Service Linux.
-// El puerto se resuelve en orden: PORT → WEBSITES_PORT → 8080.
-var port = Environment.GetEnvironmentVariable("PORT")
-           ?? Environment.GetEnvironmentVariable("WEBSITES_PORT")
-           ?? "8080";
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+// Escuchar en 0.0.0.0 solo en Azure App Service Linux (cuando PORT o WEBSITES_PORT están definidos).
+// En desarrollo local, Kestrel usa los puertos de launchSettings.json.
+var azurePort = Environment.GetEnvironmentVariable("PORT")
+                ?? Environment.GetEnvironmentVariable("WEBSITES_PORT");
+if (!string.IsNullOrEmpty(azurePort))
+{
+    builder.WebHost.UseUrls($"http://0.0.0.0:{azurePort}");
+}
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -19,7 +21,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
