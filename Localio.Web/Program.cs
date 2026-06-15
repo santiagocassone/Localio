@@ -33,8 +33,14 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Servir archivos estáticos de wwwroot antes del rewrite de subdominio.
+// Esto garantiza que /css/, /js/, /images/ y similares lleguen directamente
+// al middleware de archivos estáticos sin ser interceptados por el rewrite.
+app.UseStaticFiles();
+
 // Soporte de subdominios por demo privada ({slug}.localio.com.ar).
 // Activo solo si Localio:EnableDemoSubdomains = true en configuración.
+// Los requests de assets ya fueron atendidos por UseStaticFiles arriba.
 app.UseMiddleware<DemoSubdomainMiddleware>();
 
 app.UseRouting();

@@ -59,15 +59,13 @@ public class DemoSubdomainMiddleware
             return;
         }
 
-        // Solo se acepta path raíz "/" o vacío.
-        // Cualquier otro path en el subdominio retorna 404 sobrio.
+        // Solo hacer el rewrite en el path raíz "/" o vacío.
+        // Cualquier otro path (assets, favicons, etc.) pasa al pipeline normal
+        // para que UseStaticFiles / MapStaticAssets los sirva correctamente.
         var path = context.Request.Path.Value ?? "/";
         if (path != "/" && path != string.Empty)
         {
-            _logger.LogDebug(
-                "Demo subdomain {Slug}: non-root path {Path} → 404",
-                slug, path);
-            context.Response.StatusCode = StatusCodes.Status404NotFound;
+            await _next(context);
             return;
         }
 
