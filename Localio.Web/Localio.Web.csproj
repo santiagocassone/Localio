@@ -12,5 +12,10 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <Link>Sites\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
+    <Content Include="..\PrivateDemos\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Link>PrivateDemos\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
   </ItemGroup>
 </Project>

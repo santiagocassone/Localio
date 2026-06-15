@@ -1,7 +1,9 @@
 @* ============================================================
    Demo privada para prospecto real: Veterinaria Citivet.
-   NO publicar como sitio oficial. NO indexar. NO enlazar desde la landing pública.
-   Acceso solo por URL directa: /demos/citivet
+   NO publicar como sitio oficial. NO enlazar desde la landing publica.
+   Acceso por URL directa: /demos/citivet
+   o via subdominio:       citivet.localio.com.ar  (cuando EnableDemoSubdomains = true)
+   El HTML de la demo esta en Pages/Shared/PrivateDemos/_CitivetDemo.cshtml.
    ============================================================ *@
 @page "/demos/citivet"
 @model Localio.Web.Pages.Demos.CitivetModel
@@ -15,297 +17,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>@CitivetModel.PageTitle</title>
     <meta name="description" content="@CitivetModel.PageDescription" />
-
-    @* Nota interna: NO indexar, NO seguir enlaces. Página privada para prospecto. *@
-    <meta name="robots" content="noindex, nofollow" />
-
-    <meta property="og:title" content="@CitivetModel.PageTitle" />
-    <meta property="og:type" content="website" />
-
+    @* Robots: noindex/nofollow para ActivePrivate, Draft y no disponibles; index/follow para ActivePublic y Converted. *@
+    @if (Model.ShouldRenderNoIndex)
+    {
+        <meta name="robots" content="noindex, nofollow" />
+    }
+    <meta property="og:title"  content="@CitivetModel.PageTitle" />
+    <meta property="og:type"   content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
     <link rel="stylesheet" href="~/css/private-demos.css" asp-append-version="true" />
-
-    @* Clarity: usa IOptions<AnalyticsOptions>; no renderiza nada si está deshabilitado *@
+    @* Clarity: no renderiza nada si esta deshabilitado *@
     @{ await Html.RenderPartialAsync("_Clarity"); }
 </head>
 <body class="pd-body">
 
-    @* ── Header ──────────────────────────────────────────────────────────── *@
-    <header class="pd-header">
-        <div class="pd-header__inner">
-            <div class="pd-header__brand">
-                @CitivetModel.BusinessName
-                <span>Veterinaria · CABA</span>
-            </div>
-            <div class="pd-header__cta">
-                <a href="@Model.WhatsAppUrl"
-                   class="pd-btn pd-btn--primary"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   data-analytics-event="click_whatsapp">
-                    💬 Pedir turno
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main data-demo-id="citivet" data-business-name="Citivet" data-page-type="private_demo">
-
-        @* ── 1. Hero ─────────────────────────────────────────────────────── *@
-        <section class="pd-hero" aria-labelledby="hero-title">
-            <div class="pd-hero__inner">
-                <p class="pd-eyebrow">Veterinaria · CABA</p>
-                <h1 class="pd-title" id="hero-title">@CitivetModel.BusinessName</h1>
-                <p class="pd-subtitle">@CitivetModel.BusinessTagline</p>
-                <p class="pd-hero-note">
-                    Atención con turno previo en @CitivetModel.Address, de 16:30 a 20 hs.
-                    También brindamos atención a domicilio en @CitivetModel.HomeServiceArea por las mañanas.
-                </p>
-                <div class="pd-btn-group">
-                    <a href="@Model.WhatsAppUrl"
-                       class="pd-btn pd-btn--primary"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       data-analytics-event="click_whatsapp">
-                        💬 Pedir turno por WhatsApp
-                    </a>
-                    <a href="@CitivetModel.MapsUrl"
-                       class="pd-btn pd-btn--secondary"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       data-analytics-event="click_maps">
-                        📍 Ver ubicación
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        @* ── 2. Opciones de atención ──────────────────────────────────────── *@
-        <section class="pd-section pd-section--alt" aria-labelledby="attention-title">
-            <div class="pd-container">
-                <p class="pd-eyebrow">Dónde atendemos</p>
-                <h2 class="pd-section-title" id="attention-title">Opciones de atención</h2>
-                <div class="pd-attention-grid">
-
-                    <div class="pd-attention-card">
-                        <div class="pd-attention-card__icon" aria-hidden="true">🏥</div>
-                        <div class="pd-attention-card__title">Atención en consultorio</div>
-                        <div class="pd-attention-card__address">@CitivetModel.Address</div>
-                        <div class="pd-attention-card__hours">De 16:30 a 20 hs, con turno previo</div>
-                        <a href="@CitivetModel.MapsUrl"
-                           class="pd-btn pd-btn--outline pd-mt-sm"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           data-analytics-event="click_maps">
-                            📍 Cómo llegar
-                        </a>
-                    </div>
-
-                    <div class="pd-attention-card">
-                        <div class="pd-attention-card__icon" aria-hidden="true">🚗</div>
-                        <div class="pd-attention-card__title">Atención a domicilio</div>
-                        <div class="pd-attention-card__address">@CitivetModel.HomeServiceArea</div>
-                        <div class="pd-attention-card__hours">@CitivetModel.HomeServiceNote</div>
-                        <a href="@Model.WhatsAppUrl"
-                           class="pd-btn pd-btn--outline pd-mt-sm"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           data-analytics-event="click_whatsapp">
-                            💬 Consultar disponibilidad
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        @* ── 3. Servicios ────────────────────────────────────────────────── *@
-        <section class="pd-section" aria-labelledby="services-title">
-            <div class="pd-container">
-                <p class="pd-eyebrow">Servicios</p>
-                <h2 class="pd-section-title" id="services-title">¿Qué ofrecemos?</h2>
-                <p class="pd-body-text pd-mb-md">
-                    Consultá por WhatsApp para recibir orientación sobre la atención más adecuada para tu mascota.
-                </p>
-
-                <div class="pd-services-cols">
-
-                    <div class="pd-service-group">
-                        <div class="pd-service-group__header">
-                            <span class="pd-service-group__icon" aria-hidden="true">🩺</span>
-                            <h3 class="pd-service-group__title">Clínica general</h3>
-                        </div>
-                        <ul class="pd-service-list">
-                            <li>Vacunas</li>
-                            <li>Colocación de chips</li>
-                            <li>Atención a domicilio</li>
-                            <li>Farmacia veterinaria</li>
-                            <li>Tratamiento del dolor</li>
-                            <li>Homeopatía</li>
-                        </ul>
-                    </div>
-
-                    <div class="pd-service-group">
-                        <div class="pd-service-group__header">
-                            <span class="pd-service-group__icon" aria-hidden="true">⚡</span>
-                            <h3 class="pd-service-group__title">Fisioterapia veterinaria</h3>
-                        </div>
-                        <ul class="pd-service-list">
-                            <li>Magnetoterapia</li>
-                            <li>Fototerapia</li>
-                            <li>Láser</li>
-                            <li>Ozonoterapia</li>
-                        </ul>
-                    </div>
-
-                    <div class="pd-service-group">
-                        <div class="pd-service-group__header">
-                            <span class="pd-service-group__icon" aria-hidden="true">🌿</span>
-                            <h3 class="pd-service-group__title">Acupuntura</h3>
-                        </div>
-                        <ul class="pd-service-list">
-                            <li>Acupuntura veterinaria</li>
-                            <li>Terapias complementarias orientadas al bienestar, movilidad y calidad de vida</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        @* ── 4. Diferencial ──────────────────────────────────────────────── *@
-        <section class="pd-section pd-section--alt" aria-labelledby="diff-title">
-            <div class="pd-container">
-                <p class="pd-eyebrow">Nuestro enfoque</p>
-                <h2 class="pd-section-title" id="diff-title">Atención veterinaria integral y terapias complementarias</h2>
-                <div class="pd-diff-block">
-                    <p class="pd-body-text">
-                        En Citivet combinamos clínica general con fisioterapia, acupuntura y tratamientos orientados
-                        al bienestar de las mascotas. El objetivo es acompañar cada caso con una mirada profesional,
-                        cercana y adaptada a las necesidades del animal.
-                    </p>
-                    <div class="pd-diff-contact">
-                        <div class="pd-diff-contact__name">@CitivetModel.ContactName</div>
-                        <div class="pd-diff-contact__role">Contacto del equipo</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        @* ── 5. Cuándo consultar ──────────────────────────────────────────── *@
-        <section class="pd-section" aria-labelledby="when-title">
-            <div class="pd-container">
-                <p class="pd-eyebrow">Motivos de consulta</p>
-                <h2 class="pd-section-title" id="when-title">¿Cuándo consultar?</h2>
-                <div class="pd-when-grid">
-
-                    <div class="pd-when-card">
-                        <div class="pd-when-card__icon" aria-hidden="true">💉</div>
-                        <div class="pd-when-card__text">Vacunación y controles generales</div>
-                    </div>
-
-                    <div class="pd-when-card">
-                        <div class="pd-when-card__icon" aria-hidden="true">🦴</div>
-                        <div class="pd-when-card__text">Dolor o molestias</div>
-                    </div>
-
-                    <div class="pd-when-card">
-                        <div class="pd-when-card__icon" aria-hidden="true">🐾</div>
-                        <div class="pd-when-card__text">Dificultades de movilidad</div>
-                    </div>
-
-                    <div class="pd-when-card">
-                        <div class="pd-when-card__icon" aria-hidden="true">🌿</div>
-                        <div class="pd-when-card__text">Consultas por tratamientos complementarios</div>
-                    </div>
-
-                    <div class="pd-when-card">
-                        <div class="pd-when-card__icon" aria-hidden="true">🚗</div>
-                        <div class="pd-when-card__text">Atención a domicilio en @CitivetModel.HomeServiceArea</div>
-                    </div>
-
-                    <div class="pd-when-card">
-                        <div class="pd-when-card__icon" aria-hidden="true">💊</div>
-                        <div class="pd-when-card__text">Farmacia veterinaria</div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        @* ── 6. Contacto ─────────────────────────────────────────────────── *@
-        <section class="pd-section pd-section--alt" aria-labelledby="contact-title" data-analytics-section="contact">
-            <div class="pd-container">
-                <p class="pd-eyebrow">Contacto</p>
-                <h2 class="pd-section-title" id="contact-title">Encontranos</h2>
-
-                <div class="pd-contact-grid">
-
-                    <a href="@Model.WhatsAppUrl"
-                       class="pd-contact-card"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Abrir WhatsApp de @CitivetModel.BusinessName"
-                       data-analytics-event="click_whatsapp">
-                        <div class="pd-contact-card__icon" aria-hidden="true">💬</div>
-                        <div class="pd-contact-card__label">WhatsApp</div>
-                        <div class="pd-contact-card__value">Pedir turno ahora</div>
-                    </a>
-
-                    <a href="@CitivetModel.MapsUrl"
-                       class="pd-contact-card"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Dirección de @CitivetModel.BusinessName en Google Maps"
-                       data-analytics-event="click_maps">
-                        <div class="pd-contact-card__icon" aria-hidden="true">📍</div>
-                        <div class="pd-contact-card__label">Dirección</div>
-                        <div class="pd-contact-card__value">@CitivetModel.Address</div>
-                    </a>
-
-                    <a href="@CitivetModel.InstagramUrl"
-                       class="pd-contact-card"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Instagram de @CitivetModel.BusinessName"
-                       data-analytics-event="click_instagram">
-                        <div class="pd-contact-card__icon" aria-hidden="true">📸</div>
-                        <div class="pd-contact-card__label">Instagram</div>
-                        <div class="pd-contact-card__value">@@@CitivetModel.InstagramHandle</div>
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        @* ── 7. CTA final ────────────────────────────────────────────────── *@
-        <section class="pd-cta-final" aria-labelledby="cta-title">
-            <div class="pd-cta-final__inner">
-                <h2 class="pd-section-title" id="cta-title">
-                    Pedí un turno para evaluar a tu mascota
-                </h2>
-                <p class="pd-body-text">
-                    Escribinos por WhatsApp para consultar disponibilidad y coordinar la atención más adecuada.
-                </p>
-                <div class="pd-btn-group">
-                    <a href="@Model.WhatsAppUrl"
-                       class="pd-btn pd-btn--primary"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       data-analytics-event="click_whatsapp">
-                        💬 Pedir turno por WhatsApp
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    @* Nota interna: página privada para prospecto. NO publicar como sitio oficial. NO indexar. *@
-    <footer class="pd-footer">
-        <p>Veterinaria Citivet · Julián Álvarez 211, Villa Crespo, CABA · De 16:30 a 20 hs con turno previo</p>
-    </footer>
-
-    <script src="~/js/localio-analytics.js" asp-append-version="true"></script>
+@await Html.PartialAsync("PrivateDemos/_CitivetDemo", Model)
 
 </body>
 </html>

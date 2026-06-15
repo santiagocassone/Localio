@@ -1,0 +1,547 @@
+@* ============================================================
+   Partial: contenido del body de la demo privada Citivet.
+   Usado por Pages/Demos/Citivet.cshtml y (vía rewrite)
+   por el subdominio citivet.localio.com.ar.
+   NO duplicar este HTML — editar solo aquí.
+   ============================================================ *@
+@using Localio.Web.Pages.Demos
+@model Localio.Web.Pages.Demos.CitivetModel
+
+@if (Model.IsVisible)
+{
+    @* ── Íconos SVG Lucide reutilizables (definidos una vez, referenciados por use) ── *@
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+        <symbol id="ic-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
+            <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/>
+            <circle cx="20" cy="10" r="2"/>
+        </symbol>
+        <symbol id="ic-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </symbol>
+        <symbol id="ic-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M5 19.5l.75 2.25L8 23l-2.25.75L5 26l-.75-2.25L2 23l2.25-.75L5 19.5z" transform="scale(.75) translate(2,2)"/>
+        </symbol>
+        <symbol id="ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
+        </symbol>
+        <symbol id="ic-clipboard-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+            <path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+            <polyline points="9 14 11 16 15 12"/>
+        </symbol>
+        <symbol id="ic-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            <polyline points="7.5 12 10 9 12 14 14 11 16.5 12"/>
+        </symbol>
+        <symbol id="ic-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </symbol>
+        <symbol id="ic-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </symbol>
+        <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </symbol>
+        <symbol id="ic-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </symbol>
+        <symbol id="ic-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </symbol>
+        <symbol id="ic-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </symbol>
+        <symbol id="ic-paw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/>
+            <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/>
+        </symbol>
+        <symbol id="ic-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+        </symbol>
+        <symbol id="ic-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+        </symbol>
+        <symbol id="ic-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.882a.5.5 0 0 0 .611.61l6.083-1.476A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.97 0-3.808-.538-5.38-1.472l-.385-.231-3.993.968.998-3.918-.253-.4A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </symbol>
+    </svg>
+
+    @* ── Header ── *@
+    <header class="pd-header">
+        <div class="pd-header__inner">
+            <div class="pd-header__brand">
+                Citivet
+                <span class="pd-header__brand-sub">Veterinaria · Villa Crespo, CABA</span>
+            </div>
+            <nav class="pd-header__nav" aria-label="Navegación principal">
+                <a class="pd-header__nav-link" href="#servicios">Servicios</a>
+                <a class="pd-header__nav-link" href="#ubicacion">Ubicación</a>
+                <a class="pd-header__nav-link" href="#contacto">Contacto</a>
+            </nav>
+            <div class="pd-header__cta">
+                <a href="@Model.WhatsAppUrl"
+                   class="pd-btn pd-btn--wa"
+                   target="_blank" rel="noopener noreferrer"
+                   data-analytics-event="click_whatsapp">
+                    <svg width="15" height="15" aria-hidden="true"><use href="#ic-whatsapp"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main data-demo-id="citivet" data-business-name="Citivet" data-page-type="private_demo">
+
+        @* ── A. Hero ── *@
+        <section class="pd-hero" aria-labelledby="hero-title">
+            <div class="pd-hero__inner">
+
+                <div class="pd-hero__text-col">
+                    <div class="pd-hero__badges">
+                        <span class="pd-badge">
+                            <svg width="11" height="11" aria-hidden="true"><use href="#ic-map-pin"/></svg>
+                            Julián Álvarez 211
+                        </span>
+                        <span class="pd-badge">Villa Crespo, CABA</span>
+                        <span class="pd-badge">
+                            <svg width="11" height="11" aria-hidden="true"><use href="#ic-check-circle"/></svg>
+                            Atención personalizada
+                        </span>
+                    </div>
+
+                    <h1 class="pd-title" id="hero-title">@CitivetModel.BusinessName</h1>
+                    <p class="pd-subtitle">@CitivetModel.BusinessTagline</p>
+                    <p class="pd-body-text pd-mb-md">
+                        Atención profesional y cercana para acompañar la movilidad,
+                        recuperación y calidad de vida de perros y gatos.
+                    </p>
+
+                    <div class="pd-hero__meta">
+                        <div class="pd-hero__meta-item">
+                            <svg width="15" height="15" aria-hidden="true"><use href="#ic-map-pin"/></svg>
+                            @CitivetModel.Address
+                        </div>
+                        <div class="pd-hero__meta-item">
+                            <svg width="15" height="15" aria-hidden="true"><use href="#ic-clock"/></svg>
+                            De 16:30 a 20 hs · Con turno previo
+                        </div>
+                        <div class="pd-hero__meta-item">
+                            <svg width="15" height="15" aria-hidden="true"><use href="#ic-check-circle"/></svg>
+                            Consultas por WhatsApp
+                        </div>
+                    </div>
+
+                    <div class="pd-btn-group">
+                        <a href="@Model.WhatsAppUrl"
+                           class="pd-btn pd-btn--wa"
+                           target="_blank" rel="noopener noreferrer"
+                           data-analytics-event="click_whatsapp">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#ic-whatsapp"/></svg>
+                            Consultar por WhatsApp
+                        </a>
+                        <a href="@CitivetModel.MapsUrl"
+                           class="pd-btn pd-btn--outline"
+                           target="_blank" rel="noopener noreferrer"
+                           data-analytics-event="click_maps">
+                            <svg width="16" height="16" aria-hidden="true"><use href="#ic-map-pin"/></svg>
+                            Cómo llegar
+                        </a>
+                    </div>
+                </div>
+
+                @* ── Bloque visual del hero (sin imagen) ── *@
+                <div class="pd-hero__visual-col">
+                    <div class="pd-hero-card">
+                        <div class="pd-hero-card__top">
+                            <div class="pd-hero-card__icon-main" aria-hidden="true">
+                                <svg width="32" height="32"><use href="#ic-stethoscope"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-hero-card__title">Atención veterinaria profesional</div>
+                                <div class="pd-hero-card__subtitle">Cuidado cercano para perros y gatos</div>
+                            </div>
+                        </div>
+
+                        <div class="pd-hero-card__chips">
+                            <span class="pd-hero-chip">
+                                <svg width="13" height="13" aria-hidden="true"><use href="#ic-activity"/></svg>
+                                Fisioterapia
+                            </span>
+                            <span class="pd-hero-chip">
+                                <svg width="13" height="13" aria-hidden="true"><use href="#ic-sparkles"/></svg>
+                                Acupuntura
+                            </span>
+                            <span class="pd-hero-chip">
+                                <svg width="13" height="13" aria-hidden="true"><use href="#ic-leaf"/></svg>
+                                Bienestar
+                            </span>
+                        </div>
+
+                        <div class="pd-hero-card__divider" aria-hidden="true"></div>
+
+                        <div class="pd-hero-card__footer">
+                            <div class="pd-hero-card__footer-text">
+                                <svg width="14" height="14" aria-hidden="true"><use href="#ic-paw"/></svg>
+                                Villa Crespo, CABA
+                            </div>
+                            <span class="pd-hero-card__footer-tag">Turno previo</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        @* ── B. Confianza ── *@
+        <section class="pd-section pd-section--white" aria-labelledby="trust-title">
+            <div class="pd-container">
+                <p class="pd-eyebrow">
+                    <svg width="12" height="12" aria-hidden="true"><use href="#ic-shield-check"/></svg>
+                    Nuestro enfoque
+                </p>
+                <h2 class="pd-section-title" id="trust-title" style="max-width:38ch">
+                    Atención especializada para la recuperación de tu mascota
+                </h2>
+                <p class="pd-body-text" style="max-width:54ch">
+                    En Citivet acompañamos procesos de movilidad, dolor, recuperación y bienestar
+                    con un enfoque profesional, cercano y personalizado.
+                </p>
+                <div class="pd-trust-grid">
+
+                    <div class="pd-trust-card">
+                        <div class="pd-trust-card__icon" aria-hidden="true">
+                            <svg width="22" height="22"><use href="#ic-clipboard-check"/></svg>
+                        </div>
+                        <div class="pd-trust-card__body">
+                            <div class="pd-trust-card__title">Evaluación profesional</div>
+                            <div class="pd-trust-card__desc">Diagnóstico y plan de tratamiento adaptado a cada caso.</div>
+                        </div>
+                    </div>
+
+                    <div class="pd-trust-card">
+                        <div class="pd-trust-card__icon" aria-hidden="true">
+                            <svg width="22" height="22"><use href="#ic-heart-pulse"/></svg>
+                        </div>
+                        <div class="pd-trust-card__body">
+                            <div class="pd-trust-card__title">Tratamientos personalizados</div>
+                            <div class="pd-trust-card__desc">Fisioterapia, acupuntura y terapias diseñadas para tu mascota.</div>
+                        </div>
+                    </div>
+
+                    <div class="pd-trust-card">
+                        <div class="pd-trust-card__icon" aria-hidden="true">
+                            <svg width="22" height="22"><use href="#ic-users"/></svg>
+                        </div>
+                        <div class="pd-trust-card__body">
+                            <div class="pd-trust-card__title">Acompañamiento cercano</div>
+                            <div class="pd-trust-card__desc">Seguimiento continuo y orientación a lo largo de todo el proceso.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        @* ── C. Servicios ── *@
+        <section class="pd-section pd-section--alt" id="servicios" aria-labelledby="services-title">
+            <div class="pd-container">
+                <p class="pd-eyebrow">
+                    <svg width="12" height="12" aria-hidden="true"><use href="#ic-stethoscope"/></svg>
+                    Servicios
+                </p>
+                <h2 class="pd-section-title" id="services-title" style="max-width:34ch">
+                    ¿Qué tratamos en Citivet?
+                </h2>
+                <p class="pd-body-text" style="max-width:52ch">
+                    Especialistas en fisioterapia, acupuntura y bienestar veterinario.
+                    Consultá por WhatsApp para orientarte sobre la atención más adecuada.
+                </p>
+                <div class="pd-services-grid">
+
+                    <div class="pd-service-card">
+                        <div class="pd-service-card__icon" aria-hidden="true">
+                            <svg width="26" height="26"><use href="#ic-activity"/></svg>
+                        </div>
+                        <div class="pd-service-card__title">Fisioterapia veterinaria</div>
+                        <p class="pd-service-card__desc">
+                            Rehabilitación física para mejorar movilidad, recuperación y calidad de vida.
+                            Magnetoterapia, fotobiomodulación, láser y ozono.
+                        </p>
+                    </div>
+
+                    <div class="pd-service-card">
+                        <div class="pd-service-card__icon" aria-hidden="true">
+                            <svg width="26" height="26"><use href="#ic-sparkles"/></svg>
+                        </div>
+                        <div class="pd-service-card__title">Acupuntura veterinaria</div>
+                        <p class="pd-service-card__desc">
+                            Técnicas complementarias orientadas al bienestar,
+                            manejo del dolor, movilidad y calidad de vida.
+                        </p>
+                    </div>
+
+                    <div class="pd-service-card">
+                        <div class="pd-service-card__icon" aria-hidden="true">
+                            <svg width="26" height="26"><use href="#ic-leaf"/></svg>
+                        </div>
+                        <div class="pd-service-card__title">Bienestar y recuperación</div>
+                        <p class="pd-service-card__desc">
+                            Acompañamiento integral para mascotas que necesitan
+                            cuidado específico durante su proceso de recuperación.
+                        </p>
+                    </div>
+
+                    <div class="pd-service-card">
+                        <div class="pd-service-card__icon" aria-hidden="true">
+                            <svg width="26" height="26"><use href="#ic-stethoscope"/></svg>
+                        </div>
+                        <div class="pd-service-card__title">Consulta profesional</div>
+                        <p class="pd-service-card__desc">
+                            Contanos qué necesita tu mascota y te orientamos
+                            sobre cómo avanzar. Atención personalizada desde la primera consulta.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        @* ── D. Sobre Citivet ── *@
+        <section class="pd-section pd-section--white" aria-labelledby="about-title">
+            <div class="pd-container">
+                <div class="pd-about-inner">
+                    <div>
+                        <p class="pd-eyebrow">
+                            <svg width="12" height="12" aria-hidden="true"><use href="#ic-paw"/></svg>
+                            Sobre nosotros
+                        </p>
+                        <h2 class="pd-section-title" id="about-title">Citivet</h2>
+                        <p class="pd-body-text pd-mb-md">
+                            Citivet brinda atención veterinaria orientada a fisioterapia, acupuntura
+                            y bienestar animal, acompañando cada caso con una mirada profesional,
+                            cuidadosa y personalizada.
+                        </p>
+                        <p class="pd-body-text">
+                            Trabajamos con un enfoque integral, combinando técnicas de rehabilitación
+                            con atención cercana y seguimiento continuo para cada mascota.
+                        </p>
+                    </div>
+
+                    @* Card visual con datos concretos — reemplaza imagen *@
+                    <div class="pd-about-visual">
+                        <div class="pd-about-visual__row">
+                            <div class="pd-about-visual__icon" aria-hidden="true">
+                                <svg width="20" height="20"><use href="#ic-activity"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-about-visual__label">Especialidad</div>
+                                <div class="pd-about-visual__value">Fisioterapia y rehabilitación veterinaria</div>
+                            </div>
+                        </div>
+                        <div class="pd-about-visual__row">
+                            <div class="pd-about-visual__icon" aria-hidden="true">
+                                <svg width="20" height="20"><use href="#ic-sparkles"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-about-visual__label">Terapias</div>
+                                <div class="pd-about-visual__value">Acupuntura y tratamientos complementarios</div>
+                            </div>
+                        </div>
+                        <div class="pd-about-visual__row">
+                            <div class="pd-about-visual__icon" aria-hidden="true">
+                                <svg width="20" height="20"><use href="#ic-heart-pulse"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-about-visual__label">Enfoque</div>
+                                <div class="pd-about-visual__value">Bienestar animal integral y personalizado</div>
+                            </div>
+                        </div>
+                        <div class="pd-about-visual__row">
+                            <div class="pd-about-visual__icon" aria-hidden="true">
+                                <svg width="20" height="20"><use href="#ic-paw"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-about-visual__label">Pacientes</div>
+                                <div class="pd-about-visual__value">Perros y gatos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        @* ── E. Ubicación ── *@
+        <section class="pd-section pd-section--alt" id="ubicacion" aria-labelledby="location-title" data-analytics-section="contact">
+            <div class="pd-container">
+                <p class="pd-eyebrow">
+                    <svg width="12" height="12" aria-hidden="true"><use href="#ic-map-pin"/></svg>
+                    Ubicación
+                </p>
+                <h2 class="pd-section-title" id="location-title">Estamos en Villa Crespo</h2>
+
+                <div class="pd-location-grid">
+
+                    <div class="pd-location-detail">
+                        <div class="pd-location-detail__row">
+                            <div class="pd-location-detail__icon" aria-hidden="true">
+                                <svg width="20" height="20"><use href="#ic-map-pin"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-location-detail__label">Consultorio</div>
+                                <div class="pd-location-detail__value">@CitivetModel.Address</div>
+                            </div>
+                        </div>
+                        <div class="pd-location-detail__row">
+                            <div class="pd-location-detail__icon" aria-hidden="true">
+                                <svg width="20" height="20"><use href="#ic-clock"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-location-detail__label">Horario</div>
+                                <div class="pd-location-detail__value">@CitivetModel.AddressDetail</div>
+                            </div>
+                        </div>
+                        <div class="pd-location-detail__row">
+                            <div class="pd-location-detail__icon" aria-hidden="true">
+                                <svg width="20" height="20"><use href="#ic-home"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-location-detail__label">Atención a domicilio</div>
+                                <div class="pd-location-detail__value">@CitivetModel.HomeServiceNote</div>
+                            </div>
+                        </div>
+
+                        @* ── Botones de contacto ── *@
+                        <div id="contacto" class="pd-contact-btns" style="margin-top:1.25rem">
+                            <a href="@Model.WhatsAppUrl"
+                               class="pd-contact-btn"
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="Abrir WhatsApp de @CitivetModel.BusinessName"
+                               data-analytics-event="click_whatsapp">
+                                <div class="pd-contact-btn__icon pd-contact-btn__icon--wa" aria-hidden="true">
+                                    <svg width="20" height="20"><use href="#ic-whatsapp"/></svg>
+                                </div>
+                                <div>
+                                    <div class="pd-contact-btn__label">WhatsApp</div>
+                                    <div class="pd-contact-btn__value">Pedir turno ahora</div>
+                                </div>
+                            </a>
+                            <a href="@CitivetModel.MapsUrl"
+                               class="pd-contact-btn"
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="Dirección en Google Maps"
+                               data-analytics-event="click_maps">
+                                <div class="pd-contact-btn__icon pd-contact-btn__icon--maps" aria-hidden="true">
+                                    <svg width="20" height="20"><use href="#ic-map-pin"/></svg>
+                                </div>
+                                <div>
+                                    <div class="pd-contact-btn__label">Dirección</div>
+                                    <div class="pd-contact-btn__value">Ver en Google Maps</div>
+                                </div>
+                            </a>
+                            <a href="@CitivetModel.InstagramUrl"
+                               class="pd-contact-btn"
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="Instagram de @CitivetModel.BusinessName"
+                               data-analytics-event="click_instagram">
+                                <div class="pd-contact-btn__icon pd-contact-btn__icon--ig" aria-hidden="true">
+                                    <svg width="20" height="20"><use href="#ic-instagram"/></svg>
+                                </div>
+                                <div>
+                                    <div class="pd-contact-btn__label">Instagram</div>
+                                    <div class="pd-contact-btn__value">@@@CitivetModel.InstagramHandle</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    @* Card de dirección — reemplaza imagen de mapa *@
+                    <div class="pd-map-visual">
+                        <div class="pd-map-visual__header">
+                            <div class="pd-map-visual__icon" aria-hidden="true">
+                                <svg width="22" height="22"><use href="#ic-map-pin"/></svg>
+                            </div>
+                            <div>
+                                <div class="pd-map-visual__address-primary">Julián Álvarez 211</div>
+                                <div class="pd-map-visual__address-secondary">Villa Crespo, CABA</div>
+                            </div>
+                        </div>
+                        <div class="pd-map-visual__detail">
+                            <svg width="16" height="16" aria-hidden="true"><use href="#ic-clock"/></svg>
+                            De 16:30 a 20 hs con turno previo
+                        </div>
+                        <div class="pd-map-visual__detail">
+                            <svg width="16" height="16" aria-hidden="true"><use href="#ic-home"/></svg>
+                            Domicilio en Recoleta por las mañanas
+                        </div>
+                        <a href="@CitivetModel.MapsUrl"
+                           class="pd-btn pd-btn--outline pd-mt-sm"
+                           target="_blank" rel="noopener noreferrer"
+                           data-analytics-event="click_maps"
+                           style="width:100%;justify-content:center">
+                            <svg width="16" height="16" aria-hidden="true"><use href="#ic-map-pin"/></svg>
+                            Ver ubicación en Google Maps
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        @* ── F. CTA Final ── *@
+        <section class="pd-cta-section" aria-labelledby="cta-title">
+            <div class="pd-cta-section__inner">
+                <div class="pd-cta-section__icon" aria-hidden="true">
+                    <svg width="30" height="30"><use href="#ic-message-circle"/></svg>
+                </div>
+                <h2 class="pd-cta-section__title" id="cta-title">
+                    ¿Querés consultar por tu mascota?
+                </h2>
+                <p class="pd-cta-section__text">
+                    Escribinos por WhatsApp y contanos qué necesita.
+                    Te orientamos sobre la atención más adecuada.
+                </p>
+                <a href="@Model.WhatsAppUrl"
+                   class="pd-btn pd-btn--wa"
+                   target="_blank" rel="noopener noreferrer"
+                   data-analytics-event="click_whatsapp">
+                    <svg width="18" height="18" aria-hidden="true"><use href="#ic-whatsapp"/></svg>
+                    Consultar por WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-footer__inner">
+            <div class="pd-footer__name">Veterinaria Citivet</div>
+            <div class="pd-footer__address">Julián Álvarez 211, Villa Crespo, CABA · De 16:30 a 20 hs con turno previo</div>
+            <div class="pd-footer__credits">Demo privada creada por Localio</div>
+        </div>
+    </footer>
+
+    @* CTA sticky — solo visible en mobile (≤640px) *@
+    <div class="pd-sticky-cta" role="complementary" aria-label="Contacto rápido">
+        <a href="@Model.WhatsAppUrl"
+           class="pd-btn pd-btn--wa"
+           target="_blank" rel="noopener noreferrer"
+           data-analytics-event="click_whatsapp_sticky">
+            <svg width="18" height="18" aria-hidden="true"><use href="#ic-whatsapp"/></svg>
+            Consultar por WhatsApp
+        </a>
+    </div>
+
+    <script src="~/js/localio-analytics.js" asp-append-version="true"></script>
+
+}
+@if (!Model.IsVisible)
+{
+    @* Demo no disponible — noindex activo en <head>. *@
+    @await Html.PartialAsync("_DemoUnavailable")
+}

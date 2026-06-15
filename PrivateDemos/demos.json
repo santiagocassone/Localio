@@ -1,0 +1,21 @@
+{
+  "_comment": "Demo Manager v0 — registro de demos privadas en JSON. Etapa intermedia antes de migrar a tabla Demo en base de datos.",
+  "demos": [
+    {
+      "id": "citivet",
+      "slug": "citivet",
+      "businessName": "Veterinaria Citivet",
+      "businessType": "Veterinaria",
+      "status": "ActivePrivate",
+      "publicUrl": "https://citivet.localio.com.ar",
+      "contactName": "Dra. Judith Groisman",
+      "contactPhone": "+54 9 11 4439-0976",
+      "contactEmail": null,
+      "notes": "Demo privada creada a partir de información pública relevada.",
+      "createdAt": "2026-06-14T00:00:00Z",
+      "updatedAt": "2026-06-14T00:00:00Z",
+      "expiresAt": null,
+      "isIndexed": false
+    }
+  ]
+}

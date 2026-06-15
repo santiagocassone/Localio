@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Fisioterapia veterinaria">
+  <defs>
+	<linearGradient id="pbg" x1="0%" y1="0%" x2="100%" y2="100%">
+	  <stop offset="0%" stop-color="#e6f0fa"/>
+	  <stop offset="100%" stop-color="#d8eef4"/>
+	</linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#pbg)" rx="12"/>
+
+  <!-- Mesa de fisioterapia -->
+  <rect x="50" y="120" width="140" height="14" rx="5" fill="#a8c0d4"/>
+  <rect x="64" y="134" width="10" height="32" rx="3" fill="#a8c0d4"/>
+  <rect x="166" y="134" width="10" height="32" rx="3" fill="#a8c0d4"/>
+
+  <!-- Animal acostado (perro en tratamiento) -->
+  <ellipse cx="138" cy="112" rx="56" ry="20" fill="#c8a87a" opacity="0.9"/>
+  <!-- Cabeza -->
+  <circle cx="82" cy="104" r="18" fill="#c8a87a" opacity="0.9"/>
+  <!-- Orejas caídas -->
+  <ellipse cx="72" cy="96" rx="7" ry="12" fill="#b09060" transform="rotate(-20 72 96)"/>
+  <ellipse cx="88" cy="92" rx="7" ry="12" fill="#b09060" transform="rotate(10 88 92)"/>
+  <!-- Ojos relajados / cerrados -->
+  <path d="M76 103 Q79 100 82 103" stroke="#5a3a1a" stroke-width="1.5" fill="none"/>
+  <path d="M82 103 Q85 100 88 103" stroke="#5a3a1a" stroke-width="1.5" fill="none"/>
+  <!-- Nariz -->
+  <ellipse cx="82" cy="109" rx="3.5" ry="2" fill="#7a4a32"/>
+  <!-- Patas -->
+  <ellipse cx="166" cy="125" rx="14" ry="8" fill="#b89060" opacity="0.8"/>
+  <ellipse cx="186" cy="122" rx="12" ry="7" fill="#b89060" opacity="0.7"/>
+
+  <!-- Dispositivo de magnetoterapia / láser (estilizado) -->
+  <circle cx="158" cy="88" r="14" fill="#4e8ba5" opacity="0.7"/>
+  <circle cx="158" cy="88" r="8" fill="#7ab8d8" opacity="0.8"/>
+  <!-- Rayo de terapia -->
+  <line x1="158" y1="102" x2="144" y2="118" stroke="#7ab8d8" stroke-width="2" stroke-dasharray="3 2" opacity="0.7"/>
+  <!-- Mango del dispositivo -->
+  <rect x="164" y="70" width="8" height="28" rx="4" fill="#6aa0bc" opacity="0.75"/>
+  <!-- Mano del veterinario (solo) -->
+  <ellipse cx="168" cy="68" rx="10" ry="8" fill="#c8a882" opacity="0.8"/>
+
+  <!-- Ondas de terapia (decorativas) -->
+  <path d="M40 80 Q52 70 64 80 Q76 90 88 80" stroke="#4e8ba5" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M40 92 Q52 82 64 92 Q76 102 88 92" stroke="#4e8ba5" stroke-width="1.5" fill="none" opacity="0.2"/>
+
+  <text x="120" y="175" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#3a5a6a" opacity="0.5">imagen temporal</text>
+</svg>

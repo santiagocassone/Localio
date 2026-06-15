@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" role="img" aria-label="Atención veterinaria profesional">
+  <defs>
+	<linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%">
+	  <stop offset="0%" stop-color="#d6eee6"/>
+	  <stop offset="100%" stop-color="#cce4f2"/>
+	</linearGradient>
+	<linearGradient id="hcirc" x1="0%" y1="0%" x2="100%" y2="100%">
+	  <stop offset="0%" stop-color="#a8d8c8"/>
+	  <stop offset="100%" stop-color="#90c4dc"/>
+	</linearGradient>
+  </defs>
+
+  <rect width="520" height="420" fill="url(#hbg)" rx="16"/>
+  <circle cx="370" cy="190" r="160" fill="url(#hcirc)" opacity="0.35"/>
+  <circle cx="100" cy="370" r="90" fill="#b8dece" opacity="0.25"/>
+
+  <!-- Mesa de consulta -->
+  <rect x="140" y="290" width="240" height="18" rx="6" fill="#b0c8d8"/>
+  <rect x="160" y="308" width="16" height="60" rx="4" fill="#b0c8d8"/>
+  <rect x="344" y="308" width="16" height="60" rx="4" fill="#b0c8d8"/>
+
+  <!-- Animal: gato estilizado en la mesa -->
+  <ellipse cx="260" cy="274" rx="60" ry="34" fill="#d4b896"/>
+  <circle cx="230" cy="252" r="26" fill="#d4b896"/>
+  <!-- Orejas del gato -->
+  <polygon points="216,232 222,210 236,232" fill="#c4a07a"/>
+  <polygon points="228,232 234,210 248,232" fill="#c4a07a"/>
+  <!-- Ojos -->
+  <ellipse cx="224" cy="250" rx="5" ry="6" fill="#3d6b4a"/>
+  <ellipse cx="238" cy="250" rx="5" ry="6" fill="#3d6b4a"/>
+  <circle cx="224" cy="250" r="2.5" fill="#1a2a1a"/>
+  <circle cx="238" cy="250" r="2.5" fill="#1a2a1a"/>
+  <!-- Nariz y boca -->
+  <ellipse cx="231" cy="260" rx="3.5" ry="2" fill="#c87070"/>
+  <path d="M228 263 Q231 268 234 263" stroke="#8a5050" stroke-width="1.2" fill="none"/>
+  <!-- Bigotes -->
+  <line x1="200" y1="259" x2="220" y2="261" stroke="#a08060" stroke-width="1" opacity="0.7"/>
+  <line x1="200" y1="264" x2="220" y2="264" stroke="#a08060" stroke-width="1" opacity="0.7"/>
+  <line x1="242" y1="261" x2="262" y2="259" stroke="#a08060" stroke-width="1" opacity="0.7"/>
+  <line x1="242" y1="264" x2="262" y2="264" stroke="#a08060" stroke-width="1" opacity="0.7"/>
+  <!-- Cola -->
+  <path d="M318 275 Q360 240 350 200" stroke="#d4b896" stroke-width="12" fill="none" stroke-linecap="round"/>
+
+  <!-- Figura veterinaria (parcial, amable) -->
+  <circle cx="380" cy="168" r="28" fill="#c8a882"/>
+  <!-- Gorro médico ligero / cabello -->
+  <path d="M354 162 Q365 142 380 140 Q395 142 406 162" fill="#6a4a2a"/>
+  <!-- Guardapolvo -->
+  <path d="M352 195 Q356 174 380 170 Q404 174 408 195 L415 290 H345 Z" fill="#e8f4f0"/>
+  <!-- Cruz médica -->
+  <rect x="373" y="192" width="14" height="38" rx="3" fill="#1a8f5a" opacity="0.75"/>
+  <rect x="363" y="202" width="34" height="14" rx="3" fill="#1a8f5a" opacity="0.75"/>
+  <!-- Cuello / piel -->
+  <rect x="370" y="167" width="20" height="22" rx="4" fill="#c8a882"/>
+  <!-- Mano extendida hacia el gato -->
+  <path d="M352 240 Q310 258 270 260" stroke="#c8a882" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <circle cx="266" cy="260" r="10" fill="#c8a882"/>
+
+  <!-- Estetoscopio -->
+  <path d="M404 200 Q428 220 424 250 Q420 268 408 272" stroke="#4e8ba5" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="408" cy="275" r="8" fill="#4e8ba5" opacity="0.85"/>
+
+  <!-- Plantas decorativas -->
+  <rect x="60" y="330" width="8" height="60" rx="3" fill="#6a9a6a"/>
+  <ellipse cx="64" cy="320" rx="22" ry="16" fill="#8ac48a"/>
+  <ellipse cx="46" cy="332" rx="16" ry="12" fill="#78b878" transform="rotate(-25 46 332)"/>
+  <ellipse cx="82" cy="330" rx="16" ry="12" fill="#78b878" transform="rotate(25 82 330)"/>
+
+  <!-- Pata huella decorativa fondo derecho -->
+  <g opacity="0.1" transform="translate(458 50) scale(0.6)">
+	<ellipse cx="0" cy="0" rx="22" ry="18" fill="#1a6a5a"/>
+	<circle cx="28" cy="-22" r="12" fill="#1a6a5a"/>
+	<circle cx="-28" cy="-22" r="12" fill="#1a6a5a"/>
+	<circle cx="44" cy="4" r="10" fill="#1a6a5a"/>
+	<circle cx="-44" cy="4" r="10" fill="#1a6a5a"/>
+  </g>
+  <!-- Segunda huella fondo izquierdo -->
+  <g opacity="0.08" transform="translate(55 80) scale(0.5)">
+	<ellipse cx="0" cy="0" rx="22" ry="18" fill="#1a6a5a"/>
+	<circle cx="28" cy="-22" r="12" fill="#1a6a5a"/>
+	<circle cx="-28" cy="-22" r="12" fill="#1a6a5a"/>
+	<circle cx="44" cy="4" r="10" fill="#1a6a5a"/>
+	<circle cx="-44" cy="4" r="10" fill="#1a6a5a"/>
+  </g>
+
+  <!-- Nota reemplazable (muy sutil) -->
+  <text x="260" y="408" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6a8a7a" opacity="0.55">Imagen temporal · reemplazar con foto real</text>
+</svg>

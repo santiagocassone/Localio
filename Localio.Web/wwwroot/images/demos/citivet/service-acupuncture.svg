@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Acupuntura y terapias complementarias veterinarias">
+  <defs>
+	<linearGradient id="abg" x1="0%" y1="0%" x2="100%" y2="100%">
+	  <stop offset="0%" stop-color="#eaf2e8"/>
+	  <stop offset="100%" stop-color="#ddeef8"/>
+	</linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#abg)" rx="12"/>
+
+  <!-- Planta decorativa izquierda (bienestar) -->
+  <rect x="34" y="110" width="6" height="52" rx="3" fill="#6a9a72"/>
+  <ellipse cx="37" cy="100" rx="18" ry="14" fill="#8abf88"/>
+  <ellipse cx="24" cy="112" rx="13" ry="10" fill="#78af78" transform="rotate(-20 24 112)"/>
+  <ellipse cx="50" cy="110" rx="13" ry="10" fill="#78af78" transform="rotate(20 50 110)"/>
+  <!-- Hojita pequeña -->
+  <ellipse cx="37" cy="86" rx="8" ry="12" fill="#9ad090" transform="rotate(-10 37 86)"/>
+
+  <!-- Planta derecha -->
+  <rect x="200" y="118" width="6" height="44" rx="3" fill="#6a9a72"/>
+  <ellipse cx="203" cy="108" rx="16" ry="12" fill="#8abf88"/>
+  <ellipse cx="190" cy="118" rx="12" ry="9" fill="#78af78" transform="rotate(-20 190 118)"/>
+  <ellipse cx="216" cy="116" rx="12" ry="9" fill="#78af78" transform="rotate(20 216 116)"/>
+
+  <!-- Perro acostado relajado -->
+  <ellipse cx="130" cy="128" rx="54" ry="22" fill="#c8a87a" opacity="0.9"/>
+  <circle cx="78" cy="116" r="20" fill="#c8a87a" opacity="0.9"/>
+  <!-- Orejas -->
+  <ellipse cx="68" cy="106" rx="7" ry="13" fill="#b09060" transform="rotate(-18 68 106)"/>
+  <ellipse cx="86" cy="102" rx="7" ry="13" fill="#b09060" transform="rotate(12 86 102)"/>
+  <!-- Ojos cerrados (calma) -->
+  <path d="M72 114 Q75 111 78 114" stroke="#5a3a1a" stroke-width="1.5" fill="none"/>
+  <path d="M79 114 Q82 111 85 114" stroke="#5a3a1a" stroke-width="1.5" fill="none"/>
+  <!-- Nariz -->
+  <ellipse cx="78" cy="120" rx="3.5" ry="2" fill="#7a4a32"/>
+  <!-- Cola levantada (bienestar) -->
+  <path d="M182 125 Q210 100 205 72" stroke="#c8a87a" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+  <!-- Agujas de acupuntura (sutiles, estilizadas) -->
+  <line x1="108" y1="100" x2="112" y2="120" stroke="#7ab0a8" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="108" cy="98" r="2.5" fill="#5a9a90" opacity="0.7"/>
+
+  <line x1="128" y1="96" x2="130" y2="116" stroke="#7ab0a8" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="128" cy="94" r="2.5" fill="#5a9a90" opacity="0.7"/>
+
+  <line x1="148" y1="98" x2="148" y2="118" stroke="#7ab0a8" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="148" cy="96" r="2.5" fill="#5a9a90" opacity="0.7"/>
+
+  <line x1="165" y1="103" x2="163" y2="122" stroke="#7ab0a8" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="165" cy="101" r="2.5" fill="#5a9a90" opacity="0.7"/>
+
+  <!-- Brillo / aura de bienestar -->
+  <circle cx="130" cy="112" r="70" fill="none" stroke="#a8d8a8" stroke-width="1" opacity="0.25"/>
+  <circle cx="130" cy="112" r="82" fill="none" stroke="#a8d8a8" stroke-width="0.8" opacity="0.15"/>
+
+  <text x="120" y="175" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#3a5a4a" opacity="0.5">imagen temporal</text>
+</svg>

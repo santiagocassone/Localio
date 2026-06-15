@@ -1,3 +1,4 @@
+using Localio.Web.Middleware;
 using Localio.Web.Models;
 using Localio.Web.Services;
 
@@ -15,6 +16,9 @@ if (!string.IsNullOrEmpty(azurePort))
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<ISiteConfigService, SiteConfigService>();
+builder.Services.AddSingleton<IPrivateDemoService, PrivateDemoService>();
+builder.Services.Configure<DemoSubdomainOptions>(
+    builder.Configuration.GetSection(DemoSubdomainOptions.SectionName));
 builder.Services.Configure<AnalyticsOptions>(
     builder.Configuration.GetSection(AnalyticsOptions.SectionName));
 
@@ -28,6 +32,10 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Soporte de subdominios por demo privada ({slug}.localio.com.ar).
+// Activo solo si Localio:EnableDemoSubdomains = true en configuración.
+app.UseMiddleware<DemoSubdomainMiddleware>();
 
 app.UseRouting();
 
