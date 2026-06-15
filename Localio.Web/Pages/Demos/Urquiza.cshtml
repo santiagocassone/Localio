@@ -1,0 +1,42 @@
+@* ============================================================
+   Demo privada para prospecto real: Veterinaria Urquiza.
+   NO publicar como sitio oficial. NO enlazar desde la landing pública.
+   Acceso por URL directa: /demos/urquiza
+   o via subdominio:       urquiza.localio.com.ar  (cuando EnableDemoSubdomains = true)
+   El HTML de la demo está en Pages/Shared/PrivateDemos/_UrquizaDemo.cshtml.
+   ============================================================ *@
+@page "/demos/urquiza"
+@model Localio.Web.Pages.Demos.UrquizaModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>@UrquizaModel.PageTitle</title>
+    <meta name="description" content="@UrquizaModel.PageDescription" />
+    @* Robots: noindex/nofollow para ActivePrivate, Draft y no disponibles; index/follow para ActivePublic y Converted. *@
+    @if (Model.ShouldRenderNoIndex)
+    {
+        <meta name="robots" content="noindex, nofollow" />
+    }
+    <meta property="og:title"  content="@UrquizaModel.PageTitle" />
+    <meta property="og:type"   content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="~/css/private-demos.css" asp-append-version="true" />
+    @* Clarity: no renderiza nada si está deshabilitado *@
+    @{ await Html.RenderPartialAsync("_Clarity"); }
+</head>
+<body class="pd-body"
+      data-page-type="private_demo"
+      data-demo-id="urquiza"
+      data-business-name="Veterinaria Urquiza">
+
+@await Html.PartialAsync("PrivateDemos/_UrquizaDemo", Model)
+
+</body>
+</html>

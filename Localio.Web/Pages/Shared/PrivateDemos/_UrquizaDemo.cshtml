@@ -1,0 +1,584 @@
+@* ============================================================
+   Partial HTML de la demo privada: Veterinaria Urquiza.
+   NO oficial. NO indexar. Demo generada por Localio para prospecto real.
+
+   IMÁGENES: Los contenedores marcados con [FOTO] esperan imágenes reales.
+   Cuando la demo avance, reemplazar los placeholders SVG por fotos reales
+   autorizadas o validadas del comercio. Las rutas esperadas son:
+     ~/images/demos/urquizavet/hero-veterinaria-urquiza.jpg
+     ~/images/demos/urquizavet/veterinaria-urquiza-ambiente.jpg
+     ~/images/demos/urquizavet/veterinaria-urquiza-mascota.jpg
+     ~/images/demos/urquizavet/veterinaria-urquiza-detalle.jpg
+   ============================================================ *@
+@using Localio.Web.Pages.Demos
+@model Localio.Web.Pages.Demos.UrquizaModel
+
+@if (!Model.IsVisible)
+{
+    @await Html.PartialAsync("_DemoUnavailable")
+    return;
+}
+
+@* ── Header ──────────────────────────────────────────────────────────────── *@
+<header class="pd-header" role="banner">
+    <div class="pd-header__inner">
+        <a href="#inicio" class="pd-header__brand" aria-label="Ir al inicio — Veterinaria Urquiza">
+            <span>Veterinaria Urquiza</span>
+            <span class="pd-header__brand-sub">Villa Urquiza · CABA</span>
+        </a>
+        <nav class="pd-header__nav" aria-label="Navegación principal">
+            <a class="pd-header__nav-link" href="#atencion">Atención</a>
+            <a class="pd-header__nav-link" href="#confianza">Confianza</a>
+            <a class="pd-header__nav-link" href="#ubicacion">Ubicación</a>
+            <a class="pd-header__nav-link" href="#contacto">Contacto</a>
+        </nav>
+        <div class="pd-header__cta">
+            <a href="@Model.WhatsAppUrl"
+               class="pd-btn pd-btn--wa"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Consultar por WhatsApp"
+               data-analytics-event="click_whatsapp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp
+            </a>
+        </div>
+    </div>
+</header>
+
+@* ── Hero ─────────────────────────────────────────────────────────────────── *@
+<section class="pd-hero" id="inicio" aria-labelledby="hero-title">
+    <div class="pd-hero__inner">
+
+        <div class="pd-hero__content-col">
+            <div class="pd-hero__badges" aria-label="Datos destacados">
+                <span class="pd-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    @UrquizaModel.Rating de calificación
+                </span>
+                <span class="pd-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    @UrquizaModel.ReviewsCount reseñas
+                </span>
+                <span class="pd-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Villa Urquiza
+                </span>
+            </div>
+
+            <span class="pd-eyebrow" aria-label="Categoría">Veterinaria en Villa Urquiza</span>
+
+            <h1 class="pd-title" id="hero-title">Veterinaria Urquiza</h1>
+            <p class="pd-subtitle">@UrquizaModel.BusinessTagline</p>
+            <p class="pd-body-text pd-mb-md">
+                Un espacio de confianza para el cuidado de perros y gatos, con contacto
+                directo por WhatsApp y ubicación clara en el barrio.
+            </p>
+
+            <div class="pd-btn-group">
+                <a href="@Model.WhatsAppUrl"
+                   class="pd-btn pd-btn--wa"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Consultar por WhatsApp"
+                   data-analytics-event="click_whatsapp">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Consultar por WhatsApp
+                </a>
+                <a href="@UrquizaModel.MapsUrl"
+                   class="pd-btn pd-btn--outline"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Cómo llegar a Veterinaria Urquiza"
+                   data-analytics-event="click_maps">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                    </svg>
+                    Cómo llegar
+                </a>
+            </div>
+        </div>
+
+        @* ── [FOTO HERO] ──────────────────────────────────────────────────────
+           Reemplazar el contenedor SVG placeholder por:
+           <img src="~/images/demos/urquizavet/hero-veterinaria-urquiza.jpg"
+                alt="Interior de Veterinaria Urquiza en Villa Urquiza"
+                loading="eager" />
+           cuando la imagen real esté disponible y autorizada.
+           ─────────────────────────────────────────────────────────────────── *@
+        <div class="pd-hero__photo-col" aria-hidden="true">
+            <div class="pd-hero__photo-wrap">
+                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"
+                     style="width:100%;height:100%;position:absolute;inset:0">
+                    <rect width="800" height="600" fill="#DDEBE5"/>
+                    <g fill="none" stroke="#1F6F68" stroke-width="2" opacity="0.35">
+                        <circle cx="400" cy="270" r="80"/>
+                        <path d="M370 255 Q385 225 400 255 Q415 225 430 255" stroke-linecap="round"/>
+                        <path d="M355 295 Q400 335 445 295" stroke-linecap="round"/>
+                        <ellipse cx="360" cy="250" rx="14" ry="20"/>
+                        <ellipse cx="440" cy="250" rx="14" ry="20"/>
+                        <ellipse cx="340" cy="235" rx="10" ry="14"/>
+                        <ellipse cx="460" cy="235" rx="10" ry="14"/>
+                    </g>
+                    <text x="400" y="400" text-anchor="middle"
+                          font-family="system-ui" font-size="13" fill="#1F6F68" opacity="0.55">
+                        Foto del local — pendiente de foto real autorizada
+                    </text>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@* ── Confianza / Reputación ──────────────────────────────────────────────── *@
+<section class="pd-section pd-section--white" id="confianza" aria-labelledby="trust-title">
+    <div class="pd-container">
+        <span class="pd-eyebrow">Reputación</span>
+        <h2 class="pd-section-title" id="trust-title">Una veterinaria de confianza en Villa Urquiza</h2>
+
+        <div class="pd-trust-grid pd-trust-grid--4" role="list">
+
+            <article class="pd-trust-card" role="listitem">
+                <div class="pd-trust-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                </div>
+                <div class="pd-trust-card__body">
+                    <div class="pd-trust-card__title">@UrquizaModel.Rating de calificación</div>
+                    <p class="pd-trust-card__desc">Valoración destacada en búsquedas locales de Villa Urquiza.</p>
+                </div>
+            </article>
+
+            <article class="pd-trust-card" role="listitem">
+                <div class="pd-trust-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                </div>
+                <div class="pd-trust-card__body">
+                    <div class="pd-trust-card__title">@UrquizaModel.ReviewsCount reseñas</div>
+                    <p class="pd-trust-card__desc">Reputación construida con clientes del barrio a lo largo del tiempo.</p>
+                </div>
+            </article>
+
+            <article class="pd-trust-card" role="listitem">
+                <div class="pd-trust-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </div>
+                <div class="pd-trust-card__body">
+                    <div class="pd-trust-card__title">Instagram activo</div>
+                    <p class="pd-trust-card__desc">Presencia visual y canales activos para novedades del comercio.</p>
+                </div>
+            </article>
+
+            <article class="pd-trust-card" role="listitem">
+                <div class="pd-trust-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                </div>
+                <div class="pd-trust-card__body">
+                    <div class="pd-trust-card__title">Contacto directo</div>
+                    <p class="pd-trust-card__desc">Consultas fáciles y rápidas por WhatsApp, sin formularios complicados.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+@* ── Atención veterinaria ────────────────────────────────────────────────── *@
+<section class="pd-section pd-section--alt" id="atencion" aria-labelledby="services-title">
+    <div class="pd-container">
+        <span class="pd-eyebrow">Atención</span>
+        <h2 class="pd-section-title" id="services-title">Atención veterinaria</h2>
+        <p class="pd-body-text pd-mb-md">
+            Orientación profesional para el cuidado de perros y gatos en el barrio.
+        </p>
+
+        <div class="pd-services-grid" role="list">
+
+            <article class="pd-service-card" role="listitem">
+                <div class="pd-service-card__icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 8v4l2 2"/>
+                        <path d="M8 16s1.5-2 4-2 4 2 4 2"/>
+                    </svg>
+                </div>
+                <h3 class="pd-service-card__title">Consultas veterinarias</h3>
+                <p class="pd-service-card__desc">
+                    Orientación profesional para el cuidado de perros y gatos.
+                    Un primer paso claro para entender qué necesita tu mascota.
+                </p>
+            </article>
+
+            <article class="pd-service-card" role="listitem">
+                <div class="pd-service-card__icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <h3 class="pd-service-card__title">Controles de salud</h3>
+                <p class="pd-service-card__desc">
+                    Acompañamiento para el bienestar general de tu mascota.
+                    Revisiones periódicas que hacen la diferencia a largo plazo.
+                </p>
+            </article>
+
+            <article class="pd-service-card" role="listitem">
+                <div class="pd-service-card__icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.38 4.068 2 6.268 2c1.863 0 3.484 1.08 4.732 2.811C12.248 3.08 13.869 2 15.732 2 17.932 2 21 3.38 21 7.191c0 4.105-5.37 8.863-11 14.402z"/>
+                    </svg>
+                </div>
+                <h3 class="pd-service-card__title">Cuidado cotidiano</h3>
+                <p class="pd-service-card__desc">
+                    Atención cercana para las necesidades habituales de perros y gatos.
+                    Consultas sobre alimentación, comportamiento y prevención.
+                </p>
+            </article>
+
+            <article class="pd-service-card" role="listitem">
+                <div class="pd-service-card__icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                </div>
+                <h3 class="pd-service-card__title">Orientación profesional</h3>
+                <p class="pd-service-card__desc">
+                    Un canal claro para consultar cómo avanzar según cada necesidad.
+                    Sin complicaciones y con información directa.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+@* ── Sobre Veterinaria Urquiza ───────────────────────────────────────────── *@
+<section class="pd-section pd-section--beige" aria-labelledby="about-title">
+    <div class="pd-container">
+        <div class="pd-about-inner">
+
+            <div>
+                <span class="pd-eyebrow">Sobre nosotros</span>
+                <h2 class="pd-section-title" id="about-title">Cercanía y atención profesional en el barrio</h2>
+                <p class="pd-body-text pd-mb-md">
+                    Veterinaria Urquiza acompaña el cuidado diario de perros y gatos en Villa Urquiza,
+                    con una atención cercana, profesional y canales activos para consultas.
+                </p>
+
+                <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;">
+                    <li style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:#1F2A2A;font-weight:500;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F6F68" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        Atención local en Villa Urquiza
+                    </li>
+                    <li style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:#1F2A2A;font-weight:500;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F6F68" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        Contacto directo por WhatsApp
+                    </li>
+                    <li style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:#1F2A2A;font-weight:500;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F6F68" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        Información clara y sin vueltas
+                    </li>
+                </ul>
+            </div>
+
+            @* ── [FOTO ABOUT] ──────────────────────────────────────────────────
+               Reemplazar el bloque pd-about-visual por una <img> real:
+               <div class="pd-about-visual" style="padding:0;overflow:hidden;border-radius:var(--r-card);">
+                 <img src="~/images/demos/urquizavet/veterinaria-urquiza-ambiente.jpg"
+                      alt="Ambiente de Veterinaria Urquiza"
+                      style="width:100%;height:320px;object-fit:cover;object-position:center;display:block;" />
+               </div>
+               cuando la imagen esté disponible y autorizada.
+               ──────────────────────────────────────────────────────────────── *@
+            <div class="pd-about-visual" aria-hidden="true">
+                <div class="pd-about-visual__row">
+                    <div class="pd-about-visual__icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <div class="pd-about-visual__label">Ubicación</div>
+                        <div class="pd-about-visual__value">Villa Urquiza, CABA</div>
+                    </div>
+                </div>
+                <div class="pd-about-visual__row">
+                    <div class="pd-about-visual__icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <div>
+                        <div class="pd-about-visual__label">Calificación Google</div>
+                        <div class="pd-about-visual__value">@UrquizaModel.Rating — @UrquizaModel.ReviewsCount reseñas</div>
+                    </div>
+                </div>
+                <div class="pd-about-visual__row">
+                    <div class="pd-about-visual__icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </div>
+                    <div>
+                        <div class="pd-about-visual__label">Instagram</div>
+                        <div class="pd-about-visual__value">@UrquizaModel.InstagramHandle</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@* ── Galería visual ──────────────────────────────────────────────────────── *@
+<section class="pd-section pd-section--white" aria-labelledby="gallery-title">
+    <div class="pd-container">
+        <span class="pd-eyebrow">Imágenes</span>
+        <h2 class="pd-section-title" id="gallery-title">Un espacio cercano para tu mascota</h2>
+        <p class="pd-body-text pd-mb-md">
+            Imágenes del espacio y la atención en Veterinaria Urquiza.
+        </p>
+
+        @* ── [GALERÍA DE FOTOS] ────────────────────────────────────────────────
+           Reemplazar cada contenedor SVG placeholder por imágenes reales.
+           Foto principal (vertical):
+             <img src="~/images/demos/urquizavet/hero-veterinaria-urquiza.jpg"
+                  alt="Exterior de Veterinaria Urquiza" loading="lazy" />
+           Foto secundaria 1 (horizontal):
+             <img src="~/images/demos/urquizavet/veterinaria-urquiza-mascota.jpg"
+                  alt="Mascota atendida en Veterinaria Urquiza" loading="lazy" />
+           Foto secundaria 2 (horizontal):
+             <img src="~/images/demos/urquizavet/veterinaria-urquiza-detalle.jpg"
+                  alt="Detalle del ambiente de Veterinaria Urquiza" loading="lazy" />
+           ──────────────────────────────────────────────────────────────────── *@
+        <div class="pd-gallery" aria-label="Imágenes del comercio" role="img">
+
+            <div class="pd-gallery__main" aria-hidden="true">
+                <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+                    <rect width="400" height="533" fill="#DDEBE5"/>
+                    <circle cx="200" cy="220" r="55" fill="none" stroke="#1F6F68" stroke-width="1.5" opacity="0.3"/>
+                    <text x="200" y="320" text-anchor="middle" font-family="system-ui" font-size="11" fill="#1F6F68" opacity="0.5">Foto principal · pendiente</text>
+                </svg>
+            </div>
+
+            <div class="pd-gallery__secondary" aria-hidden="true">
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+                    <rect width="400" height="300" fill="#F3F7F4"/>
+                    <text x="200" y="155" text-anchor="middle" font-family="system-ui" font-size="11" fill="#1F6F68" opacity="0.5">Foto mascota · pendiente</text>
+                </svg>
+            </div>
+
+            <div class="pd-gallery__secondary" aria-hidden="true">
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+                    <rect width="400" height="300" fill="#F2EDE3"/>
+                    <text x="200" y="155" text-anchor="middle" font-family="system-ui" font-size="11" fill="#1F6F68" opacity="0.5">Foto detalle · pendiente</text>
+                </svg>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@* ── Ubicación y contacto ────────────────────────────────────────────────── *@
+<section class="pd-section pd-section--sage" id="ubicacion" aria-labelledby="location-title"
+         data-analytics-section="contact">
+    <div class="pd-container">
+        <span class="pd-eyebrow">Cómo llegar</span>
+        <h2 class="pd-section-title" id="location-title">Estamos en Villa Urquiza</h2>
+
+        <div class="pd-location-grid">
+
+            <div class="pd-location-detail">
+
+                <div class="pd-location-detail__row">
+                    <div class="pd-location-detail__icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="pd-location-detail__label">Dirección</div>
+                        <div class="pd-location-detail__value">@UrquizaModel.Address</div>
+                    </div>
+                </div>
+
+                <div class="pd-contact-btns">
+                    <a href="@Model.WhatsAppUrl"
+                       class="pd-contact-btn"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Consultar por WhatsApp"
+                       data-analytics-event="click_whatsapp">
+                        <div class="pd-contact-btn__icon pd-contact-btn__icon--wa" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="pd-contact-btn__label">WhatsApp</div>
+                            <div class="pd-contact-btn__value">@UrquizaModel.WhatsAppDisplayText</div>
+                        </div>
+                    </a>
+
+                    <a href="@UrquizaModel.MapsUrl"
+                       class="pd-contact-btn"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Cómo llegar en Google Maps"
+                       data-analytics-event="click_maps">
+                        <div class="pd-contact-btn__icon pd-contact-btn__icon--maps" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="pd-contact-btn__label">Cómo llegar</div>
+                            <div class="pd-contact-btn__value">Ver en Google Maps</div>
+                        </div>
+                    </a>
+
+                    <a href="@UrquizaModel.InstagramUrl"
+                       class="pd-contact-btn"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Ver Instagram de Veterinaria Urquiza"
+                       data-analytics-event="click_instagram">
+                        <div class="pd-contact-btn__icon pd-contact-btn__icon--ig" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="pd-contact-btn__label">Instagram</div>
+                            <div class="pd-contact-btn__value">@UrquizaModel.InstagramHandle</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pd-map-visual">
+                <div class="pd-map-visual__header">
+                    <div class="pd-map-visual__icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="pd-map-visual__address-primary">@UrquizaModel.AddressShort</div>
+                        <div class="pd-map-visual__address-secondary">Dr. Pedro Ignacio Rivera 5245</div>
+                    </div>
+                </div>
+                <div class="pd-map-visual__detail">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    @UrquizaModel.Rating de calificación · @UrquizaModel.ReviewsCount reseñas en Google
+                </div>
+                <a href="@UrquizaModel.MapsUrl"
+                   class="pd-btn pd-btn--teal"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="margin-top:0.5rem;"
+                   data-analytics-event="click_maps">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                    Abrir en Google Maps
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@* ── CTA final ───────────────────────────────────────────────────────────── *@
+<section class="pd-cta-section" id="contacto" aria-labelledby="cta-title">
+    <div class="pd-cta-section__inner">
+        <div class="pd-cta-section__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </div>
+        <h2 class="pd-cta-section__title" id="cta-title">¿Querés consultar por tu mascota?</h2>
+        <p class="pd-cta-section__text">
+            Escribí por WhatsApp y contanos qué necesitás.
+            Te orientamos para que puedas avanzar.
+        </p>
+        <a href="@Model.WhatsAppUrl"
+           class="pd-btn pd-btn--wa"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Consultar por WhatsApp"
+           data-analytics-event="click_whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Consultar por WhatsApp
+        </a>
+    </div>
+</section>
+
+@* ── Footer ──────────────────────────────────────────────────────────────── *@
+<footer class="pd-footer" role="contentinfo">
+    <div class="pd-footer__inner">
+        <div class="pd-footer__name">Veterinaria Urquiza</div>
+        <div class="pd-footer__address">Atención veterinaria en Villa Urquiza, CABA</div>
+        <div style="display:flex;gap:1.25rem;margin-top:0.5rem;justify-content:center;">
+            <a href="@Model.WhatsAppUrl"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="color:rgba(255,255,255,.55);font-size:0.8125rem;display:flex;align-items:center;gap:0.35rem;"
+               aria-label="WhatsApp"
+               data-analytics-event="click_whatsapp">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+            <a href="@UrquizaModel.InstagramUrl"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="color:rgba(255,255,255,.55);font-size:0.8125rem;display:flex;align-items:center;gap:0.35rem;"
+               aria-label="Instagram de Veterinaria Urquiza"
+               data-analytics-event="click_instagram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                Instagram
+            </a>
+            <a href="@UrquizaModel.MapsUrl"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="color:rgba(255,255,255,.55);font-size:0.8125rem;display:flex;align-items:center;gap:0.35rem;"
+               aria-label="Ubicación en Google Maps"
+               data-analytics-event="click_maps">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Ubicación
+            </a>
+        </div>
+        <div class="pd-footer__credits">Demo privada creada por Localio</div>
+    </div>
+</footer>
+
+@* ── CTA sticky mobile ───────────────────────────────────────────────────── *@
+<div class="pd-sticky-cta" aria-hidden="true">
+    <a href="@Model.WhatsAppUrl"
+       class="pd-btn pd-btn--wa"
+       target="_blank"
+       rel="noopener noreferrer"
+       tabindex="-1"
+       data-analytics-event="click_whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Consultar por WhatsApp
+    </a>
+</div>
+
+

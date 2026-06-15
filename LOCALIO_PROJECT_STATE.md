@@ -2,7 +2,7 @@
 
 ## 1. Fecha de actualización
 
-Junio 2026 (generado inspeccionando el repositorio real en rama `main`).
+Junio 2026 (actualizado tras crear demo privada de Veterinaria Urquiza en `/demos/urquiza`).
 
 ---
 
@@ -115,6 +115,7 @@ Localio/
 | `/demos` | `Pages/Demo/List.cshtml` | Lista de demos genéricas disponibles |
 | `/demo/{siteId}` | `Pages/Demo/Index.cshtml` | Demo genérica por id de sitio |
 | `/demos/citivet` | `Pages/Demos/Citivet.cshtml` | Demo privada de Veterinaria Citivet |
+| `/demos/urquiza` | `Pages/Demos/Urquiza.cshtml` | Demo privada de Veterinaria Urquiza |
 | `/Error` | `Pages/Error.cshtml` | Página de error genérica |
 | `/Privacy` | `Pages/Privacy.cshtml` | Página de privacidad (contenido no relevado) |
 
@@ -198,15 +199,18 @@ Estos sitios contienen datos **ficticios** usados como demos internas o de ejemp
 
 ## 8. Demos privadas
 
-**Estado: Parcialmente implementado (sistema base operativo, solo Citivet registrada).**
+**Estado: Implementado. Demos registradas: Citivet (`Paused`) y Urquiza (`ActivePrivate`).**
 
 ### Lo que existe
 
-- `PrivateDemos/demos.json` — registro con una demo: `citivet` (estado: `Paused`)
+- `PrivateDemos/demos.json` — registro con dos demos: `citivet` (estado: `Paused`) y `urquiza` (estado: `ActivePrivate`)
 - `PrivateDemoService` — carga, cache TTL 60s, reglas de visibilidad/indexabilidad
 - `IPrivateDemoService` — interfaz con métodos: `GetBySlugAsync`, `IsPubliclyVisible`, `IsIndexable`, `ShouldRenderNoIndex`, `CanBeIncludedInSitemap`
 - `Pages/Demos/Citivet.cshtml` — página de la demo privada en `/demos/citivet`
 - `Pages/Shared/PrivateDemos/_CitivetDemo.cshtml` — partial HTML de la demo Citivet
+- `Pages/Demos/Urquiza.cshtml` — página de la demo privada en `/demos/urquiza`
+- `Pages/Demos/Urquiza.cshtml.cs` — PageModel con constantes validadas de Veterinaria Urquiza
+- `Pages/Shared/PrivateDemos/_UrquizaDemo.cshtml` — partial HTML de la demo Urquiza
 - `Pages/Shared/_DemoUnavailable.cshtml` — pantalla de "demo no disponible" reutilizable
 - `Models/PrivateDemos/PrivateDemoConfig.cs` — modelo con campos: id, slug, businessName, businessType, status, publicUrl, contactName, contactPhone, contactEmail, notes, createdAt, updatedAt, expiresAt, isIndexed
 - `Models/PrivateDemos/PrivateDemoStatus.cs` — enum de estados (ver sección 10)
@@ -270,7 +274,58 @@ Estos sitios contienen datos **ficticios** usados como demos internas o de ejemp
 
 ---
 
-## 10. Estados de demos
+## 10. Urquiza
+
+**Estado: Implementado como demo privada. Estado actual en JSON: `ActivePrivate`.**
+
+- **Ruta:** `/demos/urquiza`
+- **Acceso por subdominio:** `urquiza.localio.com.ar` (cuando `EnableDemoSubdomains = true`, pendiente de activar)
+- **Archivo de página:** `Pages/Demos/Urquiza.cshtml`
+- **PageModel:** `Pages/Demos/Urquiza.cshtml.cs` (`UrquizaModel`)
+- **Partial del contenido:** `Pages/Shared/PrivateDemos/_UrquizaDemo.cshtml`
+- **Layout:** sin layout compartido (`Layout = null`); HTML self-contained
+- **CSS:** `wwwroot/css/private-demos.css` + Inter font vía Google Fonts CDN
+
+**Datos del comercio (validados y hardcodeados como constantes en `UrquizaModel`):**
+
+| Campo | Valor |
+|---|---|
+| BusinessName | Veterinaria Urquiza |
+| BusinessTagline | Atención veterinaria cercana y profesional en Villa Urquiza |
+| Address | Dr. Pedro Ignacio Rivera 5245, Villa Urquiza, CABA |
+| WhatsApp | 5491133196217 |
+| WhatsAppDisplay | 11 3319-6217 |
+| Instagram | @urquizavet |
+| InstagramUrl | https://www.instagram.com/urquizavet/?hl=es |
+| Rating | 4.8 |
+| ReviewsCount | 114 |
+| MapsUrl | Google Maps URL implementada |
+| PageTitle | "Veterinaria Urquiza — Atención veterinaria en Villa Urquiza, CABA" |
+
+**CTAs implementadas:** WhatsApp + Instagram + Google Maps
+
+**Secciones del partial:**
+Header con nav (Atención, Confianza, Ubicación, Contacto) · Hero con CTA WhatsApp + Cómo llegar · Trust 4 cards (rating, reseñas, Instagram, contacto) · Atención 4 cards (generalistas, sin afirmar servicios no confirmados) · About con datos validados · Galería 3 fotos (placeholders SVG hasta recibir fotos autorizadas) · Ubicación/contacto · CTA final WhatsApp · Footer con aclaración "Demo privada creada por Localio" · CTA sticky mobile
+
+**Assets (imágenes):**
+- Las rutas `wwwroot/images/demos/urquizavet/` están preparadas en los comentarios del partial.
+- Las imágenes reales deben reemplazar los placeholders SVG cuando el comercio autorice o valide las fotos.
+
+**SEO:**
+- `noindex, nofollow` activo (estado `ActivePrivate`)
+- No incluida en sitemap
+- No enlazada desde la landing pública
+
+**Visibilidad actual:** `ActivePrivate` → `IsPubliclyVisible` = true → se muestra la demo.
+
+**Pendientes sobre Urquiza:**
+- Fotos reales pendientes de obtener/autorizar (placeholders SVG en su lugar)
+- No vinculada desde la landing pública (correcto, es privada)
+- El subdominio `urquiza.localio.com.ar` no está activo hasta que se active `EnableDemoSubdomains`
+
+---
+
+## 11. Estados de demos
 
 **Estado: Implementado completamente en código. Citivet en estado `Paused`.**
 
@@ -297,7 +352,7 @@ Las reglas están implementadas en `PrivateDemoService`: `IsPubliclyVisible()`, 
 
 ---
 
-## 11. SEO / indexación
+## 12. SEO / indexación
 
 ### Landing pública (`/`)
 
@@ -325,7 +380,7 @@ Las reglas están implementadas en `PrivateDemoService`: `IsPubliclyVisible()`, 
 
 ---
 
-## 12. Subdominios
+## 13. Subdominios
 
 ### Código implementado
 
@@ -354,7 +409,7 @@ Las reglas están implementadas en `PrivateDemoService`: `IsPubliclyVisible()`, 
 
 ---
 
-## 13. Analytics / métricas
+## 14. Analytics / métricas
 
 ### Microsoft Clarity
 
@@ -379,7 +434,7 @@ Las reglas están implementadas en `PrivateDemoService`: `IsPubliclyVisible()`, 
 
 ---
 
-## 14. Cache / assets
+## 15. Cache / assets
 
 ### CSS propios
 
@@ -416,7 +471,7 @@ Las reglas están implementadas en `PrivateDemoService`: `IsPubliclyVisible()`, 
 
 ---
 
-## 15. Deploy / infraestructura documentada
+## 16. Deploy / infraestructura documentada
 
 ### Azure App Service
 
@@ -460,7 +515,7 @@ Las reglas están implementadas en `PrivateDemoService`: `IsPubliclyVisible()`, 
 
 ---
 
-## 16. Decisiones técnicas detectadas
+## 17. Decisiones técnicas detectadas
 
 Las siguientes decisiones están reflejadas directamente en código, comentarios o estructura del repo:
 
@@ -486,7 +541,7 @@ Las siguientes decisiones están reflejadas directamente en código, comentarios
 
 ---
 
-## 17. Pendientes detectados
+## 18. Pendientes detectados
 
 ### Urgente
 
@@ -511,7 +566,7 @@ Las siguientes decisiones están reflejadas directamente en código, comentarios
 
 ---
 
-## 18. Riesgos / puntos de cuidado
+## 19. Riesgos / puntos de cuidado
 
 1. **Indexar demos privadas por error**: Si se activa `EnableDemoSubdomains` o se comparte la URL de `/demos/citivet` sin que el estado sea `ActivePrivate`, y sin `robots.txt`, Google podría rastrearla. Mitigado parcialmente por el `noindex` meta tag, pero `robots.txt` agregaría una capa extra.
 
@@ -531,7 +586,7 @@ Las siguientes decisiones están reflejadas directamente en código, comentarios
 
 ---
 
-## 19. Instrucciones para futuros asistentes
+## 20. Instrucciones para futuros asistentes
 
 Al trabajar en este proyecto, tener en cuenta las siguientes reglas operativas:
 

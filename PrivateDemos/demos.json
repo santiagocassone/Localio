@@ -2,6 +2,22 @@
   "_comment": "Demo Manager v0 — registro de demos privadas en JSON. Etapa intermedia antes de migrar a tabla Demo en base de datos.",
   "demos": [
     {
+      "id": "urquiza",
+      "slug": "urquiza",
+      "businessName": "Veterinaria Urquiza",
+      "businessType": "Veterinaria",
+      "status": "ActivePrivate",
+      "publicUrl": "/demos/urquiza",
+      "contactName": null,
+      "contactPhone": "5491133196217",
+      "contactEmail": null,
+      "notes": "Demo privada para prospecto real. No oficial. No indexar.",
+      "createdAt": "2026-06-15T00:00:00Z",
+      "updatedAt": "2026-06-15T00:00:00Z",
+      "expiresAt": null,
+      "isIndexed": false
+    },
+    {
       "id": "citivet",
       "slug": "citivet",
       "businessName": "Veterinaria Citivet",
