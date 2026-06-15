@@ -150,7 +150,7 @@ Localio/
 
 **Email:** `contacto@localio.com.ar` definido como constante en `IndexModel`.
 
-**Tally:** URL `https://tally.so/r/EkaBbq` referenciada como constante en `IndexModel.TallyFormUrl`. **Parcialmente implementado**: la constante existe pero su integración en el HTML no fue verificada explícitamente durante esta inspección.
+**Tally:** URL `https://tally.so/r/EkaBbq` centralizada en `IndexModel.TallyFormUrl`. **Implementado**: visible en la landing como CTA secundario en el hero y en la sección final de contacto. Abre en nueva pestaña con `target="_blank" rel="noopener noreferrer"`. Tracking: `data-analytics-event="click_tally"`.
 
 **Formulario de contacto:** markup implementado en `_CtaFinal.cshtml` con campos `Name`, `BusinessName`, `Category`, `Contact`, `Message`. El `POST` valida el modelo y setea `FormSubmitted = true`, pero **el envío real por email/SMTP no está implementado** (hay un TODO explícito en `IndexModel.OnPost()`).
 
@@ -507,7 +507,6 @@ Las siguientes decisiones están reflejadas directamente en código, comentarios
 - Migrar `PrivateDemos/demos.json` a tabla en base de datos (TODOs en código)
 - Sistema genérico de demos privadas por slug (sin necesidad de crear una Razor Page por cada comercio)
 - Panel básico de gestión de demos (actualmente todo es edición manual de JSON)
-- Tally form: verificar si `TallyFormUrl` está activamente embebida en el HTML o solo como constante sin uso
 - Implementar og:image real para la landing
 
 ---
