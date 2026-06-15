@@ -1,0 +1,79 @@
+@model Localio.Web.Pages.IndexModel
+<section class="section section--alt" id="ejemplos" aria-labelledby="demos-title">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Para distintos rubros</span>
+            <h2 class="section-title" id="demos-title">
+                Pensado para distintos rubros
+            </h2>
+            <p class="section-sub">
+                Cada comercio necesita mostrar lo importante de forma clara: qué ofrece, dónde está
+                y cómo contactarlo. Localio adapta la estructura visual según el tipo de negocio.
+            </p>
+        </div>
+
+        <div class="l-benefits__grid" role="list">
+
+            <article class="l-benefit-card" role="listitem">
+                <div class="l-benefit-card__ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <h3 class="l-benefit-card__title">Veterinarias</h3>
+                <p class="l-benefit-card__desc">
+                    Servicios, ubicación, contacto por WhatsApp y una estética profesional orientada a confianza.
+                </p>
+            </article>
+
+            <article class="l-benefit-card" role="listitem">
+                <div class="l-benefit-card__ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <h3 class="l-benefit-card__title">Consultorios</h3>
+                <p class="l-benefit-card__desc">
+                    Especialidades, horarios, ubicación y canales de contacto ordenados en una página clara.
+                </p>
+            </article>
+
+            <article class="l-benefit-card" role="listitem">
+                <div class="l-benefit-card__ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
+                <h3 class="l-benefit-card__title">Comercios de barrio</h3>
+                <p class="l-benefit-card__desc">
+                    Productos o servicios principales, datos útiles y acceso rápido para consultar.
+                </p>
+            </article>
+
+            <article class="l-benefit-card" role="listitem">
+                <div class="l-benefit-card__ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                </div>
+                <h3 class="l-benefit-card__title">Profesionales locales</h3>
+                <p class="l-benefit-card__desc">
+                    Una presencia simple y confiable para explicar qué hacen y facilitar el primer contacto.
+                </p>
+            </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top:40px;">
+            <a href="@Model.WhatsAppUrl"
+               class="btn btn-outline"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-analytics-event="click_whatsapp_ejemplos">
+                Consultar por mi comercio
+            </a>
+        </div>
+    </div>
+</section>

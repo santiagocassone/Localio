@@ -55,7 +55,7 @@
     document.head.appendChild(style);
 
     const targets = document.querySelectorAll(
-      '.l-benefit-card, .l-forwho-card, .l-process-step, .l-trust-card, .l-include-item, .l-problem__item'
+      '.l-benefit-card, .l-forwho-chip, .l-process-step, .l-trust-card, .l-include-item, .l-problem__item, .l-demo-featured'
     );
 
     const observer = new IntersectionObserver(

@@ -2,32 +2,29 @@
 @{
     var includesItems = new[]
     {
-        "Diseño responsive para celulares y escritorio",
-        "Secciones del negocio: quiénes somos, servicios, contacto",
-        "Botón de WhatsApp visible en todo el sitio",
-        "Mapa de ubicación integrado",
-        "Horarios de atención",
-        "Servicios o productos destacados",
-        "Galería de imágenes",
-        "Reseñas o testimonios de clientes",
-        "Formulario de contacto",
-        "Optimización básica para búsquedas locales (SEO)",
+        "Presentación del comercio",
+        "Servicios principales",
+        "Ubicación y mapa",
+        "Botón de WhatsApp",
+        "Horarios y datos de contacto",
+        "Diseño responsive",
+        "Secciones de confianza",
+        "Preparado para crecer con el tiempo",
     };
 }
-<section class="section" id="que-incluye" aria-labelledby="includes-title">
+<section class="section section--beige" id="que-incluye" aria-labelledby="includes-title">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Qué incluye</span>
+            <span class="section-tag">Qué puede incluir tu sitio</span>
             <h2 class="section-title" id="includes-title">
-                Todo lo que tu comercio necesita en un sitio web
+                Qué puede incluir tu sitio
             </h2>
             <p class="section-sub">
-                Cada sitio incluye las secciones y funcionalidades esenciales para presentar
-                tu negocio de forma completa y profesional.
+                Cada sitio se arma según el tipo de comercio, con las secciones que realmente importan.
             </p>
         </div>
 
-        <ul class="l-includes__grid" aria-label="Funcionalidades incluidas">
+        <ul class="l-includes__grid" aria-label="Contenido disponible">
             @foreach (var item in includesItems)
             {
                 <li class="l-include-item">
