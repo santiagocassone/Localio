@@ -65,6 +65,8 @@
 
     <!-- JSON-LD structured data -->
     <script type="application/ld+json">@Html.Raw(jsonLd)</script>
+
+    <partial name="_Clarity" />
 </head>
 <body
     class="localio-site"
@@ -72,10 +74,14 @@
     data-tone="@theme.Tone"
     data-btn-style="@theme.ButtonStyle"
     data-card-style="@theme.CardStyle"
-    data-hero-style="@theme.HeroStyle">
+    data-hero-style="@theme.HeroStyle"
+    data-page-type="generic_demo"
+    data-demo-id="@site.SiteId"
+    data-business-name="@site.BusinessName">
 
     @RenderBody()
 
     <script src="~/js/localio.js" asp-append-version="true"></script>
+    <script src="~/js/localio-analytics.js" asp-append-version="true"></script>
 </body>
 </html>

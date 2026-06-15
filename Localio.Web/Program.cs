@@ -1,3 +1,4 @@
+using Localio.Web.Models;
 using Localio.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,8 @@ if (!string.IsNullOrEmpty(azurePort))
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<ISiteConfigService, SiteConfigService>();
+builder.Services.Configure<AnalyticsOptions>(
+    builder.Configuration.GetSection(AnalyticsOptions.SectionName));
 
 var app = builder.Build();
 

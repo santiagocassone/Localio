@@ -10,7 +10,7 @@
     ViewData["PageCanonical"]   = "https://localio.com.ar/";
 }
 
-<main id="main-content">
+<main id="main-content" data-page-type="landing" data-business-name="Localio">
     @await Html.PartialAsync("Landing/_Header",  Model)
     @await Html.PartialAsync("Landing/_Hero",    Model)
     @await Html.PartialAsync("Landing/_Problem", Model)

@@ -23,6 +23,9 @@
     <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="~/css/private-demos.css" asp-append-version="true" />
+
+    @* Clarity: usa IOptions<AnalyticsOptions>; no renderiza nada si está deshabilitado *@
+    @{ await Html.RenderPartialAsync("_Clarity"); }
 </head>
 <body class="pd-body">
 
@@ -37,14 +40,15 @@
                 <a href="@Model.WhatsAppUrl"
                    class="pd-btn pd-btn--primary"
                    target="_blank"
-                   rel="noopener noreferrer">
+                   rel="noopener noreferrer"
+                   data-analytics-event="click_whatsapp">
                     💬 Pedir turno
                 </a>
             </div>
         </div>
     </header>
 
-    <main>
+    <main data-demo-id="citivet" data-business-name="Citivet" data-page-type="private_demo">
 
         @* ── 1. Hero ─────────────────────────────────────────────────────── *@
         <section class="pd-hero" aria-labelledby="hero-title">
@@ -60,13 +64,15 @@
                     <a href="@Model.WhatsAppUrl"
                        class="pd-btn pd-btn--primary"
                        target="_blank"
-                       rel="noopener noreferrer">
+                       rel="noopener noreferrer"
+                       data-analytics-event="click_whatsapp">
                         💬 Pedir turno por WhatsApp
                     </a>
                     <a href="@CitivetModel.MapsUrl"
                        class="pd-btn pd-btn--secondary"
                        target="_blank"
-                       rel="noopener noreferrer">
+                       rel="noopener noreferrer"
+                       data-analytics-event="click_maps">
                         📍 Ver ubicación
                     </a>
                 </div>
@@ -88,7 +94,8 @@
                         <a href="@CitivetModel.MapsUrl"
                            class="pd-btn pd-btn--outline pd-mt-sm"
                            target="_blank"
-                           rel="noopener noreferrer">
+                           rel="noopener noreferrer"
+                           data-analytics-event="click_maps">
                             📍 Cómo llegar
                         </a>
                     </div>
@@ -101,7 +108,8 @@
                         <a href="@Model.WhatsAppUrl"
                            class="pd-btn pd-btn--outline pd-mt-sm"
                            target="_blank"
-                           rel="noopener noreferrer">
+                           rel="noopener noreferrer"
+                           data-analytics-event="click_whatsapp">
                             💬 Consultar disponibilidad
                         </a>
                     </div>
@@ -225,7 +233,7 @@
         </section>
 
         @* ── 6. Contacto ─────────────────────────────────────────────────── *@
-        <section class="pd-section pd-section--alt" aria-labelledby="contact-title">
+        <section class="pd-section pd-section--alt" aria-labelledby="contact-title" data-analytics-section="contact">
             <div class="pd-container">
                 <p class="pd-eyebrow">Contacto</p>
                 <h2 class="pd-section-title" id="contact-title">Encontranos</h2>
@@ -236,7 +244,8 @@
                        class="pd-contact-card"
                        target="_blank"
                        rel="noopener noreferrer"
-                       aria-label="Abrir WhatsApp de @CitivetModel.BusinessName">
+                       aria-label="Abrir WhatsApp de @CitivetModel.BusinessName"
+                       data-analytics-event="click_whatsapp">
                         <div class="pd-contact-card__icon" aria-hidden="true">💬</div>
                         <div class="pd-contact-card__label">WhatsApp</div>
                         <div class="pd-contact-card__value">Pedir turno ahora</div>
@@ -246,7 +255,8 @@
                        class="pd-contact-card"
                        target="_blank"
                        rel="noopener noreferrer"
-                       aria-label="Dirección de @CitivetModel.BusinessName en Google Maps">
+                       aria-label="Dirección de @CitivetModel.BusinessName en Google Maps"
+                       data-analytics-event="click_maps">
                         <div class="pd-contact-card__icon" aria-hidden="true">📍</div>
                         <div class="pd-contact-card__label">Dirección</div>
                         <div class="pd-contact-card__value">@CitivetModel.Address</div>
@@ -256,7 +266,8 @@
                        class="pd-contact-card"
                        target="_blank"
                        rel="noopener noreferrer"
-                       aria-label="Instagram de @CitivetModel.BusinessName">
+                       aria-label="Instagram de @CitivetModel.BusinessName"
+                       data-analytics-event="click_instagram">
                         <div class="pd-contact-card__icon" aria-hidden="true">📸</div>
                         <div class="pd-contact-card__label">Instagram</div>
                         <div class="pd-contact-card__value">@@@CitivetModel.InstagramHandle</div>
@@ -279,7 +290,8 @@
                     <a href="@Model.WhatsAppUrl"
                        class="pd-btn pd-btn--primary"
                        target="_blank"
-                       rel="noopener noreferrer">
+                       rel="noopener noreferrer"
+                       data-analytics-event="click_whatsapp">
                         💬 Pedir turno por WhatsApp
                     </a>
                 </div>
@@ -292,6 +304,8 @@
     <footer class="pd-footer">
         <p>Veterinaria Citivet · Julián Álvarez 211, Villa Crespo, CABA · De 16:30 a 20 hs con turno previo</p>
     </footer>
+
+    <script src="~/js/localio-analytics.js" asp-append-version="true"></script>
 
 </body>
 </html>
