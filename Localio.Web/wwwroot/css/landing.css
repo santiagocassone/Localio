@@ -322,11 +322,61 @@ ul { list-style: none; }
   height: 100%;
 }
 
+/* ── Componente de marca: isotipo + texto ──────────────────────────── */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand-logo__icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: contain;
+  flex: 0 0 40px;
+  border-radius: 6px;
+}
+.brand-logo__text {
+  font-family: inherit;
+  font-size: 1.45rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1F2A2A;
+}
+@media (max-width: 640px) {
+  .brand-logo {
+    gap: 8px;
+  }
+  .brand-logo__icon {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+  .brand-logo__text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Variante footer (fondo oscuro) */
+.brand-logo--footer .brand-logo__icon {
+  width: 36px;
+  height: 36px;
+  flex-basis: 36px;
+}
+.brand-logo--footer .brand-logo__text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FAFAF7;
+}
+
+/* Clases legadas: mantener vacías para no romper si quedan referencias */
 .l-header__logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  line-height: 0;
 }
 .l-header__logo-img {
   height: 44px;
@@ -1489,12 +1539,9 @@ ul { list-style: none; }
   margin-bottom: 12px;
   line-height: 0;
 }
+/* .l-footer__logo-img reemplazado por .brand-logo--footer */
 .l-footer__logo-img {
-  height: 36px;
-  width: auto;
-  min-width: 120px;
-  display: block;
-  opacity: .92;
+  display: none;
 }
 .l-footer__brand-tagline {
   font-size: .875rem;
