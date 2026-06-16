@@ -323,11 +323,20 @@ ul { list-style: none; }
 }
 
 .l-header__logo {
-  font-size: 1.375rem;
-  font-weight: var(--fw-black);
-  letter-spacing: -.04em;
-  color: var(--c-brand);
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
+  line-height: 0;
+}
+.l-header__logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 480px) {
+  .l-header__logo-img {
+    height: 28px;
+  }
 }
 
 .l-header__nav {
@@ -1445,12 +1454,17 @@ ul { list-style: none; }
   }
 }
 
-.l-footer__brand-name {
-  font-size: 1.375rem;
-  font-weight: var(--fw-black);
-  letter-spacing: -.04em;
-  color: var(--c-white);
+.l-footer__brand-logo {
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 8px;
+  line-height: 0;
+}
+.l-footer__logo-img {
+  height: 30px;
+  width: auto;
+  display: block;
+  opacity: .88;
 }
 .l-footer__brand-tagline {
   font-size: .875rem;

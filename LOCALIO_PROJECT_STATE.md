@@ -172,6 +172,47 @@ Subdominio listo para activar: **`urquiza.localio.com.ar`** → `/demos/urquiza`
 - `wwwroot/js/landing.js` — comportamiento (header scroll, mobile nav, fade-in)
 - `wwwroot/js/localio-analytics.js` — tracking de eventos
 - Fuente: DM Sans vía Google Fonts CDN
+- **Identidad visual:** ver `wwwroot/images/brand/` (assets de marca aplicados en header, footer y firma de demos)
+
+---
+
+## 7a. Identidad visual y assets de marca
+
+**Estado: Implementado (junio 2025).**
+
+**Carpeta:** `wwwroot/images/brand/`
+
+**Assets disponibles:**
+| Archivo | Uso |
+|---|---|
+| `localio-icon-512.png` | Ícono de alta resolución |
+| `localio-icon-256.png` | Ícono mediano |
+| `favicon.ico` | Favicon multi-tamaño |
+| `favicon-32.png` | Favicon PNG 32px |
+| `favicon-64.png` | Favicon PNG 64px |
+| `apple-touch-icon.png` | Touch icon iOS |
+| `localio-logo-horizontal-transparent.png` | Logo en header (fondo claro) y og:image |
+| `localio-logo-horizontal-light.png` | Logo sobre fondos oscuros alternativos |
+| `localio-logo-horizontal-dark.png` | Logo en footer landing y firma demos privadas |
+| `localio-whatsapp-profile.png` | Perfil WhatsApp (uso manual) |
+| `localio-whatsapp-profile-white-bg.png` | Perfil WhatsApp con fondo blanco (uso manual, recomendado) |
+
+**Integrado en:**
+- **Header landing** (`_Header.cshtml`): `localio-logo-horizontal-transparent.png`, 34px altura, responsive a 28px en mobile.
+- **Footer landing** (`_Footer.cshtml`): `localio-logo-horizontal-dark.png`, 30px, sobre fondo oscuro `--c-bg-dark`.
+- **Favicon** (`_LandingLayout.cshtml`, `Citivet.cshtml`, `Urquiza.cshtml`): `favicon.ico` + `favicon-32.png` + `apple-touch-icon.png`.
+- **Firma demos privadas** (`_CitivetDemo.cshtml`, `_UrquizaDemo.cshtml`): `localio-logo-horizontal-dark.png`, 14px, opacidad 45%, junto a texto "Demo privada creada por".
+- **og:image por defecto** (`_LandingLayout.cshtml`): `localio-logo-horizontal-transparent.png`.
+
+**Paleta de marca:**
+- Verde petróleo: `#1F6F68`
+- Verde oscuro: `#174F4A`
+- Verde salvia suave: `#DDEBE5`
+- Fondo claro cálido: `#FAFAF7`
+- Beige cálido: `#F2EDE3`
+- WhatsApp: `#25D366` (solo CTAs de contacto, no identidad)
+
+**Para perfil de WhatsApp:** usar `localio-whatsapp-profile-white-bg.png` (cuadrado, se recorta mejor en círculo, sin problemas de transparencia).
 
 ---
 

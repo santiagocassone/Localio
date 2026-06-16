@@ -3,7 +3,7 @@
     var description = ViewData["PageDescription"] as string ?? "";
     var keywords    = ViewData["PageKeywords"]    as string ?? "";
     var canonical   = ViewData["PageCanonical"]   as string ?? "";
-    var ogImage     = ViewData["PageOgImage"]     as string ?? "";
+    var ogImage     = ViewData["PageOgImage"]     as string ?? "/images/brand/localio-logo-horizontal-transparent.png";
 }
 <!DOCTYPE html>
 <html lang="es">
@@ -41,6 +41,12 @@
     }
 
     <title>@title</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/brand/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/brand/favicon-64.png" />
+    <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png" />
 
     <!-- DM Sans — tipografía moderna y cercana -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
