@@ -44,6 +44,23 @@ Para el estado completo del proyecto, ver `LOCALIO_PROJECT_STATE.md` en la raíz
 - No enlazar demos privadas desde la landing pública.
 - No exponer datos de prospectos reales en código público ni en comentarios.
 
+### Regla anti-duplicados (obligatoria al modificar demos)
+
+Las modificaciones de demos privadas existentes deben tratarse como **reemplazo/refactor**, no como agregado incremental.
+
+Antes de agregar una nueva versión de una sección, identificar la sección previa equivalente y eliminarla del markup renderizado. No ocultar contenido viejo con CSS. No dejar duplicados de hero, servicios, galería, contacto, header o footer. Al finalizar, buscar textos obsoletos en el repo y validar que el HTML renderizado no contenga placeholders ni contenido anterior.
+
+**Checklist obligatorio al modificar o crear una demo privada:**
+
+- [ ] Buscar textos viejos o placeholders (`pendiente`, `placeholder`, `Foto principal`, `imagen pendiente`, etc.) y eliminarlos del markup.
+- [ ] Validar que haya un solo `<header>` y un solo hero.
+- [ ] Validar que haya una sola sección principal de servicios.
+- [ ] Validar que no haya sección de galería si la demo no usa imágenes reales.
+- [ ] Validar que haya un solo `<footer>`.
+- [ ] Validar que no haya contenido viejo oculto con `display:none`.
+- [ ] Validar mobile sin scroll horizontal.
+- [ ] Mantener `noindex, nofollow` mientras el estado sea `ActivePrivate`.
+
 ---
 
 ## Datos de negocios
@@ -59,4 +76,5 @@ Actualizar `LOCALIO_PROJECT_STATE.md` para reflejar el estado real del proyecto:
 - Si se agrega una ruta nueva, agregarla en la sección 5.
 - Si cambia el estado de Citivet, actualizarlo en las secciones 9 y 10.
 - Si se implementa algo pendiente, moverlo de "Pendiente" a "Implementado".
-- Si se detectan nuevos riesgos, agregarlos en la sección 18.
+- Si se detectan nuevos riesgos, agregarlos en la sección 19.
+- Si se modifica una demo privada, aplicar el checklist anti-duplicados de la sección "Demos privadas" de este archivo.
