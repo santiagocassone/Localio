@@ -279,7 +279,7 @@ Estos sitios contienen datos **ficticios** usados como demos internas o de ejemp
 
 ## 10. Urquiza
 
-**Estado: Implementado como demo privada. Estado actual en JSON: `ActivePrivate`. Demo actualizada con contenido completo y sin imágenes. Código listo para subdominio.**
+**Estado: Implementado como demo privada. Estado actual en JSON: `ActivePrivate`. Demo corregida: versión vieja eliminada, una sola versión sin imágenes ni placeholders. Código listo para subdominio.**
 
 - **Ruta directa:** `/demos/urquiza`
 - **URL pública (subdominio):** `https://urquiza.localio.com.ar` (código listo; requiere DNS CNAME + hostname en Azure)
@@ -314,10 +314,10 @@ Clínica médica · Cardiología · Cirugía · Dermatología · Endocrinología
 
 **CTAs implementadas:** WhatsApp + Instagram + Google Maps
 
-**Secciones del partial (versión actualizada):**
+**Secciones del partial (`_UrquizaDemo.cshtml`) — versión única y limpia (669 líneas):**
 Header nav (Servicios, Confianza, Ubicación, Contacto) · Hero sin imágenes con panel premium (íconos SVG + badges) · Trust 4 cards (rating, reseñas, Instagram, contacto) · Servicios 9 cards en grilla 3×3 con íconos Lucide inline · Petshop secundario 3 cards · About con bullets actualizados · Horarios en pd-hours-card · Ubicación/contacto con links validados · CTA final WhatsApp · Footer con "Demo privada creada por Localio" · CTA sticky mobile
 
-**Assets:** Sin imágenes fotográficas. La demo funciona íntegramente con íconos SVG inline.
+**Assets:** Sin imágenes fotográficas. Sin placeholders. La demo funciona íntegramente con íconos SVG inline.
 
 **SEO:**
 - `noindex, nofollow` activo (estado `ActivePrivate`)
@@ -591,6 +591,10 @@ Las siguientes decisiones están reflejadas directamente en código, comentarios
 
 8. **PublishProfiles en el repo**: Los archivos `.pubxml` están en el repo con la URL del SCM endpoint de Azure y el nombre de usuario. No hay contraseñas, pero la URL del Kudu expone información de la cuenta de Azure.
 
+9. **Duplicación silenciosa de contenido en demos privadas**: Al modificar una demo, es posible agregar nueva versión sin eliminar la anterior, resultando en dos headers, dos heroes, dos footers o secciones duplicadas renderizadas en el HTML. Ya ocurrió en Citivet y Urquiza. Mitigado con la regla anti-duplicados de la sección 20 (regla 16).
+
+9. **Duplicación silenciosa de contenido en demos privadas**: Al modificar una demo, es posible agregar nueva versión sin eliminar la anterior, resultando en dos headers, dos heroes, dos footers o secciones de servicios duplicadas renderizadas en el HTML. Ya ocurrió en Citivet y Urquiza. Mitigado con la regla anti-duplicados de la sección 20 (regla 18).
+
 ---
 
 ## 20. Instrucciones para futuros asistentes
@@ -626,3 +630,15 @@ Al trabajar en este proyecto, tener en cuenta las siguientes reglas operativas:
 14. **Si se agregan demos privadas nuevas**, seguir el patrón de `Pages/Demos/Citivet.cshtml` + partial en `Pages/Shared/PrivateDemos/` + entrada en `PrivateDemos/demos.json`.
 
 15. **Cuando se realicen cambios relevantes**, actualizar `LOCALIO_PROJECT_STATE.md` para reflejar el estado real actualizado del proyecto.
+
+16. **Regla anti-duplicados para demos privadas — obligatoria:** Las modificaciones de demos existentes deben tratarse como reemplazo/refactor, no como agregado incremental. Antes de agregar una nueva versión de una sección, identificar la sección previa equivalente y eliminarla del markup renderizado. No ocultar contenido viejo con CSS. No dejar duplicados de hero, servicios, galería, contacto, header o footer. Al finalizar, buscar textos obsoletos en el repo y validar que el HTML renderizado no contenga placeholders ni contenido anterior.
+
+    **Checklist obligatorio al modificar o crear una demo privada:**
+    - Buscar textos viejos o placeholders (`pendiente`, `placeholder`, `Foto principal`, `imagen pendiente`, etc.) y eliminarlos del markup.
+    - Validar que haya un solo `<header>` y un solo hero.
+    - Validar que haya una sola sección principal de servicios.
+    - Validar que no haya sección de galería si la demo no usa imágenes reales.
+    - Validar que haya un solo `<footer>`.
+    - Validar que no haya contenido viejo oculto con `display:none`.
+    - Validar mobile sin scroll horizontal.
+    - Mantener `noindex, nofollow` mientras el estado sea `ActivePrivate`.
