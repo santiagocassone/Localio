@@ -2,7 +2,7 @@
 
 ## 1. Fecha de actualización
 
-Junio 2026 (actualizado tras crear demo privada de Veterinaria Urquiza en `/demos/urquiza`).
+Junio 2026 (actualizado tras actualizar demo Veterinaria Urquiza: servicios confirmados, horarios, petshop secundario, sin imágenes).
 
 ---
 
@@ -276,9 +276,10 @@ Estos sitios contienen datos **ficticios** usados como demos internas o de ejemp
 
 ## 10. Urquiza
 
-**Estado: Implementado como demo privada. Estado actual en JSON: `ActivePrivate`.**
+**Estado: Implementado como demo privada. Estado actual en JSON: `ActivePrivate`. Demo actualizada con contenido completo y sin imágenes.**
 
 - **Ruta:** `/demos/urquiza`
+- **URL publicada:** `https://localio.com.ar/demos/urquiza`
 - **Acceso por subdominio:** `urquiza.localio.com.ar` (cuando `EnableDemoSubdomains = true`, pendiente de activar)
 - **Archivo de página:** `Pages/Demos/Urquiza.cshtml`
 - **PageModel:** `Pages/Demos/Urquiza.cshtml.cs` (`UrquizaModel`)
@@ -291,7 +292,7 @@ Estos sitios contienen datos **ficticios** usados como demos internas o de ejemp
 | Campo | Valor |
 |---|---|
 | BusinessName | Veterinaria Urquiza |
-| BusinessTagline | Atención veterinaria cercana y profesional en Villa Urquiza |
+| BusinessTagline | Atención veterinaria integral en Villa Urquiza |
 | Address | Dr. Pedro Ignacio Rivera 5245, Villa Urquiza, CABA |
 | WhatsApp | 5491133196217 |
 | WhatsAppDisplay | 11 3319-6217 |
@@ -299,17 +300,20 @@ Estos sitios contienen datos **ficticios** usados como demos internas o de ejemp
 | InstagramUrl | https://www.instagram.com/urquizavet/?hl=es |
 | Rating | 4.8 |
 | ReviewsCount | 114 |
+| HoursWeekdays | Lunes a viernes: 10:00 a 13:00 · 16:00 a 20:00 |
+| HoursSaturday | Sábados: 10:00 a 13:00 |
 | MapsUrl | Google Maps URL implementada |
-| PageTitle | "Veterinaria Urquiza — Atención veterinaria en Villa Urquiza, CABA" |
+| PageTitle | "Veterinaria Urquiza — Atención veterinaria integral en Villa Urquiza, CABA" |
+
+**Servicios confirmados en la demo (exactamente 9):**
+Clínica médica · Cardiología · Cirugía · Dermatología · Endocrinología · Radiología · Ecografía · Fisioterapia · Farmacia
 
 **CTAs implementadas:** WhatsApp + Instagram + Google Maps
 
-**Secciones del partial:**
-Header con nav (Atención, Confianza, Ubicación, Contacto) · Hero con CTA WhatsApp + Cómo llegar · Trust 4 cards (rating, reseñas, Instagram, contacto) · Atención 4 cards (generalistas, sin afirmar servicios no confirmados) · About con datos validados · Galería 3 fotos (placeholders SVG hasta recibir fotos autorizadas) · Ubicación/contacto · CTA final WhatsApp · Footer con aclaración "Demo privada creada por Localio" · CTA sticky mobile
+**Secciones del partial (versión actualizada):**
+Header nav (Servicios, Confianza, Ubicación, Contacto) · Hero sin imágenes con panel premium (íconos SVG + badges) · Trust 4 cards (rating, reseñas, Instagram, contacto) · Servicios 9 cards en grilla 3×3 con íconos Lucide inline · Petshop secundario 3 cards · About con bullets actualizados · Horarios en pd-hours-card · Ubicación/contacto con links validados · CTA final WhatsApp · Footer con "Demo privada creada por Localio" · CTA sticky mobile
 
-**Assets (imágenes):**
-- Las rutas `wwwroot/images/demos/urquizavet/` están preparadas en los comentarios del partial.
-- Las imágenes reales deben reemplazar los placeholders SVG cuando el comercio autorice o valide las fotos.
+**Assets:** Sin imágenes fotográficas. La demo funciona íntegramente con íconos SVG inline.
 
 **SEO:**
 - `noindex, nofollow` activo (estado `ActivePrivate`)
@@ -319,7 +323,6 @@ Header con nav (Atención, Confianza, Ubicación, Contacto) · Hero con CTA What
 **Visibilidad actual:** `ActivePrivate` → `IsPubliclyVisible` = true → se muestra la demo.
 
 **Pendientes sobre Urquiza:**
-- Fotos reales pendientes de obtener/autorizar (placeholders SVG en su lugar)
 - No vinculada desde la landing pública (correcto, es privada)
 - El subdominio `urquiza.localio.com.ar` no está activo hasta que se active `EnableDemoSubdomains`
 

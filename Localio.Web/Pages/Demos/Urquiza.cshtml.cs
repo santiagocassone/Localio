@@ -33,7 +33,7 @@ public class UrquizaModel : PageModel
     // Todos los datos abajo están validados desde fuentes públicas.
 
     public const string BusinessName    = "Veterinaria Urquiza";
-    public const string BusinessTagline = "Atención veterinaria cercana y profesional en Villa Urquiza";
+    public const string BusinessTagline = "Atención veterinaria integral en Villa Urquiza";
 
     // Dirección
     public const string Address      = "Dr. Pedro Ignacio Rivera 5245, Villa Urquiza, CABA";
@@ -53,14 +53,18 @@ public class UrquizaModel : PageModel
     public const string Rating       = "4.8";
     public const string ReviewsCount = "114";
 
-    // ── URL calculada de WhatsApp ─────────────────────────────────────────────
+    // Horarios — confirmados
+    public const string HoursWeekdays = "Lunes a viernes: 10:00 a 13:00 · 16:00 a 20:00";
+    public const string HoursSaturday = "Sábados: 10:00 a 13:00";
+
+    // ── URL calculada de WhatsApp
     public string WhatsAppUrl =>
         $"https://wa.me/{WhatsAppNumber}?text={Uri.EscapeDataString(WhatsAppMessage)}";
 
     // ── SEO (noindex) ─────────────────────────────────────────────────────────
     // Nota interna: noindex/nofollow activo. No publicar como sitio oficial.
-    public const string PageTitle       = "Veterinaria Urquiza — Atención veterinaria en Villa Urquiza, CABA";
-    public const string PageDescription = "Veterinaria Urquiza ofrece atención veterinaria cercana y profesional para perros y gatos en Villa Urquiza, CABA. Contacto directo por WhatsApp.";
+    public const string PageTitle       = "Veterinaria Urquiza — Atención veterinaria integral en Villa Urquiza, CABA";
+    public const string PageDescription = "Veterinaria Urquiza ofrece atención veterinaria integral para perros y gatos en Villa Urquiza, CABA. Clínica médica, cirugía, dermatología, cardiología, ecografía, fisioterapia, farmacia veterinaria y artículos de petshop. Contacto directo por WhatsApp.";
 
     public async Task OnGetAsync()
     {

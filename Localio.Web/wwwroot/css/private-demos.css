@@ -858,3 +858,148 @@ a   { color: inherit; text-decoration: none; }
         aspect-ratio: 16 / 9;
     }
 }
+
+/* ── Hero panel sin imagen (Urquiza) ─────────────────────────────────────────
+   Panel visual premium que reemplaza la columna fotográfica cuando
+   la demo no usa imágenes.
+   ─────────────────────────────────────────────────────────────────────────── */
+.pd-hero-panel {
+    background: var(--c-bg-alt);
+    border-radius: 28px;
+    border: 1px solid var(--c-border);
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    min-height: 320px;
+    justify-content: center;
+}
+.pd-hero-panel__icons {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+}
+.pd-hero-panel__icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--c-sage);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-teal);
+    flex-shrink: 0;
+}
+.pd-hero-panel__icon-wrap--lg {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+}
+.pd-hero-panel__label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--c-teal);
+}
+.pd-hero-panel__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--c-text-main);
+    line-height: 1.3;
+}
+.pd-hero-panel__desc {
+    font-size: 0.875rem;
+    color: var(--c-text-muted);
+    line-height: 1.55;
+}
+.pd-hero-panel__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 900px) {
+    .pd-hero-panel { min-height: 260px; padding: 1.5rem; }
+}
+@media (max-width: 640px) {
+    .pd-hero-panel {
+        border-radius: 20px;
+        padding: 1.25rem;
+        min-height: unset;
+    }
+    .pd-hero-panel__icon-wrap--lg { width: 52px; height: 52px; border-radius: 14px; }
+}
+
+/* ── Grilla de servicios 3 columnas (Urquiza) ────────────────────────────────
+   Variante 3×3 de pd-services-grid.
+   ─────────────────────────────────────────────────────────────────────────── */
+.pd-services-grid--3col {
+    grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 860px) {
+    .pd-services-grid--3col { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+    .pd-services-grid--3col { grid-template-columns: 1fr; }
+}
+
+/* ── Petshop grid (3 cards compactas) ────────────────────────────────────────
+   Bloque secundario de petshop. Hereda pd-service-card.
+   ─────────────────────────────────────────────────────────────────────────── */
+.pd-petshop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+@media (max-width: 720px) {
+    .pd-petshop-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+}
+
+/* ── Card de horarios ────────────────────────────────────────────────────────
+   Dentro de la sección contacto/ubicación.
+   ─────────────────────────────────────────────────────────────────────────── */
+.pd-hours-card {
+    background: var(--c-white);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-card);
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+.pd-hours-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--c-teal);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+.pd-hours-card__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.pd-hours-card__day {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--c-text-main);
+}
+.pd-hours-card__time {
+    font-size: 0.9375rem;
+    color: var(--c-text-muted);
+}
+.pd-hours-card__divider {
+    height: 1px;
+    background: var(--c-border);
+    border: none;
+    margin: 0;
+}
