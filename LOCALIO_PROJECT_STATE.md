@@ -119,7 +119,10 @@ Localio/
 | `/Error` | `Pages/Error.cshtml` | Página de error genérica |
 | `/Privacy` | `Pages/Privacy.cshtml` | Página de privacidad (contenido no relevado) |
 
-**Subdominios (pendiente de activación):** El middleware `DemoSubdomainMiddleware` reescribe `{slug}.localio.com.ar` → `/demos/{slug}`, pero está deshabilitado por defecto (`EnableDemoSubdomains = false` en `appsettings.json`).
+**Subdominios — código listo, activación pendiente de DNS + Azure:**
+El middleware `DemoSubdomainMiddleware` reescribe internamente `{slug}.localio.com.ar` → `/demos/{slug}` sin escribir en la respuesta; Razor Pages renderiza la página normalmente.
+`EnableDemoSubdomains = false` en `appsettings.json` (correcto para desarrollo). En producción se activa vía variable de entorno `Localio__EnableDemoSubdomains=true`.
+Subdominio listo para activar: **`urquiza.localio.com.ar`** → `/demos/urquiza`. Solo falta configurar DNS (registro CNAME) y hostname en Azure App Service.
 
 **No existen** rutas para: panel admin, API REST, login, registro, ni panel de gestión de demos.
 
@@ -269,18 +272,19 @@ Estos sitios contienen datos **ficticios** usados como demos internas o de ejemp
 
 **Pendientes sobre Citivet:**
 - No está vinculada desde la landing pública (correcto, es privada)
-- El subdominio `citivet.localio.com.ar` no está activo hasta que se active `EnableDemoSubdomains`
+- El subdominio `citivet.localio.com.ar` requiere configuración de DNS + hostname en Azure (igual que urquiza)
 - Los datos del comercio están hardcodeados en el PageModel, no en `demos.json`
 
 ---
 
 ## 10. Urquiza
 
-**Estado: Implementado como demo privada. Estado actual en JSON: `ActivePrivate`. Demo actualizada con contenido completo y sin imágenes.**
+**Estado: Implementado como demo privada. Estado actual en JSON: `ActivePrivate`. Demo actualizada con contenido completo y sin imágenes. Código listo para subdominio.**
 
-- **Ruta:** `/demos/urquiza`
-- **URL publicada:** `https://localio.com.ar/demos/urquiza`
-- **Acceso por subdominio:** `urquiza.localio.com.ar` (cuando `EnableDemoSubdomains = true`, pendiente de activar)
+- **Ruta directa:** `/demos/urquiza`
+- **URL pública (subdominio):** `https://urquiza.localio.com.ar` (código listo; requiere DNS CNAME + hostname en Azure)
+- **publicUrl en demos.json:** `https://urquiza.localio.com.ar`
+- **Acceso por subdominio:** reescritura interna `urquiza.localio.com.ar` → `/demos/urquiza` vía `DemoSubdomainMiddleware` (activa cuando `Localio__EnableDemoSubdomains=true`)
 - **Archivo de página:** `Pages/Demos/Urquiza.cshtml`
 - **PageModel:** `Pages/Demos/Urquiza.cshtml.cs` (`UrquizaModel`)
 - **Partial del contenido:** `Pages/Shared/PrivateDemos/_UrquizaDemo.cshtml`
@@ -322,9 +326,9 @@ Header nav (Servicios, Confianza, Ubicación, Contacto) · Hero sin imágenes co
 
 **Visibilidad actual:** `ActivePrivate` → `IsPubliclyVisible` = true → se muestra la demo.
 
-**Pendientes sobre Urquiza:**
+**Pendientes sobre Urquiza (fuera del código):**
 - No vinculada desde la landing pública (correcto, es privada)
-- El subdominio `urquiza.localio.com.ar` no está activo hasta que se active `EnableDemoSubdomains`
+- Activar subdominio en producción: configurar CNAME `urquiza` → Azure App Service hostname + agregar custom domain en Azure Portal + setear `Localio__EnableDemoSubdomains=true` en App Settings de Azure
 
 ---
 
