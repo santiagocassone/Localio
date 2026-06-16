@@ -1,4 +1,4 @@
-﻿@* ============================================================
+@* ============================================================
    Partial HTML de la demo privada: Veterinaria Urquiza.
    NO oficial. NO indexar. Demo generada por Localio para prospecto real.
    ============================================================ *@
@@ -11,7 +11,7 @@
     return;
 }
 
-@* â”€â”€ SVG symbols reutilizables (Lucide-compatible inline) â”€â”€ *@
+@* ─ SVG symbols reutilizables (Lucide-compatible inline) ─ *@
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="ic-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
         <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
@@ -93,17 +93,17 @@
     </symbol>
 </svg>
 
-@* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ Header ─ *@
 <header class="pd-header" role="banner">
     <div class="pd-header__inner">
-        <a href="#inicio" class="pd-header__brand" aria-label="Ir al inicio â€” Veterinaria Urquiza">
+        <a href="#inicio" class="pd-header__brand" aria-label="Ir al inicio — Veterinaria Urquiza">
             <span>Veterinaria Urquiza</span>
-            <span class="pd-header__brand-sub">Villa Urquiza Â· CABA</span>
+            <span class="pd-header__brand-sub">Villa Urquiza · CABA</span>
         </a>
-        <nav class="pd-header__nav" aria-label="NavegaciÃ³n principal">
+        <nav class="pd-header__nav" aria-label="Navegación principal">
             <a class="pd-header__nav-link" href="#atencion">Servicios</a>
             <a class="pd-header__nav-link" href="#confianza">Confianza</a>
-            <a class="pd-header__nav-link" href="#ubicacion">UbicaciÃ³n</a>
+            <a class="pd-header__nav-link" href="#ubicacion">Ubicación</a>
             <a class="pd-header__nav-link" href="#contacto">Contacto</a>
         </nav>
         <div class="pd-header__cta">
@@ -120,7 +120,7 @@
     </div>
 </header>
 
-@* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ Hero ─ *@
 <section class="pd-hero" id="inicio" aria-labelledby="hero-title">
     <div class="pd-hero__inner">
 
@@ -128,11 +128,11 @@
             <div class="pd-hero__badges" aria-label="Datos destacados">
                 <span class="pd-badge">
                     <svg width="12" height="12" aria-hidden="true"><use href="#ic-star"/></svg>
-                    @UrquizaModel.Rating de calificaciÃ³n
+                    @UrquizaModel.Rating de calificación
                 </span>
                 <span class="pd-badge">
                     <svg width="12" height="12" aria-hidden="true"><use href="#ic-message"/></svg>
-                    @UrquizaModel.ReviewsCount reseÃ±as
+                    @UrquizaModel.ReviewsCount reseñas
                 </span>
                 <span class="pd-badge">
                     <svg width="12" height="12" aria-hidden="true"><use href="#ic-mappin"/></svg>
@@ -140,17 +140,17 @@
                 </span>
                 <span class="pd-badge">
                     <svg width="12" height="12" aria-hidden="true"><use href="#ic-clock"/></svg>
-                    Lun a sÃ¡b
+                    Lun a sáb
                 </span>
             </div>
 
-            <span class="pd-eyebrow" aria-label="CategorÃ­a">Veterinaria en Villa Urquiza</span>
+            <span class="pd-eyebrow" aria-label="Categoría">Veterinaria en Villa Urquiza</span>
 
             <h1 class="pd-title" id="hero-title">Veterinaria Urquiza</h1>
             <p class="pd-subtitle">@UrquizaModel.BusinessTagline</p>
             <p class="pd-body-text pd-mb-md">
-                ClÃ­nica mÃ©dica, estudios, especialidades, farmacia veterinaria y artÃ­culos
-                de petshop en un espacio cercano, profesional y fÃ¡cil de contactar.
+                Clínica médica, estudios, especialidades, farmacia veterinaria y artículos
+                de petshop en un espacio cercano, profesional y fácil de contactar.
             </p>
 
             <div class="pd-btn-group">
@@ -167,18 +167,18 @@
                    class="pd-btn pd-btn--outline"
                    target="_blank"
                    rel="noopener noreferrer"
-                   aria-label="CÃ³mo llegar a Veterinaria Urquiza"
+                   aria-label="Cómo llegar a Veterinaria Urquiza"
                    data-analytics-event="click_maps">
                     <svg width="16" height="16" aria-hidden="true"><use href="#ic-navigation"/></svg>
-                    CÃ³mo llegar
+                    Cómo llegar
                 </a>
             </div>
         </div>
 
-        @* â”€â”€ Panel visual hero (sin imagen) â”€â”€ *@
+        @* ─ Panel visual hero (sin imagen) ─ *@
         <div class="pd-hero__photo-col" aria-hidden="true">
             <div class="pd-hero-panel">
-                <div class="pd-hero-panel__label">AtenciÃ³n veterinaria local</div>
+                <div class="pd-hero-panel__label">Atención veterinaria local</div>
                 <div class="pd-hero-panel__icons">
                     <div class="pd-hero-panel__icon-wrap pd-hero-panel__icon-wrap--lg">
                         <svg width="32" height="32" aria-hidden="true"><use href="#ic-stethoscope"/></svg>
@@ -190,19 +190,19 @@
                         <svg width="24" height="24" aria-hidden="true"><use href="#ic-paw"/></svg>
                     </div>
                 </div>
-                <div class="pd-hero-panel__title">ClÃ­nica Â· Estudios Â· Especialidades Â· Farmacia</div>
+                <div class="pd-hero-panel__title">Clínica · Estudios · Especialidades · Farmacia</div>
                 <p class="pd-hero-panel__desc">
-                    Servicios clÃ­nicos, especialidades, farmacia veterinaria y contacto
+                    Servicios clínicos, especialidades, farmacia veterinaria y contacto
                     simple en un solo lugar.
                 </p>
                 <div class="pd-hero-panel__badges">
                     <span class="pd-badge">
                         <svg width="12" height="12" aria-hidden="true"><use href="#ic-star"/></svg>
-                        @UrquizaModel.Rating de calificaciÃ³n
+                        @UrquizaModel.Rating de calificación
                     </span>
                     <span class="pd-badge">
                         <svg width="12" height="12" aria-hidden="true"><use href="#ic-message"/></svg>
-                        @UrquizaModel.ReviewsCount reseÃ±as
+                        @UrquizaModel.ReviewsCount reseñas
                     </span>
                     <span class="pd-badge">
                         <svg width="12" height="12" aria-hidden="true"><use href="#ic-mappin"/></svg>
@@ -219,10 +219,10 @@
     </div>
 </section>
 
-@* â”€â”€ Confianza / ReputaciÃ³n â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ Confianza / Reputación ─ *@
 <section class="pd-section pd-section--white" id="confianza" aria-labelledby="trust-title">
     <div class="pd-container">
-        <span class="pd-eyebrow">ReputaciÃ³n</span>
+        <span class="pd-eyebrow">Reputación</span>
         <h2 class="pd-section-title" id="trust-title">Una veterinaria de confianza en Villa Urquiza</h2>
 
         <div class="pd-trust-grid pd-trust-grid--4" role="list">
@@ -232,8 +232,8 @@
                     <svg width="22" height="22"><use href="#ic-star"/></svg>
                 </div>
                 <div class="pd-trust-card__body">
-                    <div class="pd-trust-card__title">@UrquizaModel.Rating de calificaciÃ³n</div>
-                    <p class="pd-trust-card__desc">ValoraciÃ³n destacada en bÃºsquedas locales de Villa Urquiza.</p>
+                    <div class="pd-trust-card__title">@UrquizaModel.Rating de calificación</div>
+                    <p class="pd-trust-card__desc">Valoración destacada en búsquedas locales de Villa Urquiza.</p>
                 </div>
             </article>
 
@@ -242,8 +242,8 @@
                     <svg width="22" height="22"><use href="#ic-message"/></svg>
                 </div>
                 <div class="pd-trust-card__body">
-                    <div class="pd-trust-card__title">@UrquizaModel.ReviewsCount reseÃ±as</div>
-                    <p class="pd-trust-card__desc">ReputaciÃ³n construida con clientes del barrio a lo largo del tiempo.</p>
+                    <div class="pd-trust-card__title">@UrquizaModel.ReviewsCount reseñas</div>
+                    <p class="pd-trust-card__desc">Reputación construida con clientes del barrio a lo largo del tiempo.</p>
                 </div>
             </article>
 
@@ -263,7 +263,7 @@
                 </div>
                 <div class="pd-trust-card__body">
                     <div class="pd-trust-card__title">Contacto directo</div>
-                    <p class="pd-trust-card__desc">Consultas fÃ¡ciles y rÃ¡pidas por WhatsApp, sin formularios.</p>
+                    <p class="pd-trust-card__desc">Consultas fáciles y rápidas por WhatsApp, sin formularios.</p>
                 </div>
             </article>
 
@@ -271,13 +271,13 @@
     </div>
 </section>
 
-@* â”€â”€ Servicios veterinarios â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ Servicios veterinarios ─ *@
 <section class="pd-section pd-section--alt" id="atencion" aria-labelledby="services-title">
     <div class="pd-container">
-        <span class="pd-eyebrow">AtenciÃ³n</span>
-        <h2 class="pd-section-title" id="services-title">AtenciÃ³n veterinaria integral</h2>
+        <span class="pd-eyebrow">Atención</span>
+        <h2 class="pd-section-title" id="services-title">Atención veterinaria integral</h2>
         <p class="pd-body-text pd-mb-md">
-            Servicios clÃ­nicos, especialidades, estudios y farmacia para acompaÃ±ar
+            Servicios clínicos, especialidades, estudios y farmacia para acompañar
             el cuidado de perros y gatos.
         </p>
 
@@ -287,15 +287,15 @@
                 <div class="pd-service-card__icon" aria-hidden="true">
                     <svg width="26" height="26"><use href="#ic-stethoscope"/></svg>
                 </div>
-                <h3 class="pd-service-card__title">ClÃ­nica mÃ©dica</h3>
-                <p class="pd-service-card__desc">AtenciÃ³n general, evaluaciÃ³n y orientaciÃ³n profesional para perros y gatos.</p>
+                <h3 class="pd-service-card__title">Clínica médica</h3>
+                <p class="pd-service-card__desc">Atención general, evaluación y orientación profesional para perros y gatos.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
                 <div class="pd-service-card__icon" aria-hidden="true">
                     <svg width="26" height="26"><use href="#ic-heartpulse"/></svg>
                 </div>
-                <h3 class="pd-service-card__title">CardiologÃ­a</h3>
+                <h3 class="pd-service-card__title">Cardiología</h3>
                 <p class="pd-service-card__desc">Control y seguimiento de la salud cardiovascular.</p>
             </article>
 
@@ -303,40 +303,40 @@
                 <div class="pd-service-card__icon" aria-hidden="true">
                     <svg width="26" height="26"><use href="#ic-cross"/></svg>
                 </div>
-                <h3 class="pd-service-card__title">CirugÃ­a</h3>
-                <p class="pd-service-card__desc">Procedimientos quirÃºrgicos veterinarios.</p>
+                <h3 class="pd-service-card__title">Cirugía</h3>
+                <p class="pd-service-card__desc">Procedimientos quirúrgicos veterinarios.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
                 <div class="pd-service-card__icon" aria-hidden="true">
                     <svg width="26" height="26"><use href="#ic-sparkles"/></svg>
                 </div>
-                <h3 class="pd-service-card__title">DermatologÃ­a</h3>
-                <p class="pd-service-card__desc">AtenciÃ³n de piel, pelo, alergias y molestias dermatolÃ³gicas.</p>
+                <h3 class="pd-service-card__title">Dermatología</h3>
+                <p class="pd-service-card__desc">Atención de piel, pelo, alergias y molestias dermatológicas.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
                 <div class="pd-service-card__icon" aria-hidden="true">
                     <svg width="26" height="26"><use href="#ic-clipboard"/></svg>
                 </div>
-                <h3 class="pd-service-card__title">EndocrinologÃ­a</h3>
-                <p class="pd-service-card__desc">EvaluaciÃ³n y seguimiento de condiciones hormonales y metabÃ³licas.</p>
+                <h3 class="pd-service-card__title">Endocrinología</h3>
+                <p class="pd-service-card__desc">Evaluación y seguimiento de condiciones hormonales y metabólicas.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
                 <div class="pd-service-card__icon" aria-hidden="true">
                     <svg width="26" height="26"><use href="#ic-scanline"/></svg>
                 </div>
-                <h3 class="pd-service-card__title">RadiologÃ­a</h3>
-                <p class="pd-service-card__desc">Estudios por imÃ¡genes para acompaÃ±ar el diagnÃ³stico veterinario.</p>
+                <h3 class="pd-service-card__title">Radiología</h3>
+                <p class="pd-service-card__desc">Estudios por imágenes para acompañar el diagnóstico veterinario.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
                 <div class="pd-service-card__icon" aria-hidden="true">
                     <svg width="26" height="26"><use href="#ic-radar"/></svg>
                 </div>
-                <h3 class="pd-service-card__title">EcografÃ­a</h3>
-                <p class="pd-service-card__desc">DiagnÃ³stico por imÃ¡genes complementario.</p>
+                <h3 class="pd-service-card__title">Ecografía</h3>
+                <p class="pd-service-card__desc">Diagnóstico por imágenes complementario.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
@@ -344,7 +344,7 @@
                     <svg width="26" height="26"><use href="#ic-activity"/></svg>
                 </div>
                 <h3 class="pd-service-card__title">Fisioterapia</h3>
-                <p class="pd-service-card__desc">AcompaÃ±amiento para recuperaciÃ³n, movilidad y bienestar fÃ­sico.</p>
+                <p class="pd-service-card__desc">Acompañamiento para recuperación, movilidad y bienestar físico.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
@@ -352,36 +352,36 @@
                     <svg width="26" height="26"><use href="#ic-pill"/></svg>
                 </div>
                 <h3 class="pd-service-card__title">Farmacia</h3>
-                <p class="pd-service-card__desc">Farmacia veterinaria para acompaÃ±ar tratamientos y cuidados indicados.</p>
+                <p class="pd-service-card__desc">Farmacia veterinaria para acompañar tratamientos y cuidados indicados.</p>
             </article>
 
         </div>
     </div>
 </section>
 
-@* â”€â”€ Sobre Veterinaria Urquiza â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ Sobre Veterinaria Urquiza ─ *@
 <section class="pd-section pd-section--beige" aria-labelledby="about-title">
     <div class="pd-container">
         <div class="pd-about-inner">
 
             <div>
                 <span class="pd-eyebrow">Sobre nosotros</span>
-                <h2 class="pd-section-title" id="about-title">CercanÃ­a y atenciÃ³n profesional en el barrio</h2>
+                <h2 class="pd-section-title" id="about-title">Cercanía y atención profesional en el barrio</h2>
                 <p class="pd-body-text pd-mb-md">
-                    Veterinaria Urquiza acompaÃ±a el cuidado de perros y gatos en el barrio
-                    con atenciÃ³n cercana, servicios clÃ­nicos, estudios complementarios,
-                    especialidades, farmacia veterinaria y algunos artÃ­culos de petshop
+                    Veterinaria Urquiza acompaña el cuidado de perros y gatos en el barrio
+                    con atención cercana, servicios clínicos, estudios complementarios,
+                    especialidades, farmacia veterinaria y algunos artículos de petshop
                     para el cuidado diario.
                 </p>
 
                 <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;">
                     @foreach (var item in new[] {
-                        "AtenciÃ³n veterinaria integral",
+                        "Atención veterinaria integral",
                         "Estudios y especialidades",
                         "Farmacia veterinaria",
-                        "ArtÃ­culos de petshop",
+                        "Artículos de petshop",
                         "Contacto directo por WhatsApp",
-                        "UbicaciÃ³n clara en Villa Urquiza"
+                        "Ubicación clara en Villa Urquiza"
                     })
                     {
                         <li style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:#1F2A2A;font-weight:500;">
@@ -398,7 +398,7 @@
                         <svg width="20" height="20"><use href="#ic-mappin"/></svg>
                     </div>
                     <div>
-                        <div class="pd-about-visual__label">UbicaciÃ³n</div>
+                        <div class="pd-about-visual__label">Ubicación</div>
                         <div class="pd-about-visual__value">Villa Urquiza, CABA</div>
                     </div>
                 </div>
@@ -407,8 +407,8 @@
                         <svg width="20" height="20"><use href="#ic-star"/></svg>
                     </div>
                     <div>
-                        <div class="pd-about-visual__label">CalificaciÃ³n Google</div>
-                        <div class="pd-about-visual__value">@UrquizaModel.Rating â€” @UrquizaModel.ReviewsCount reseÃ±as</div>
+                        <div class="pd-about-visual__label">Calificación Google</div>
+                        <div class="pd-about-visual__value">@UrquizaModel.Rating · @UrquizaModel.ReviewsCount reseñas</div>
                     </div>
                 </div>
                 <div class="pd-about-visual__row">
@@ -426,7 +426,7 @@
                     </div>
                     <div>
                         <div class="pd-about-visual__label">Horarios</div>
-                        <div class="pd-about-visual__value" style="font-size:0.8125rem;">Lunâ€“Vie Â· SÃ¡b por la maÃ±ana</div>
+                        <div class="pd-about-visual__value" style="font-size:0.8125rem;">Lun–Vie · Sáb por la mañana</div>
                     </div>
                 </div>
             </div>
@@ -435,13 +435,13 @@
     </div>
 </section>
 
-@* â”€â”€ Petshop (secundario) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ Petshop (secundario) ─ *@
 <section class="pd-section pd-section--white" aria-labelledby="petshop-title">
     <div class="pd-container">
         <span class="pd-eyebrow">Petshop</span>
-        <h2 class="pd-section-title" id="petshop-title">ArtÃ­culos de petshop</h2>
+        <h2 class="pd-section-title" id="petshop-title">Artículos de petshop</h2>
         <p class="pd-body-text pd-mb-md">
-            TambiÃ©n podÃ©s consultar por artÃ­culos seleccionados para el cuidado diario de tu mascota.
+            También podés consultar por artículos seleccionados para el cuidado diario de tu mascota.
         </p>
 
         <div class="pd-petshop-grid" role="list">
@@ -450,8 +450,8 @@
                 <div class="pd-service-card__icon" aria-hidden="true">
                     <svg width="24" height="24"><use href="#ic-package"/></svg>
                 </div>
-                <h3 class="pd-service-card__title">Alimentos y productos bÃ¡sicos</h3>
-                <p class="pd-service-card__desc">ConsultÃ¡ por opciones disponibles para perros y gatos.</p>
+                <h3 class="pd-service-card__title">Alimentos y productos básicos</h3>
+                <p class="pd-service-card__desc">Consultá por opciones disponibles para perros y gatos.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
@@ -459,7 +459,7 @@
                     <svg width="24" height="24"><use href="#ic-sparkles"/></svg>
                 </div>
                 <h3 class="pd-service-card__title">Cuidado e higiene</h3>
-                <p class="pd-service-card__desc">ArtÃ­culos para acompaÃ±ar el bienestar cotidiano.</p>
+                <p class="pd-service-card__desc">Artículos para acompañar el bienestar cotidiano.</p>
             </article>
 
             <article class="pd-service-card" role="listitem">
@@ -474,11 +474,11 @@
     </div>
 </section>
 
-@* â”€â”€ UbicaciÃ³n y contacto â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ Ubicación y contacto ─ *@
 <section class="pd-section pd-section--sage" id="ubicacion" aria-labelledby="location-title"
          data-analytics-section="contact">
     <div class="pd-container">
-        <span class="pd-eyebrow">CÃ³mo llegar</span>
+        <span class="pd-eyebrow">Cómo llegar</span>
         <h2 class="pd-section-title" id="location-title">Estamos en Villa Urquiza</h2>
 
         <div class="pd-location-grid">
@@ -490,30 +490,30 @@
                         <svg width="20" height="20"><use href="#ic-mappin"/></svg>
                     </div>
                     <div>
-                        <div class="pd-location-detail__label">DirecciÃ³n</div>
+                        <div class="pd-location-detail__label">Dirección</div>
                         <div class="pd-location-detail__value">@UrquizaModel.Address</div>
                     </div>
                 </div>
 
-                @* â”€â”€ Horarios â”€â”€ *@
-                <div class="pd-hours-card" style="margin-top:1.25rem;" aria-label="Horarios de atenciÃ³n">
+                @* ─ Horarios ─ *@
+                <div class="pd-hours-card" style="margin-top:1.25rem;" aria-label="Horarios de atención">
                     <div class="pd-hours-card__header">
                         <svg width="16" height="16" aria-hidden="true"><use href="#ic-clock"/></svg>
-                        Horarios de atenciÃ³n
+                        Horarios de atención
                     </div>
                     <div class="pd-hours-card__row">
                         <div class="pd-hours-card__day">Lunes a viernes</div>
-                        <div class="pd-hours-card__time">10:00 a 13:00 Â· 16:00 a 20:00</div>
+                        <div class="pd-hours-card__time">10:00 a 13:00 · 16:00 a 20:00</div>
                     </div>
                     <hr class="pd-hours-card__divider" />
                     <div class="pd-hours-card__row">
-                        <div class="pd-hours-card__day">SÃ¡bados</div>
+                        <div class="pd-hours-card__day">Sábados</div>
                         <div class="pd-hours-card__time">10:00 a 13:00</div>
                     </div>
                 </div>
 
                 <p class="pd-body-text" style="font-size:0.875rem;color:var(--c-text-muted);margin-top:1rem;">
-                    TambiÃ©n podÃ©s escribir por WhatsApp para consultar por artÃ­culos
+                    También podés escribir por WhatsApp para consultar por artículos
                     de petshop disponibles.
                 </p>
 
@@ -537,13 +537,13 @@
                        class="pd-contact-btn"
                        target="_blank"
                        rel="noopener noreferrer"
-                       aria-label="CÃ³mo llegar en Google Maps"
+                       aria-label="Cómo llegar en Google Maps"
                        data-analytics-event="click_maps">
                         <div class="pd-contact-btn__icon pd-contact-btn__icon--maps" aria-hidden="true">
                             <svg width="20" height="20"><use href="#ic-navigation"/></svg>
                         </div>
                         <div>
-                            <div class="pd-contact-btn__label">CÃ³mo llegar</div>
+                            <div class="pd-contact-btn__label">Cómo llegar</div>
                             <div class="pd-contact-btn__value">Ver en Google Maps</div>
                         </div>
                     </a>
@@ -577,7 +577,7 @@
                 </div>
                 <div class="pd-map-visual__detail">
                     <svg width="16" height="16" aria-hidden="true"><use href="#ic-star"/></svg>
-                    @UrquizaModel.Rating de calificaciÃ³n Â· @UrquizaModel.ReviewsCount reseÃ±as en Google
+                    @UrquizaModel.Rating de calificación · @UrquizaModel.ReviewsCount reseñas en Google
                 </div>
                 <a href="@UrquizaModel.MapsUrl"
                    class="pd-btn pd-btn--teal"
@@ -594,15 +594,15 @@
     </div>
 </section>
 
-@* â”€â”€ CTA final â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ CTA final ─ *@
 <section class="pd-cta-section" id="contacto" aria-labelledby="cta-title">
     <div class="pd-cta-section__inner">
         <div class="pd-cta-section__icon" aria-hidden="true">
             <svg width="28" height="28"><use href="#ic-whatsapp"/></svg>
         </div>
-        <h2 class="pd-cta-section__title" id="cta-title">Â¿QuerÃ©s consultar por tu mascota?</h2>
+        <h2 class="pd-cta-section__title" id="cta-title">¿Querés consultar por tu mascota?</h2>
         <p class="pd-cta-section__text">
-            EscribÃ­ por WhatsApp y contanos quÃ© necesitÃ¡s.
+            Escribí por WhatsApp y contanos qué necesitás.
             Te orientamos para que puedas avanzar.
         </p>
         <a href="@Model.WhatsAppUrl"
@@ -617,11 +617,11 @@
     </div>
 </section>
 
-@* â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ Footer ─ *@
 <footer class="pd-footer" role="contentinfo">
     <div class="pd-footer__inner">
         <div class="pd-footer__name">Veterinaria Urquiza</div>
-        <div class="pd-footer__address">AtenciÃ³n veterinaria integral en Villa Urquiza, CABA</div>
+        <div class="pd-footer__address">Atención veterinaria integral en Villa Urquiza, CABA</div>
         <div style="display:flex;gap:1.25rem;margin-top:0.5rem;justify-content:center;flex-wrap:wrap;">
             <a href="@Model.WhatsAppUrl"
                target="_blank"
@@ -645,17 +645,17 @@
                target="_blank"
                rel="noopener noreferrer"
                style="color:rgba(255,255,255,.55);font-size:0.8125rem;display:flex;align-items:center;gap:0.35rem;"
-               aria-label="UbicaciÃ³n en Google Maps"
+               aria-label="Ubicación en Google Maps"
                data-analytics-event="click_maps">
                 <svg width="14" height="14" aria-hidden="true"><use href="#ic-mappin"/></svg>
-                UbicaciÃ³n
+                Ubicación
             </a>
         </div>
         <div class="pd-footer__credits">Demo privada creada por Localio</div>
     </div>
 </footer>
 
-@* â”€â”€ CTA sticky mobile â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *@
+@* ─ CTA sticky mobile ─ *@
 <div class="pd-sticky-cta" aria-hidden="true">
     <a href="@Model.WhatsAppUrl"
        class="pd-btn pd-btn--wa"

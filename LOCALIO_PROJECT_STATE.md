@@ -591,9 +591,9 @@ Las siguientes decisiones están reflejadas directamente en código, comentarios
 
 8. **PublishProfiles en el repo**: Los archivos `.pubxml` están en el repo con la URL del SCM endpoint de Azure y el nombre de usuario. No hay contraseñas, pero la URL del Kudu expone información de la cuenta de Azure.
 
-9. **Duplicación silenciosa de contenido en demos privadas**: Al modificar una demo, es posible agregar nueva versión sin eliminar la anterior, resultando en dos headers, dos heroes, dos footers o secciones duplicadas renderizadas en el HTML. Ya ocurrió en Citivet y Urquiza. Mitigado con la regla anti-duplicados de la sección 20 (regla 16).
+9. **Duplicación silenciosa de contenido en demos privadas**: Al modificar una demo, es posible agregar nueva versión sin eliminar la anterior, resultando en dos headers, dos heroes, dos footers o secciones de servicios duplicadas renderizadas en el HTML. Ya ocurrió en Citivet y Urquiza. Mitigado con la regla anti-duplicados de la sección 20 (regla 16).
 
-9. **Duplicación silenciosa de contenido en demos privadas**: Al modificar una demo, es posible agregar nueva versión sin eliminar la anterior, resultando en dos headers, dos heroes, dos footers o secciones de servicios duplicadas renderizadas en el HTML. Ya ocurrió en Citivet y Urquiza. Mitigado con la regla anti-duplicados de la sección 20 (regla 18).
+10. **Encoding UTF-8 en demos privadas**: Los archivos `.cshtml` de demos privadas pueden quedar con doble encoding (Latin-1→UTF-8) si son editados con herramientas que no respetan el charset. El resultado visible es mojibake como `Ã­` en lugar de `í`, `Ã±` en lugar de `ñ`, etc. Ya ocurrió en Citivet y en `_UrquizaDemo.cshtml` (junio 2025). Mitigado con la regla de validación de encoding de la sección 20 (regla 17).
 
 ---
 
@@ -631,14 +631,76 @@ Al trabajar en este proyecto, tener en cuenta las siguientes reglas operativas:
 
 15. **Cuando se realicen cambios relevantes**, actualizar `LOCALIO_PROJECT_STATE.md` para reflejar el estado real actualizado del proyecto.
 
-16. **Regla anti-duplicados para demos privadas — obligatoria:** Las modificaciones de demos existentes deben tratarse como reemplazo/refactor, no como agregado incremental. Antes de agregar una nueva versión de una sección, identificar la sección previa equivalente y eliminarla del markup renderizado. No ocultar contenido viejo con CSS. No dejar duplicados de hero, servicios, galería, contacto, header o footer. Al finalizar, buscar textos obsoletos en el repo y validar que el HTML renderizado no contenga placeholders ni contenido anterior.
+16. **Regla anti-duplicados para demos privadas — obligatoria dentro del alcance del cambio:** Cuando se modifique una demo privada existente, tratar la tarea como reemplazo/refactor, no como agregado incremental. No agregar una segunda versión de una sección sin eliminar la anterior. No ocultar contenido viejo con CSS. No dejar contenido viejo renderizado en la ruta afectada.
 
-    **Checklist obligatorio al modificar o crear una demo privada:**
-    - Buscar textos viejos o placeholders (`pendiente`, `placeholder`, `Foto principal`, `imagen pendiente`, etc.) y eliminarlos del markup.
-    - Validar que haya un solo `<header>` y un solo hero.
-    - Validar que haya una sola sección principal de servicios.
-    - Validar que no haya sección de galería si la demo no usa imágenes reales.
-    - Validar que haya un solo `<footer>`.
-    - Validar que no haya contenido viejo oculto con `display:none`.
-    - Validar mobile sin scroll horizontal.
-    - Mantener `noindex, nofollow` mientras el estado sea `ActivePrivate`.
+    **Alcance normal de la validación:**
+    - La demo modificada y las secciones tocadas.
+    - Partials/layouts compartidos, solo si fueron modificados en esta tarea.
+    - HTML renderizado de la ruta afectada (p. ej. `/demos/{slug}`).
+    - Subdominio correspondiente, si existe.
+
+    No revisar otras demos ni todo el proyecto salvo que: se haya modificado un layout o partial compartido usado por varias demos; se haya modificado CSS/JS global; o el cambio sea explícitamente global.
+
+    **Checklist acotado — duplicaciones (solo para la demo afectada):**
+    - La demo afectada tiene un solo hero.
+    - La demo afectada tiene una sola sección principal de servicios, salvo decisión explícita.
+    - La demo afectada no tiene dos bloques de contacto equivalentes.
+    - La demo afectada no tiene dos footers.
+    - No queda contenido viejo renderizado en la ruta afectada.
+    - No quedan placeholders o textos obsoletos en la ruta afectada.
+    - No se revisan demos no afectadas salvo que se haya tocado un componente compartido.
+
+17. **Validación de encoding UTF-8 en demos privadas — obligatoria dentro del alcance del cambio:** Antes de dar por terminado un cambio en una demo privada, validar que los caracteres en español se rendericen correctamente en los archivos y rutas afectadas. Este problema ya ocurrió en **Citivet** y **Veterinaria Urquiza** (junio 2025).
+
+    **Alcance normal de la validación:**
+    - Archivos modificados de esa demo (`.cshtml`, `.cs`, `.json`, `.css` según corresponda).
+    - Partials/layouts compartidos, solo si fueron modificados en esta tarea.
+    - HTML renderizado de la ruta afectada (p. ej. `/demos/{slug}`).
+    - Subdominio correspondiente, si existe.
+
+    No revisar todo el proyecto salvo que: se haya modificado un layout o partial compartido; se haya modificado CSS/JS global; se detecten caracteres rotos en un componente compartido; o el cambio sea global.
+
+    **Patrones de mojibake a buscar en los archivos y HTML afectados:**
+    `Ã`, `Â`, `�`, `ClÃ`, `SÃ`, `atenciÃ`, `ubicaciÃ`, `calificaciÃ`, `reseÃ`, `artÃ`, `mÃ`, `CardiologÃ`, `CirugÃ`, `DermatologÃ`, `EndocrinologÃ`, `RadiologÃ`, `EcografÃ`
+
+    **Confirmar que se rendericen correctamente (en la ruta afectada):**
+    Clínica, Cardiología, Cirugía, Dermatología, Endocrinología, Radiología, Ecografía, atención, ubicación, calificación, reseñas, artículos, Sábados, Cómo, veterinaria
+
+    **Reglas de corrección:**
+    - No resolver quitando acentos. No reemplazar `Clínica` por `Clinica`.
+    - No eliminar la `ñ`. El objetivo es español correcto en UTF-8.
+    - Confirmar que los archivos `.cshtml`, `.cs`, `.json` y `.css` **modificados** estén guardados como UTF-8 sin BOM.
+    - Si la demo usa `Layout = null` (HTML self-contained), confirmar que tenga `<meta charset="utf-8">` dentro del `<head>`, antes de cualquier texto visible con acentos.
+    - Confirmar que la respuesta HTTP tenga `Content-Type: text/html; charset=utf-8`.
+    - Validar tanto `/demos/{slug}` como el subdominio `{slug}.localio.com.ar` si existe.
+
+    **Checklist de cierre — encoding (solo para la ruta afectada):**
+    - [ ] No aparecen `Ã`, `Â` ni `�` en el HTML renderizado de la ruta afectada.
+    - [ ] Los acentos y ñ se ven correctamente en el browser.
+    - [ ] No se eliminaron acentos como falsa solución.
+    - [ ] Los archivos **modificados** están guardados como UTF-8 sin BOM.
+    - [ ] La página self-contained incluye `<meta charset="utf-8">` en el `<head>`.
+
+    **Diagnóstico rápido de mojibake en PowerShell:**
+    ```powershell
+    $utf8 = [System.Text.Encoding]::UTF8
+    $text = [System.IO.File]::ReadAllText("ruta\al\archivo.cshtml", $utf8)
+    [regex]::Matches($text, 'Ã[^\s]').Count   # debe ser 0
+    [regex]::Matches($text, 'Â[^\s]').Count   # debe ser 0
+    [regex]::Matches($text, '\uFFFD').Count    # debe ser 0
+    ```
+
+    **Corrección de doble-encoding (UTF-8 guardado como Latin-1 y releído como UTF-8):**
+    ```powershell
+    $utf8 = [System.Text.Encoding]::UTF8
+    $latin1 = [System.Text.Encoding]::GetEncoding(28591)
+    $raw = [System.IO.File]::ReadAllBytes("archivo_dañado.cshtml")
+    if ($raw[0] -eq 0xEF -and $raw[1] -eq 0xBB -and $raw[2] -eq 0xBF) { $raw = $raw[3..($raw.Length-1)] }
+    $wrongText = $utf8.GetString($raw)          # texto mojibake
+    $fixedBytes = $latin1.GetBytes($wrongText)   # convierte de vuelta a bytes UTF-8 originales
+    $fixedText  = $utf8.GetString($fixedBytes)   # texto correcto en español
+    $utf8NoBom  = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText("archivo_dañado.cshtml", $fixedText, $utf8NoBom)
+    ```
+
+    Este problema ocurrió en `_UrquizaDemo.cshtml` en junio 2025 y fue corregido con la técnica anterior.
