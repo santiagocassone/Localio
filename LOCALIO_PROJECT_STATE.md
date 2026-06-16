@@ -178,7 +178,7 @@ Subdominio listo para activar: **`urquiza.localio.com.ar`** → `/demos/urquiza`
 
 ## 7a. Identidad visual y assets de marca
 
-**Estado: Implementado (junio 2025).**
+**Estado: Implementado (junio 2025). Ajuste visual aplicado (junio 2025).**
 
 **Carpeta:** `wwwroot/images/brand/`
 
@@ -186,23 +186,32 @@ Subdominio listo para activar: **`urquiza.localio.com.ar`** → `/demos/urquiza`
 | Archivo | Uso |
 |---|---|
 | `localio-icon-512.png` | Ícono de alta resolución |
-| `localio-icon-256.png` | Ícono mediano |
+| `localio-icon-256.png` | Isotipo en firma de demos privadas y brand hint del hero mockup |
 | `favicon.ico` | Favicon multi-tamaño |
 | `favicon-32.png` | Favicon PNG 32px |
 | `favicon-64.png` | Favicon PNG 64px |
 | `apple-touch-icon.png` | Touch icon iOS |
 | `localio-logo-horizontal-transparent.png` | Logo en header (fondo claro) y og:image |
 | `localio-logo-horizontal-light.png` | Logo sobre fondos oscuros alternativos |
-| `localio-logo-horizontal-dark.png` | Logo en footer landing y firma demos privadas |
+| `localio-logo-horizontal-dark.png` | Logo en footer landing |
 | `localio-whatsapp-profile.png` | Perfil WhatsApp (uso manual) |
 | `localio-whatsapp-profile-white-bg.png` | Perfil WhatsApp con fondo blanco (uso manual, recomendado) |
 
 **Integrado en:**
-- **Header landing** (`_Header.cshtml`): `localio-logo-horizontal-transparent.png`, 34px altura, responsive a 28px en mobile.
-- **Footer landing** (`_Footer.cshtml`): `localio-logo-horizontal-dark.png`, 30px, sobre fondo oscuro `--c-bg-dark`.
+- **Header landing** (`_Header.cshtml`): `localio-logo-horizontal-transparent.png`, **44px** altura desktop, **36px** mobile. Sin atributos `width`/`height` hardcodeados (el CSS controla el tamaño real).
+- **Footer landing** (`_Footer.cshtml`): `localio-logo-horizontal-dark.png`, **36px** altura, ancho mínimo 120px, sobre fondo oscuro `--c-bg-dark`.
 - **Favicon** (`_LandingLayout.cshtml`, `Citivet.cshtml`, `Urquiza.cshtml`): `favicon.ico` + `favicon-32.png` + `apple-touch-icon.png`.
-- **Firma demos privadas** (`_CitivetDemo.cshtml`, `_UrquizaDemo.cshtml`): `localio-logo-horizontal-dark.png`, 14px, opacidad 45%, junto a texto "Demo privada creada por".
+- **Firma demos privadas** (`_CitivetDemo.cshtml`, `_UrquizaDemo.cshtml`): isotipo `localio-icon-256.png` (18×18, decorativo, `alt=""`, `aria-hidden="true"`) + texto real `Demo privada creada por **Localio**`. Se abandonó el logo horizontal con `alt="Localio"` porque en algunos renders producía lectura tipo "Image: Localio".
+- **Hero mockup landing** (`_Hero.cshtml`): isotipo `localio-icon-256.png` en esquina superior derecha del panel, 14×14px, opacidad 30%, como pista de marca sutil sin ser protagonista.
 - **og:image por defecto** (`_LandingLayout.cshtml`): `localio-logo-horizontal-transparent.png`.
+
+**Criterio de firma de demos privadas (decisión adoptada):**
+- Usar isotipo decorativo (`localio-icon-256.png`, `alt=""`, `aria-hidden="true"`) + texto visible `Demo privada creada por <strong>Localio</strong>`.
+- Esto evita lecturas accesibles raras tipo "Image: Localio" manteniendo "Localio" como texto real en el DOM.
+- Tamaño isotipo: 18×18px, opacidad 55%, sobre fondo oscuro del footer de la demo.
+
+**Nota sobre padding interno de los PNG:**
+Si los logos siguen pareciendo pequeños visualmente con las alturas CSS actuales, puede deberse a padding interno en los archivos PNG exportados. En ese caso conviene exportar/cropear una variante con menos espacio interno. No compensar con `object-fit: fill` ni deformando el asset.
 
 **Paleta de marca:**
 - Verde petróleo: `#1F6F68`
@@ -745,3 +754,29 @@ Al trabajar en este proyecto, tener en cuenta las siguientes reglas operativas:
     ```
 
     Este problema ocurrió en `_UrquizaDemo.cshtml` en junio 2025 y fue corregido con la técnica anterior.
+
+18. **Script de validación automática (`tools/validate-localio.ps1`) — usar antes de cerrar cualquier cambio en landing o demos:**
+
+    El repositorio incluye un script PowerShell liviano que descarga el HTML de producción y valida las condiciones más frecuentemente rotas. Reemplaza la revisión manual repetitiva en Copilot.
+
+    **Ejecutar:**
+    ```powershell
+    powershell tools/validate-localio.ps1
+    ```
+
+    **Contra localhost (app corriendo localmente):**
+    ```powershell
+    powershell tools/validate-localio.ps1 -BaseUrl "http://localhost:5202" -SkipTls
+    ```
+
+    **URLs validadas por defecto:**
+    - `https://localio.com.ar/` (landing)
+    - `https://localio.com.ar/demos/citivet` (demo privada)
+    - `https://localio.com.ar/demos/urquiza` (demo privada)
+    - `https://urquiza.localio.com.ar` (subdominio)
+
+    **Que detecta:** mojibake, placeholders visibles, noindex/nofollow ausente, firma Localio ausente o duplicada, logo/favicon no referenciados, secciones hero o de servicios duplicadas.
+
+    **Criterio:** corregir solo los `[FAIL]` dentro del alcance del cambio. Los `[WARN]` son avisos de mantenimiento, no errores bloqueantes.
+
+    **Ver documentación completa:** `tools/README.md`.

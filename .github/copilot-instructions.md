@@ -99,3 +99,21 @@ Actualizar `LOCALIO_PROJECT_STATE.md` para reflejar el estado real del proyecto:
 - Si se implementa algo pendiente, moverlo de "Pendiente" a "Implementado".
 - Si se detectan nuevos riesgos, agregarlos en la sección 19.
 - Si se modifica una demo privada, aplicar el checklist anti-duplicados **y** el checklist de encoding/caracteres de la sección "Demos privadas" de este archivo.
+
+---
+
+## Validación automática de regresiones
+
+El repositorio incluye `tools/validate-localio.ps1`, un script liviano de smoke test que valida:
+- Status HTTP 200 en landing y demos.
+- Ausencia de mojibake (Ã, Â, U+FFFD).
+- Ausencia de placeholders visibles.
+- noindex/nofollow en demos privadas.
+- Firma de Localio presente y sin duplicar.
+- Logo y favicon referenciados en la landing.
+- Secciones hero y de servicios no duplicadas.
+
+**Regla:** Para cambios en landing o demos privadas, no repetir auditorías manuales extensas.
+Ejecutar `tools/validate-localio.ps1` y corregir solo los errores `[FAIL]` reportados dentro del alcance del cambio.
+
+Ver `tools/README.md` para instrucciones de uso.
