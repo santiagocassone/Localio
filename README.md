@@ -1,122 +1,54 @@
-# Localio — Generador de Sitios para Comercios Locales
+# Localio
 
-Sistema modular en **ASP.NET Core / Razor Pages (.NET 10)** para crear sitios web profesionales para comercios locales sin escribir código nuevo por cliente. Cada sitio se configura con archivos JSON.
+Localio is a .NET-based web platform/service for creating professional online presence and private demos for local businesses.
 
-## 🚀 Demos disponibles
+The project is focused on helping local shops, clinics and service providers present their services, opening hours, location and contact options through modern, responsive and contact-oriented landing pages.
 
-| Demo | URL | Preset |
-|------|-----|--------|
-| Veterinaria San Jorge | `/demo/veterinaria-mascotas` | Health — azul, Nunito |
-| Taller Hernández | `/demo/taller-ejemplo` | Auto — rojo, Oswald |
-| Lumière Beauty Studio | `/demo/centro-estetica` | Beauty — púrpura, Playfair |
-| Listado de todos | `/demos` | — |
+Website: https://localio.com.ar
 
-## ⚡ Inicio rápido
+## Tech Stack
 
-```powershell
-cd Localio.Web
-dotnet run
-# Abrí https://localhost:{puerto}/demos
-```
+- C#
+- ASP.NET Core
+- Razor Pages / MVC
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+- Azure App Service
+- Cloudflare
 
-## 🗂️ Estructura del proyecto
+## Current Features
 
-```
-Localio/
-├── Localio.Web/
-│   ├── Helpers/
-│   │   ├── SeoHelper.cs          # JSON-LD, meta tags, CSS variables
-│   │   └── WhatsAppHelper.cs     # Generador de URLs wa.me
-│   ├── Models/
-│   │   ├── SiteConfig.cs         # Modelo principal + ContactInfo, SeoConfig, etc.
-│   │   ├── ThemeConfig.cs        # Paleta, tipografías, radio, sombras
-│   │   └── Modules/
-│   │       └── ModuleConfigs.cs  # 22 módulos con [JsonPolymorphic]
-│   ├── Pages/
-│   │   ├── Demo/
-│   │   │   ├── Index.cshtml      # Ruta: /demo/{SiteId}
-│   │   │   └── List.cshtml       # Ruta: /demos (listado)
-│   │   └── Shared/
-│   │       ├── _SiteLayout.cshtml
-│   │       └── Modules/          # 22 partial views
-│   ├── Services/
-│   │   ├── ISiteConfigService.cs
-│   │   └── SiteConfigService.cs  # Carga + cache en memoria
-│   └── wwwroot/
-│       ├── css/localio.css       # Sistema CSS premium (~700 líneas)
-│       └── js/localio.js         # JS mínimo (~130 líneas)
-└── Sites/                        # ← Configuración de clientes
-	├── veterinaria-mascotas/
-	│   ├── site.json
-	│   └── theme.json
-	├── taller-ejemplo/
-	│   ├── site.json
-	│   └── theme.json
-	└── centro-estetica/
-		├── site.json
-		└── theme.json
-```
+- Public landing page for Localio
+- Responsive mobile-first design
+- Private demo pages for selected local businesses
+- Configurable business information
+- Services and opening hours sections
+- WhatsApp-oriented contact actions
+- SEO-conscious structure for public pages
+- Azure deployment with custom domain
+- Cloudflare DNS/CDN configuration
 
-## 🧩 Módulos disponibles
+## Current Architecture
 
-| Tipo JSON | Descripción |
-|-----------|-------------|
-| `navbar` | Navegación sticky con menú móvil |
-| `hero` | Sección principal (gradient / split / image) |
-| `services` | Grid de servicios con cards |
-| `featured-services` | Servicios destacados en cards horizontales |
-| `about` | Sobre el negocio con imagen y puntos clave |
-| `benefits` | Diferenciadores con íconos |
-| `gallery` | Galería de imágenes responsive |
-| `testimonials` | Reseñas con estrellas y avatar |
-| `faq` | Acordeón con `<details>` (sin JS) |
-| `hours` | Horarios de atención con card |
-| `location` | Mapa embebido + panel de datos |
-| `whatsapp-button` | Botón flotante con pulso animado |
-| `contact-form` | Formulario configurable |
-| `cta` | Call to action full-width |
-| `catalog` | Catálogo con tabs por categoría |
-| `staff` | Equipo de profesionales |
-| `promotions` | Tarjetas de promociones |
-| `emergency` | Banner de urgencias (rojo) |
-| `before-after` | Comparador antes/después |
-| `brands` | Marcas/logos en fila |
-| `payment` | Métodos de pago |
-| `footer` | Footer con columnas, redes y contacto |
+The current version uses configuration-based business profiles and demo definitions.
 
-## 🎨 Presets de theme.json
+This approach keeps the initial product lightweight while validating the service model, design system, deployment process and demo workflow before adding database persistence and an admin dashboard.
 
-| Preset | Rubro | Fuentes | Estilo |
-|--------|-------|---------|--------|
-| `health` | Veterinaria, odontología, salud | Nunito + Open Sans | Cálido, confiable |
-| `auto` | Talleres, mecánica | Oswald + Roboto | Fuerte, técnico |
-| `beauty` | Estética, peluquería | Playfair Display + Raleway | Elegante, premium |
+## Roadmap
 
-## 📖 Crear un nuevo sitio
+- SQL Server persistence
+- Admin dashboard for managing business profiles
+- Authentication
+- Demo status management
+- GitHub Actions CI/CD
+- Automated tests
+- Azure Application Insights
+- Improved observability and logging
 
-Ver [docs/crear-nuevo-sitio.md](docs/crear-nuevo-sitio.md)
+## Status
 
-## 🚢 Deploy
+Localio is under active development as a real-world product and portfolio project.
 
-### Opción A — Azure App Service
-```powershell
-dotnet publish -c Release -o ./publish
-# Subir ./publish + carpeta Sites/ al servidor
-```
-
-### Opción B — VPS / shared hosting (Linux)
-```bash
-dotnet publish -c Release -o ./publish
-# Copiar Sites/ junto al publish
-# Configurar ASPNETCORE_ENVIRONMENT=Production
-# Configurar Localio__SitesPath=/ruta/absoluta/Sites
-```
-
-### Variable de entorno para Sites en producción
-```
-Localio__SitesPath=/var/www/localio/Sites
-```
-
-## 📋 Requisitos
-- .NET 10 SDK
-- Acceso a internet para Google Fonts (o Self-host las fuentes)
+The current version is focused on validating the product concept, visual quality, deployment workflow and private demo generation process for local businesses.
